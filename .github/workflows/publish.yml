@@ -18,6 +18,6 @@ jobs:
 
     - name: build yuisis image
       run: |
-        docker build . --tag ghcr.io/sphiria/yuisis:$(git rev-parse --short HEAD)" --tag ghcr.io/sphiria/yuisis:latest
-        docker push ghcr.io/sphiria/yuisis:$(git rev-parse --short HEAD)"
+        docker build . --tag ghcr.io/sphiria/yuisis:$(git rev-parse --short HEAD) --tag ghcr.io/sphiria/yuisis:latest
+        docker push ghcr.io/sphiria/yuisis:$(git rev-parse --short HEAD)
         docker push ghcr.io/sphiria/yuisis:latest
