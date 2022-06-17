@@ -35,6 +35,9 @@ $wgUrlProtocols = array('http://', 'https://', '//');
 $wgLogo = $wgScriptPath . getenv('MEDIAWIKI_LOGO');
 $wgFavicon = $wgScriptPath . getenv('MEDIAWIKI_FAVICON');
 
+# images
+$wgUploadDirectory = getenv('MEDIAWIKI_UPLOAD_PATH');
+
 # email - TODO: move to env
 $wgEnableEmail = false;
 
