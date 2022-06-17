@@ -19,5 +19,4 @@ jobs:
     - name: build yuisis image
       run: |
         docker build . --tag ghcr.io/sphiria/yuisis:latest
-        docker run ghcr.io/sphiria/yuisis:latest
         docker push ghcr.io/sphiria/yuisis:latest
