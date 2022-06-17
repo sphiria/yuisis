@@ -123,8 +123,8 @@ COPY config/opcache.ini /etc/php7/conf.d/opcache.ini
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # copy LocalSettings
-COPY config/LocalSettings.php /var/www/html/LocalSettings.php
-COPY config/LocalSettings_extensions.php /var/www/html/LocalSettings_extensions.php
+COPY --chown=nobody:nobody config/LocalSettings.php /var/www/html/LocalSettings.php
+COPY --chown=nobody:nobody config/LocalSettings_extensions.php /var/www/html/LocalSettings_extensions.php
 
 # expose port 8080
 EXPOSE 8080
