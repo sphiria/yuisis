@@ -106,6 +106,9 @@ RUN apk add --no-cache \
   cd /var/www/html;/usr/bin/php7 /usr/bin/composer.phar update --no-dev; \
   # uninstall build tools
   apk del gcc make g++ zlib-dev lua5.1-dev; \
+  # nuke images folder for mounting it later
+  rm -rf /var/www/html/images; \
+  ln -s /mnt/zooey/images /var/www/html/images; \
   # fix permissions
   chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx;
 

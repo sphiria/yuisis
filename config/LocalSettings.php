@@ -35,12 +35,6 @@ $wgUrlProtocols = array('http://', 'https://', '//');
 $wgLogo = $wgScriptPath . getenv('MEDIAWIKI_LOGO');
 $wgFavicon = $wgScriptPath . getenv('MEDIAWIKI_FAVICON');
 
-# images
-$wgNativeImageLazyLoading  = true;
-$wgUploadDirectory = getenv('MEDIAWIKI_UPLOAD_PATH');
-#$wgGenerateThumbnailOnParse = false;
-# fix thumb.php
-
 # email - TODO: move to env
 $wgEnableEmail = false;
 
@@ -60,6 +54,16 @@ $wgParserCacheType = CACHE_MEMCACHED;
 $wgMessageCacheType = CACHE_MEMCACHED;
 $wgMemCachedServers = [getenv('MEMCACHED_SERVER')];
 $wgSessionCacheType = CACHE_MEMCACHED;
+$wgCacheDirectory = "/tmp/cache";
+$wgLocalisationCacheConf = [
+	'class' => LocalisationCache::class,
+	'store' => 'array',
+	'storeClass' => false,
+	'storeDirectory' => false,
+	'storeServer' => [],
+	'forceRecache' => false,
+	'manualRecache' => false,
+];
 
 # performance
 $wgMiserMode = true;
@@ -68,6 +72,21 @@ $wgMiserMode = true;
 $wgEnableUploads = true;
 $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
+$wgLocalFileRepo = [
+    'class' => LocalRepo::class,
+    'name' => 'local',
+    'directory' => getenv('MEDIAWIKI_UPLOAD_PATH'),
+    'scriptDirUrl' => $wgScriptPath,
+    'url' => "{$wgScriptPath}/images",
+    'hashLevels' => $wgHashedUploadDirectory ? 2 : 0,
+    'thumbScriptUrl' => $wgThumbnailScriptPath,
+    'transformVia404' => true,
+    'deletedDir' => $wgDeletedDirectory,
+    'deletedHashLevels' => $wgHashedUploadDirectory ? 3 : 0,
+    'disableLocalTransform' => true
+];
+$wgNativeImageLazyLoading  = true;
+# fix thumb.php
 
 # disable instant commons
 $wgUseInstantCommons = false;

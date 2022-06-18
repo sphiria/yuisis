@@ -116,6 +116,7 @@ wfLoadExtension('cldr');
 
 # StructuredDiscussions - 3rd party extension
 wfLoadExtension('Flow');
+wfLoadExtension( 'Parsoid', __DIR__ . '/vendor/wikimedia/parsoid/extension.json' );
 $wgNamespaceContentModels[NS_TALK] = 'flow-board';
 $wgNamespaceContentModels[NS_USER_TALK] = 'flow-board';
 $wgNamespaceContentModels[NS_RAIDS_TALK] = 'flow-board';
@@ -131,6 +132,7 @@ $wgNamespacesWithSubpages[6001] = true;
 $wgNamespacesWithSubpages[7001] = true;
 $wgNamespacesWithSubpages[8001] = true;
 $wgGroupPermissions['sysop']['flow-create-board'] = true;
+$wgFlowContentFormat = 'html';
 
 # echo - 3rd party extension
 wfLoadExtension('Echo');
