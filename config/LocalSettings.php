@@ -117,6 +117,9 @@ $wgJobRunRate = 0;
 $wgAllowUserCss = true;
 $wgAllowUserJs = true;
 
+# increase article size
+$wgMaxArticleSize = 8192;
+
 # namespaces
 define("NS_RAIDS", 3000);
 $wgExtraNamespaces[NS_RAIDS] = "Raids";
