@@ -41,6 +41,7 @@ RUN apk add --no-cache \
   php7-xmlreader \
   php7-zlib \
   php7-pecl-apcu \
+  php7-pecl-xdebug \
   # mediawiki dependencies
   imagemagick \
   python3 \
@@ -117,6 +118,7 @@ COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
 COPY config/php.ini /etc/php7/conf.d/custom.ini
 COPY config/luasandbox.ini /etc/php7/conf.d/luasandbox.ini
+COPY config/xdebug.ini /etc/php7/conf.d/xdebug.ini
 COPY config/opcache.ini /etc/php7/conf.d/opcache.ini
 
 # copy supervisord.conf

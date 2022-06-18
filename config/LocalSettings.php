@@ -36,7 +36,10 @@ $wgLogo = $wgScriptPath . getenv('MEDIAWIKI_LOGO');
 $wgFavicon = $wgScriptPath . getenv('MEDIAWIKI_FAVICON');
 
 # images
+$wgNativeImageLazyLoading  = true;
 $wgUploadDirectory = getenv('MEDIAWIKI_UPLOAD_PATH');
+#$wgGenerateThumbnailOnParse = false;
+# fix thumb.php
 
 # email - TODO: move to env
 $wgEnableEmail = false;
