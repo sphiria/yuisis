@@ -1,0 +1,17 @@
+[sources.nginx_access_logs]
+type         = "file"
+include      = ["/var/log/nginx/access.log"]
+ignore_older = 86400
+remove_after_secs = 60
+
+[sources.nginx_error_logs]
+type         = "file"
+include      = ["/var/log/nginx/error.log"]
+ignore_older = 86400
+remove_after_secs = 60
+
+[sinks.loki]
+type = "loki"
+inputs = [ "my-source-or-transform-id" ]
+endpoint = "${VECTOR_ENDPOINT}"
+compression = "none"
