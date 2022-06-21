@@ -13,7 +13,6 @@ $wgMaxUploadSize = 10485760;
 # server url
 $wgServer = getenv('MEDIAWIKI_SERVER');
 $wgScriptPath = "";
-$wgArticlePath = "/$1";
 $wgUsePathInfo = true;
 
 # this makes very pretty urls, ie: article/edit
