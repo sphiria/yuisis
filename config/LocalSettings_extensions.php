@@ -101,11 +101,6 @@ wfLoadExtension('Widgets');
 # CLDR - 3rd party extension
 wfLoadExtension('cldr');
 
-# Parsoid
-wfLoadExtension('Parsoid', __DIR__ . '/vendor/wikimedia/parsoid/extension.json' );
-$wgVirtualRestConfig['modules']['parsoid'] = array(
-    'url' => 'http://localhost:8080/rest.php',
-)
 # StructuredDiscussions - 3rd party extension
 wfLoadExtension('Flow');
 $wgNamespaceContentModels[NS_TALK] = 'flow-board';
@@ -124,6 +119,12 @@ $wgNamespacesWithSubpages[7001] = true;
 $wgNamespacesWithSubpages[8001] = true;
 $wgGroupPermissions['sysop']['flow-create-board'] = true;
 $wgFlowContentFormat = 'html';
+
+# Parsoid
+wfLoadExtension('Parsoid', __DIR__ . '/vendor/wikimedia/parsoid/extension.json' );
+$wgVirtualRestConfig['modules']['parsoid'] = array(
+    'url' => 'http://localhost:8080/rest.php',
+)
 
 # echo - 3rd party extension
 wfLoadExtension('Echo');
