@@ -101,9 +101,14 @@ wfLoadExtension('Widgets');
 # CLDR - 3rd party extension
 wfLoadExtension('cldr');
 
+# Parsoid
+$wgVirtualRestConfig['modules']['parsoid'] = array(
+    'url' => 'http://localhost:8080/rest.php',
+)
+wfLoadExtension('Parsoid', __DIR__ . '/vendor/wikimedia/parsoid/extension.json' );
+
 # StructuredDiscussions - 3rd party extension
 wfLoadExtension('Flow');
-wfLoadExtension( 'Parsoid', __DIR__ . '/vendor/wikimedia/parsoid/extension.json' );
 $wgNamespaceContentModels[NS_TALK] = 'flow-board';
 $wgNamespaceContentModels[NS_USER_TALK] = 'flow-board';
 $wgNamespaceContentModels[NS_RAIDS_TALK] = 'flow-board';
@@ -160,8 +165,8 @@ wfLoadExtension('SimpleMathJax');
 # VariablesLua - 3rd party extension
 wfLoadExtension('VariablesLua');
 
-# CollapsibleVector fork
-wfLoadExtension('CollapsibleVector-gbfwiki');
+# CollapsibleVector fork - broken atm
+# wfLoadExtension('CollapsibleVector-gbfwiki');
 
 # ElasticSearch
 #wfLoadExtension('Elastica');
