@@ -15,6 +15,9 @@ $wgServer = getenv('MEDIAWIKI_SERVER');
 $wgScriptPath = "";
 $wgUsePathInfo = true;
 
+# time 
+$wgLocaltimezone = "UTC";
+
 # this makes very pretty urls, ie: article/edit
 $actions = array(
 	'edit', 'watch', 'unwatch', 'delete', 'revert', 'rollback',
@@ -100,10 +103,9 @@ $wgLocalFileRepo = [
     'transformVia404' => true,
     'deletedDir' => $wgDeletedDirectory,
     'deletedHashLevels' => $wgHashedUploadDirectory ? 3 : 0,
-    'disableLocalTransform' => true
+	'disableLocalTransform' => false
 ];
 $wgNativeImageLazyLoading  = true;
-# fix thumb.php
 
 # disable instant commons
 $wgUseInstantCommons = false;
