@@ -173,6 +173,23 @@ $wgExtraNamespaces[NS_DATA] = "Data";
 define("NS_DATA_TALK", 10001);
 $wgExtraNamespaces[NS_DATA_TALK] = "Data_talk";
 
+# google analytics
+$wgHooks['BeforePageDisplay'][] = function( OutputPage &$out, Skin &$skin ) {
+	$code = <<<'START_END_MARKER'
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-97011956-1', 'auto');
+ga('send', 'pageview');
+</script>	
+START_END_MARKER;
+	$out->addHeadItem( 'google-analytics', $code );
+	return true;
+};
+
 # extensions
 require_once "LocalSettings_extensions.php";
 

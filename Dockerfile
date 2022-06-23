@@ -88,8 +88,12 @@ RUN apk add --no-cache \
   cd /var/www/html/extensions/Flow;/usr/bin/php7 /usr/bin/composer.phar update --no-dev; \
   # Echo
   git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Echo /var/www/html/extensions/Echo; \
+  # CollapsibleVector-gbfwiki
+  git clone https://github.com/sphiria/CollapsibleVector-gbfwiki /var/www/html/extensions/CollapsibleVector-gbfwiki; \
   # LabeledSectionTransclusion
   git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion /var/www/html/extensions/LabeledSectionTransclusion; \
+  # CodeMirror
+  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeMirror /var/www/html/extensions/CodeMirror; \
   # Cargo
   git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Cargo /var/www/html/extensions/Cargo; \
   # VariablesLua
@@ -97,8 +101,10 @@ RUN apk add --no-cache \
   # LuaSandbox
   pecl channel-update pecl.php.net; \
 	pecl install luasandbox; \
+  # SimpleMathJax
+  git clone https://github.com/jmnote/SimpleMathJax /var/www/html/extensions/SimpleMathJax; \
   # Tabber
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Tabber /var/www/html/extensions/Tabber; \
+  git clone https://gitlab.com/hydrawiki/extensions/Tabber /var/www/html/extensions/Tabber; \
   # DPL3
   curl -fSL "https://github.com/Universal-Omega/DynamicPageList3/archive/REL1_35.tar.gz/" -o REL1_35.tar.gz; \
 	tar -xzf REL1_35.tar.gz -C /var/www/html/extensions;mv /var/www/html/extensions/DynamicPageList3-REL1_35 /var/www/html/extensions/DynamicPageList3;rm REL1_35.tar.gz; \
