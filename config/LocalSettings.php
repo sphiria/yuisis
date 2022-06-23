@@ -20,7 +20,6 @@ $actions = array(
 	'edit', 'watch', 'unwatch', 'delete', 'revert', 'rollback',
 	'protect', 'unprotect', 'markpatrolled', 'render', 'submit', 'history', 'purge', 'info'
 );
-
 foreach ($actions as $action) {
 	$wgActionPaths[$action] = "/$1/$action";
 }
@@ -36,6 +35,22 @@ $wgFavicon = $wgScriptPath . getenv('MEDIAWIKI_FAVICON');
 
 # email - TODO: move to env
 $wgEnableEmail = false;
+
+# determines how section IDs should be encoded. 
+$wgFragmentMode = [ 'html5', 'legacy' ];
+
+# maximum amount of virtual memory available to shell processes, disabled
+$wgMaxShellMemory = 0;
+
+# force https
+$wgForceHTTPS = true;
+
+# cookies
+$wgCookieSameSite = 'Strict';
+$wgCookieSecure = true;
+
+# referrer
+$wgReferrerPolicy = array('strict-origin-when-cross-origin', 'strict-origin');
 
 # database
 $wgDBtype = getenv('MEDIAWIKI_DB_TYPE');
@@ -64,8 +79,11 @@ $wgLocalisationCacheConf = [
 	'manualRecache' => false,
 ];
 
-# performance
+# disable unnecessary db hits
 $wgMiserMode = true;
+
+# add canonical meta tag on every page
+$wgEnableCanonicalServerLink = true;
 
 # images
 $wgEnableUploads = true;
@@ -134,6 +152,9 @@ $wgJobRunRate = 0;
 # allow user css/js
 $wgAllowUserCss = true;
 $wgAllowUserJs = true;
+
+# remove "realnames"
+$wgHiddenPrefs[] = 'realname';
 
 # increase article size
 $wgMaxArticleSize = 8192;
