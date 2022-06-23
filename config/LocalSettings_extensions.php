@@ -102,11 +102,10 @@ wfLoadExtension('Widgets');
 wfLoadExtension('cldr');
 
 # Parsoid
+wfLoadExtension('Parsoid', __DIR__ . '/vendor/wikimedia/parsoid/extension.json' );
 $wgVirtualRestConfig['modules']['parsoid'] = array(
     'url' => 'http://localhost:8080/rest.php',
 )
-wfLoadExtension('Parsoid', __DIR__ . '/vendor/wikimedia/parsoid/extension.json' );
-
 # StructuredDiscussions - 3rd party extension
 wfLoadExtension('Flow');
 $wgNamespaceContentModels[NS_TALK] = 'flow-board';
