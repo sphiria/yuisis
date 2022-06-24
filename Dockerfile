@@ -105,8 +105,8 @@ RUN apk add --no-cache \
   # SimpleMathJax
   git clone https://github.com/jmnote/SimpleMathJax /var/www/html/extensions/SimpleMathJax; \
   # Tabber
-  #git clone https://gitlab.com/hydrawiki/extensions/Tabber /var/www/html/extensions/Tabber; \
-  git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue.git /var/www/html/extensions/TabberNeue; \
+  git clone https://gitlab.com/hydrawiki/extensions/Tabber /var/www/html/extensions/Tabber; \
+  #git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue.git /var/www/html/extensions/TabberNeue; \
   # DPL3
   curl -fSL "https://github.com/Universal-Omega/DynamicPageList3/archive/REL1_35.tar.gz/" -o REL1_35.tar.gz; \
 	tar -xzf REL1_35.tar.gz -C /var/www/html/extensions;mv /var/www/html/extensions/DynamicPageList3-REL1_35 /var/www/html/extensions/DynamicPageList3;rm REL1_35.tar.gz; \

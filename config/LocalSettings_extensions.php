@@ -76,9 +76,9 @@ wfLoadExtension("DynamicPageList3");
 $wgDplSettings['maxResultCount'] = 1000;
 
 # Tabber - 3rd party extension - TODO: deprecate it
-#wfLoadExtension('Tabber');
-wfLoadExtension('TabberNeue');
-$wgTabberNeueEnableAnimation = true;
+wfLoadExtension('Tabber');
+#wfLoadExtension('TabberNeue');
+#$wgTabberNeueEnableAnimation = true;
 
 # Arrays - 3rd party extension
 wfLoadExtension('Arrays');
