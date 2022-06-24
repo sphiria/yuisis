@@ -66,11 +66,12 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgSharedTables[] = "actor";
 
 # cache
-$wgMainCacheType = CACHE_MEMCACHED;
-$wgParserCacheType = CACHE_MEMCACHED;
-$wgMessageCacheType = CACHE_MEMCACHED;
-$wgMemCachedServers = [getenv('MEMCACHED_SERVER')];
-$wgSessionCacheType = CACHE_MEMCACHED;
+$wgMainCacheType = 'redis';
+$wgMessageCacheType = 'redis';
+$wgParserCacheType = 'redis';
+$wgSessionCacheType = 'redis';
+$wgLanguageConverterCacheType = 'redis';
+$wgMemCachedServers = array();
 $wgCacheDirectory = "/tmp/cache";
 $wgLocalisationCacheConf = [
 	'class' => LocalisationCache::class,
@@ -80,6 +81,23 @@ $wgLocalisationCacheConf = [
 	'storeServer' => [],
 	'forceRecache' => false,
 	'manualRecache' => false,
+];
+$wgObjectCaches['redis'] = array(
+    'class' => 'RedisBagOStuff',
+    'servers' => array( getenv('REDIS_SERVER') ),
+);
+
+$wgJobTypeConf['default'] = [
+	'class' => 'JobQueueRedis',
+	'order' => 'fifo',
+	'redisServer' => getenv('REDIS_SERVER'),
+	'checkDelay' => true,
+	'daemonized' => true
+];
+
+$wgJobQueueAggregator = [
+	'class'       => 'JobQueueAggregatorRedis',
+	'redisServer' => getenv('REDIS_SERVER'),
 ];
 
 # disable unnecessary db hits

@@ -69,6 +69,7 @@ wfLoadExtension('Variables');
 
 # Loops - 3rd party extension
 wfLoadExtension('Loops');
+$egLoopsCountLimit = 500;
 
 # DynamicPageList - 3rd party extension
 wfLoadExtension("DynamicPageList3");
@@ -77,6 +78,7 @@ $wgDplSettings['maxResultCount'] = 1000;
 # Tabber - 3rd party extension - TODO: deprecate it
 #wfLoadExtension('Tabber');
 wfLoadExtension('TabberNeue');
+$wgTabberNeueEnableAnimation = true;
 
 # Arrays - 3rd party extension
 wfLoadExtension('Arrays');

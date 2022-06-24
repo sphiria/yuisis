@@ -1,0 +1,2025 @@
+body {
+    background-image: url(images/background.png);
+    background-repeat: no-repeat;
+}
+
+#mw-page-base {
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+div#mw-head div.vectorMenu h3 {
+    background-image: none;
+}
+
+#p-personal {
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    padding-top: 0.25em;
+    padding-right: 0.75em;
+    border-radius: 0px 0px 0px 5px;
+}
+
+#p-personal ul {
+    padding-left: 0;
+}
+
+#p-logo {
+    padding-top: 10px;
+}
+
+div#content {
+    box-shadow: rgba(0, 0, 0, 0.15) 0 0.1em 0.75em;
+}
+
+div#simpleSearch {
+    margin-top: 0.35em;
+}
+
+#p-personal {
+    text-shadow: 0 0 2px #FEFEFE, 0 0 4px #FFF;
+}
+
+#pt-anonuserpage {
+    margin-bottom: 0.8em;
+}
+
+#p-cactions {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABkCAIAAADITs03AAAAO0lEQVR4AeSKhREAMQzDdN5/5uixuEKDpqgBjl2f78wd2DVj1+26/h///PfteVMN7zoGebcg1/Y/ZQQAlAUtQCujIJMAAAAASUVORK5CYII=);
+    background-repeat: repeat-x;
+    background-position: bottom left;
+}
+
+div#mw-head div.vectorMenu h3 a:after {
+    content: '';
+    display: block;
+    width: inherit;
+    height: 2.2em;
+    margin: 1px 0 0 1px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAuCAIAAABmjeQ9AAAAQ0lEQVR4AWVOhQEAIAzC/X+xAXbXeoDFGA3A9yk1n4juBROcUegfarWjP3ojZvEzxs6j+nygmo+zzsk79nY+tOxdEhlf3UHVgUFrVwAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+
+#p-search {
+    margin: 1px 0 0 0.5em;
+    padding: 0 0.5em;
+}
+
+#p-cactions>.menu {
+    top: 2.2em;
+}
+
+/* Background Ends Here */
+
+/* Faster visible changes */
+tr.hide {
+    visibility: collapse;
+}
+
+.hide:not(tr) {
+    display: none;
+}
+
+/* Faster visible changes ends here */
+
+.tabs-label {
+    border-radius: 0 0 0 0 !important;
+}
+
+.tabs-container {
+    border-radius: 0 0 0 0 !important;
+}
+
+table.wikitable.stripe>*>tr:nth-child(even)>td,
+table.wikitable.stripe2>*>tr:nth-child(4n+1)>td,
+table.wikitable.stripe2>*>tr:nth-child(4n+2)>td {
+    background-color: #fdfdfd;
+}
+
+.summon_template a,
+.summon_template a.extiw,
+.summon_template a.extiw:visited {
+    color: white;
+    display: inline-block;
+    border-bottom: 1px dotted;
+}
+
+.summon_template a:hover,
+.summon_template a:active {
+    text-decoration: none;
+}
+
+.summon_template span.image_link a:nth-child(1) {
+    border-bottom: 0;
+     !important;
+}
+
+table.summon_template {
+    color: white;
+    border-spacing: 0;
+    border-collapse: separate;
+    border-width: 0 5px 0 5px;
+    border-style: solid;
+    position: relative;
+    width: 627px;
+}
+
+table.summon_template .caption {
+    background-color: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 16pt;
+}
+
+table.summon_template .subcaption {
+    background-color: rgba(0, 0, 0, 0.05);
+    text-align: center;
+    font-size: 12pt;
+}
+
+table.summon_template tr>th .tooltiptext {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+table.summon_template tr>th {
+    background: rgba(0, 0, 0, 0.5);
+    border-style: solid;
+    border-width: 5px;
+    text-align: center;
+}
+
+table.summon_template tr>td {
+    background: rgba(0, 0, 0, 0.3);
+    border-style: solid;
+    border-width: 5px;
+    text-align: center;
+}
+
+.summon_template.fire {
+    background: #fc9084;
+    border-color: #fc9084;
+}
+
+.summon_template.fire td,
+.summon_template.fire th {
+    border-color: #fc9084;
+}
+
+.summon_template.water {
+    background: #84c6fc;
+    border-color: #84c6fc;
+}
+
+.summon_template.water td,
+.summon_template.water th {
+    border-color: #84c6fc;
+}
+
+.summon_template.earth {
+    background: #ba9072;
+    border-color: #ba9072;
+}
+
+.summon_template.earth td,
+.summon_template.earth th {
+    border-color: #ba9072;
+}
+
+.summon_template.wind {
+    background: #b4f090;
+    border-color: #b4f090;
+}
+
+.summon_template.wind td,
+.summon_template.wind th {
+    border-color: #b4f090;
+}
+
+.summon_template.light {
+    background: #f0f08a;
+    border-color: #f0f08a
+}
+
+.summon_template.light td,
+.summon_template.light th {
+    border-color: #f0f08a
+}
+
+.summon_template.dark {
+    background: #8472c0;
+    border-color: #8472c0
+}
+
+.summon_template.dark td,
+.summon_template.dark th {
+    border-color: #8472c0
+}
+
+.weapon_template a {
+    color: white;
+    display: inline-block;
+    border-bottom: 1px dotted;
+}
+
+.weapon_template a:hover,
+.weapon_template a:active {
+    text-decoration: none;
+}
+
+.weapon_template span.image_link a:nth-child(1) {
+    border-bottom: 0;
+     !important;
+}
+
+.weapon .image_assets-sprite img {
+    outline: 1px dashed #000;
+}
+
+span.image_link {
+    white-space: nowrap;
+}
+
+span.image_link.white a:nth-child(1) {
+    border-bottom: 0px;
+}
+
+span.image_link.white a:nth-child(2) {
+    color: white;
+    display: inline-block;
+    border-bottom: 1px dotted;
+}
+
+span.image_link.white a:hover,
+span.item_link.white a:active {
+    text-decoration: none;
+}
+
+span.bold_link>a {
+    font-weight: bold;
+}
+
+ul.elementlist {
+    list-style: none;
+    margin-left: 0.7em;
+    margin-top: 0;
+}
+
+ul.elementlist li {
+    /* Text color */
+    color: black;
+}
+
+ul.elementlist li:before {
+    /* Unicode bullet symbol */
+    content: '\25a0 ';
+    /* Bullet color */
+    color: black;
+    padding-right: 0.5em;
+}
+
+ul.elementlist li.fire:before {
+    color: rgb(250, 70, 50);
+}
+
+ul.elementlist li.water:before {
+    color: rgb(50, 160, 250);
+}
+
+ul.elementlist li.earth:before {
+    color: rgb(140, 70, 20);
+}
+
+ul.elementlist li.wind:before {
+    color: rgb(130, 230, 70);
+}
+
+ul.elementlist li.light:before {
+    color: rgb(230, 230, 60);
+}
+
+ul.elementlist li.dark:before {
+    color: rgb(50, 20, 150);
+}
+
+/* Tabber start */
+.tabber .tabbertab {
+    border: none;
+    padding: 0;
+}
+
+ul.tabbernav {
+    margin: 0;
+    padding: 3px 0;
+    border: 0;
+    /*border-bottom: 1px solid #CCC;*/
+    font: bold 14px Ariel, sans-serif !important;
+}
+
+ul.tabbernav li a {
+    border-radius: 4px !important;
+    padding: 3px .5em;
+    margin-left: 3px;
+    border: 1px solid #CCC;
+    background: #F2F7FF;
+    text-decoration: none;
+    line-height: 1;
+}
+
+ul.tabbernav li.tabberactive a {
+    background-color: #FFF;
+    border: 1px solid #7ec0ee !important;
+}
+
+ul.tabbernav li.tabberactive a:hover {
+    color: #000;
+    background: #FFF;
+    border: 1px solid #7ec0ee !important;
+}
+
+/* Hides invididual raid image from Six-Dragon Advent page */
+.tabber-images+p>img:first-child {
+    display: none;
+}
+
+/* Tabber end */
+
+/* used for vertical alignment of tabber contents */
+#mw-content-text>.wikitable:first-child tr:nth-child(2)>td:nth-child(2)>div>.tabber {
+    min-height: 436px;
+    max-height: 1000px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#mw-content-text>.wikitable:first-child tr:nth-child(2)>td:nth-child(2)>div>.tabber>.tabbernav {
+    margin-bottom: auto;
+}
+
+#mw-content-text>.wikitable:first-child tr:nth-child(2)>td:nth-child(2)>div>.tabber>.tabbertab {
+    margin-bottom: auto;
+}
+
+/* hide title on Main_Page */
+body.page-Main_Page.action-view h1.firstHeading,
+body.page-Main_Page.action-submit h1.firstHeading {
+    display: none;
+}
+
+/* hide discussion on Main_Page */
+.page-page-Main_Page #ca-talk {
+    display: none !important;
+}
+
+
+/* Gallery "tweaks" */
+/* auto-expand gallery slideshow images */
+.gallerybox {
+    display: inline-block !important;
+}
+
+/* hide gallery expand slideshow images button */
+.oo-ui-iconElement-icon.oo-ui-icon-imageGallery {
+    display: none !important;
+}
+
+/* remove ugly margin */
+.gallery.mw-gallery-slideshow {
+    margin: 0 !important;
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline;
+    border-bottom: 1px dotted black;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    min-width: 250px;
+    padding: 12px 14px;
+
+    position: absolute;
+    left: 50%;
+    bottom: calc(20px + 100%);
+    z-index: 99999;
+
+    background: #fff;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.15);
+    border: 1px solid #a2a9b1;
+    border-radius: 2px;
+
+    white-space: normal;
+    font-weight: normal;
+    font-style: initial;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.tooltiptext:after,
+.tooltiptext:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    border-style: solid;
+}
+
+.tooltiptext:after {
+    top: 100%;
+    bottom: auto;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    margin-top: -10px;
+    margin-left: -10px;
+    box-shadow: 1px 1px 0px #a2a9b1;
+    transform: rotate(45deg);
+    border-width: 0;
+}
+
+.tooltiptext:before {
+    top: 100%;
+    bottom: auto;
+    border-width: 18px;
+    margin-left: -18px;
+    border-color: rgba(0, 0, 0, 0.15) transparent transparent transparent;
+    pointer-events: none;
+}
+
+.tooltip .tooltip .tooltiptext,
+.header-fixed-helper .tooltip .tooltiptext {
+    bottom: auto;
+    top: calc(20px + 100%);
+}
+
+.tooltip .tooltip .tooltiptext:after,
+.header-fixed-helper .tooltip .tooltiptext:after {
+    top: auto;
+    bottom: 100%;
+    border-width: 15px;
+    margin-left: -15px;
+    border-color: transparent transparent white transparent;
+    width: 0;
+    height: 0;
+    box-shadow: none;
+    background: none;
+    transform: none;
+}
+
+.tooltip .tooltip .tooltiptext:before,
+.header-fixed-helper .tooltip .tooltiptext:before {
+    top: auto;
+    bottom: 100%;
+    border-width: 16px;
+    margin-left: -16px;
+    border-color: transparent transparent #888 transparent;
+}
+
+.tooltiptext span.hr {
+    display: block;
+    height: 1px;
+    background-color: #a2a9b1;
+}
+
+.tooltiptext hr,
+.tooltiptext span.hr {
+    margin: 10px 0 12px;
+    position: relative;
+    background: none;
+}
+
+.tooltiptext hr:after,
+.tooltiptext span.hr:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px !important;
+    position: absolute;
+    left: -14px;
+    background: #a2a9b1;
+    padding: 0 14px;
+}
+
+.tooltip:hover>.tooltiptext,
+.tooltip.hover>.tooltiptext {
+    visibility: visible;
+}
+
+.tooltiptext {
+    opacity: 0;
+    transition: opacity 200ms ease, visibility 0s ease 200ms, transform 200ms ease;
+    transform: translate(-50%, 8px);
+}
+
+.tooltip .tooltip .tooltiptext,
+.header-fixed-helper .tooltip .tooltiptext {
+    transform: translate(-50%, -8px);
+}
+
+.tooltip:hover>.tooltiptext,
+.tooltip.hover>.tooltiptext {
+    opacity: 1;
+    transition-delay: 0s;
+    transform: translate(-50%, 0);
+}
+
+.tooltiptext a {
+    color: #0645ad;
+    border-bottom: 0;
+}
+
+.tooltiptext a:visited {
+    color: #0b0080;
+}
+
+.tooltiptext a:active {
+    color: #faa700;
+}
+
+.tooltiptext a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+.tooltiptext {
+    color: #252525;
+}
+
+.tooltiptext a.new {
+    color: #ba0000;
+}
+
+/* Remove .mw-body-content stacking context so the tooltip can
+   overlap with elements outside content area and be shown properly */
+.mw-body-content {
+    z-index: auto;
+}
+
+/* Fixes border-bottom on tooltips in Weapon/Summon template */
+.summon_template a,
+.summon_template .tooltip,
+.summon_template .image_link .tooltip a:nth-child(2),
+.weapon_template a,
+.weapon_template .tooltip,
+.weapon_template .image_link .tooltip a:nth-child(2) {
+    border-bottom: 1px dotted white;
+}
+
+.summon_template sup a,
+.summon_template .tooltip a,
+.summon_template .image_link .tooltip,
+.weapon_template sup a,
+.weapon_template .tooltip a,
+.weapon_template .image_link .tooltip {
+    border-bottom: none;
+}
+
+.flow-post .flow-post-content {
+    overflow: visible;
+}
+
+/* Tooltip End */
+
+
+.gridrec td {
+    background: white;
+    padding: 4px;
+}
+
+.gridrectoptext td {
+    vertical-align: text-top;
+}
+
+/* start of styles for Template:GallerySwapImages */
+.gallery-swap-images {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle
+}
+
+.gallery-swap-images>a,
+.gallery-swap-images>img,
+.gallery-swap-images>span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 400ms ease;
+}
+
+.gallery-swap-images .active {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 200ms ease;
+}
+
+.gallery-swap-images:not(.enabled) :first-child {
+    opacity: 1;
+    pointer-events: auto;
+    transition: none !important;
+}
+
+/* end of styles for Template:GallerySwapImages */
+
+/* start of styles for Character Tracker */
+.tracker-wrap {
+    max-width: 1050px;
+}
+
+.tracker-item {
+    float: left;
+    padding: 7px 7px 0px 7px;
+    margin: 1px;
+    line-height: 0;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    opacity: 0.7;
+}
+
+.tracker-hide-uncap>.tracker-item {
+    padding: 7px;
+}
+
+.tracker-item.selected {
+    background-color: #f1b7a5;
+    border-color: #be3f21;
+    opacity: 1;
+}
+
+.tracker-box {
+    display: inline-block;
+}
+
+.tracker-filter-group {
+    display: inline-block;
+    margin-right: 0.2em;
+}
+
+.tracker-wrap label {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.tracker-uncap {
+    position: relative;
+    height: 16px;
+    width: 84px;
+    padding: 1px 0 0 0;
+    margin: 0;
+    text-align: center;
+}
+
+.tracker-hide-uncap .tracker-uncap {
+    display: none;
+}
+
+.tracker-uncap-star {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0;
+    background-size: 75%;
+    background-repeat: no-repeat;
+}
+
+.tracker-uncap-base {
+    background-image: url(https://gbf.wiki/images/d/d1/Icon_Yellow_Star_Empty.png)
+}
+
+.tracker-uncap-base.selected {
+    background-image: url(https://gbf.wiki/images/9/9a/Icon_Yellow_Star.png)
+}
+
+.tracker-uncap-max {
+    background-image: url(https://gbf.wiki/images/c/c4/Icon_Blue_Star.png)
+}
+
+.tracker-uncap-max.selected {
+    background-image: url(https://gbf.wiki/images/7/7b/Icon_Blue_Star_Full.png)
+}
+
+.tracker-filter-options {
+    margin-bottom: 4px;
+}
+
+.mw-ui-button.mw-ui-disabled {
+    background: #e2e5e8 !important;
+    color: #495057 !important;
+    border-color: #9aa0a7 !important;
+    cursor: initial;
+}
+
+.label+.mw-ui-button-group.items>label:first-child {
+    border-radius: 0;
+}
+
+.tracker-filter-group,
+.page-filter-group {
+    display: flex;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.tracker-filter-group .label,
+.page-filter-group .label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.tracker-filter-group .items,
+.page-filter-group .items {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-basis: 0;
+    margin-top: 1px;
+}
+
+.tracker-filter-group .items label,
+.page-filter-group .items label {
+    margin-top: -1px;
+    flex-grow: 1;
+}
+
+.tracker-filter-group .items label:first-child,
+.page-filter-group .items label:first-child {
+    border-left: 0;
+}
+
+/* end of styles for Character Tracker */
+
+/* audio player start */
+.audio-button {
+    width: 70px;
+    height: 34px;
+    border: none;
+    background: url('https://gbf.wiki/images/c/cc/Audioplayer_play.png');
+    display: inline-block;
+
+}
+
+.audio-button.playing {
+    background: url('https://gbf.wiki/images/e/ef/Audioplayer_stop.png');
+}
+
+/* audio player stop */
+
+/* Tierlist */
+.tierlist td {
+    padding: 5px !important;
+}
+
+.tierlist.tierlist-multi td {
+    max-width: 140px;
+}
+
+.tierlist.tierlist-single td:first-child {
+    max-width: 140px;
+}
+
+.tierlist.tierlist-single {
+    max-width: 771px;
+}
+
+.tierlist.tierlist-grades>tbody>tr>td {
+    padding: 0 !important;
+}
+
+.tierlist hr {
+    box-shadow: 6px 0 #aaa, -6px 0 #aaa;
+    margin: 5px 0;
+}
+
+/* Tierlist Hover */
+.tierlist-hover-detail {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    background: #fff;
+    border: 1px solid #000;
+    padding: 20px;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.tierlist-hover-detail td {
+    max-width: none !important;
+}
+
+.tierlist-hover-detail .wikitable {
+    margin: 0;
+}
+
+.tierlist a[refid]:hover>img {
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 20px #fff, 21px -21px 0 #333, -21px -21px 0 #333, -21px 1px 0 #333, 21px 1px 0 #333;
+}
+
+.tierlist.tierlist-multi .tierlist-hover-detail {
+    width: 1192px;
+}
+
+.tierlist img {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+}
+
+.tierlist [data-is-preliminary="true"]::after {
+    display: inline-block;
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 35px;
+    background: rgba(255, 229, 146, 0.5) url("https://gbf.wiki/images/1/11/New%21.png");
+    background-size: cover;
+    transform: translate(-70px, -2px);
+    pointer-events: none;
+    animation: 1.5s new-tip infinite ease;
+    box-shadow: 0 0 3px 3px rgba(255, 229, 146, 0.5);
+}
+
+@keyframes new-tip {
+    0% {
+        opacity: 0;
+        transform: translate(-70px, 3px)
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-70px, -2px)
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-70px, -7px)
+    }
+}
+
+/* Stamps Search */
+.stampbox .hide {
+    display: none;
+}
+
+/* Default style for navigation boxes */
+.navbox {
+    /* Navbox container style */
+    box-sizing: border-box;
+    border: 1px solid #a2a9b1;
+    width: 100%;
+    clear: both;
+    font-size: 88%;
+    text-align: center;
+    padding: 1px;
+    margin: 1em auto 0;
+    /* Prevent preceding content from clinging to navboxes */
+}
+
+.navbox .navbox {
+    margin-top: 0;
+    /* No top margin for nested navboxes */
+}
+
+.navbox+.navbox {
+    margin-top: -1px;
+    /* Single pixel border between adjacent navboxes */
+}
+
+.navbox-inner,
+.navbox-subgroup {
+    width: 100%;
+}
+
+.navbox-group,
+.navbox-title,
+.navbox-abovebelow {
+    padding: 0.25em 1em;
+    /* Title, group and above/below styles */
+    line-height: 1.5em;
+    text-align: center;
+}
+
+th.navbox-group {
+    /* Group style */
+    white-space: nowrap;
+    /* @noflip */
+    text-align: right;
+}
+
+.navbox,
+.navbox-subgroup {
+    background-color: #fdfdfd;
+    /* Background color */
+}
+
+.navbox-list {
+    line-height: 1.5em;
+    border-color: #fdfdfd;
+    /* Must match background color */
+}
+
+/* cell spacing for navbox cells */
+tr+tr>.navbox-abovebelow,
+tr+tr>.navbox-group,
+tr+tr>.navbox-image,
+tr+tr>.navbox-list {
+    /* Borders above 2nd, 3rd, etc. rows */
+    border-top: 2px solid #fdfdfd;
+    /* Must match background color */
+}
+
+.navbox th,
+.navbox-title {
+    background-color: #ccccff;
+    /* Level 1 color */
+}
+
+.navbox-abovebelow,
+th.navbox-group,
+.navbox-subgroup .navbox-title {
+    background-color: #ddddff;
+    /* Level 2 color */
+}
+
+.navbox-subgroup .navbox-group,
+.navbox-subgroup .navbox-abovebelow {
+    background-color: #e6e6ff;
+    /* Level 3 color */
+}
+
+.navbox-even {
+    background-color: #f7f7f7;
+    /* Even row striping */
+}
+
+.navbox-odd {
+    background-color: transparent;
+    /* Odd row striping */
+}
+
+.navbox .hlist td dl,
+.navbox .hlist td ol,
+.navbox .hlist td ul,
+.navbox td.hlist dl,
+.navbox td.hlist ol,
+.navbox td.hlist ul {
+    padding: 0.125em 0;
+    /* Adjust hlist padding in navboxes */
+}
+
+/* Default styling for Navbar template */
+.navbar {
+    display: inline;
+    font-size: 88%;
+    font-weight: normal;
+}
+
+.navbar ul {
+    display: inline;
+    white-space: nowrap;
+}
+
+.mw-body-content .navbar ul {
+    line-height: inherit;
+}
+
+.navbar li {
+    word-spacing: -0.125em;
+}
+
+.navbar.mini li abbr[title] {
+    font-variant: small-caps;
+    border-bottom: none;
+    text-decoration: none;
+    cursor: inherit;
+}
+
+/* Navbar styling when nested in infobox and navbox */
+.infobox .navbar {
+    font-size: 100%;
+}
+
+.navbox .navbar {
+    display: block;
+    font-size: 100%;
+}
+
+.navbox-title .navbar {
+    /* @noflip */
+    float: left;
+    /* @noflip */
+    text-align: left;
+    /* @noflip */
+    margin-right: 0.5em;
+}
+
+/* WIP Character Template */
+.character-template>tbody>tr:not(:first-child) {
+    background-color: #fff;
+}
+
+/* Tabber Fix */
+/* Prevents tabber contents from showing up for a few frames before the script executes */
+.tabber:not(.tabberlive)>.tabbertab:not(:first-child) {
+    display: none;
+}
+
+/* Accordion Gallery Swap Images */
+.accordion-swap-images {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    overflow: hidden;
+    text-align: initial;
+}
+
+.accordion-swap-images a {
+    display: block;
+    height: inherit;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    transition: flex-shrink 200ms ease 30ms, -webkit-flex 200ms ease 30ms, z-index 0ms linear 0ms;
+    z-index: 0;
+}
+
+.accordion-swap-images a.active,
+.accordion-swap-images a:hover {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    transition: flex-shrink 200ms ease 30ms, -webkit-flex 200ms ease 30ms, z-index 0ms linear 200ms;
+    z-index: 1;
+}
+
+.accordion-swap-images a img {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+}
+
+/* ----------------------
+ WORLD PAGE STYLE START
+---------------------- */
+.mw-body {
+    background-position: 0 0, 0px -4px, 0 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    .mw-body {
+        background-size: auto 66%;
+        background-position: 0 0, top right, 0 0;
+    }
+}
+
+/* ------------ */
+/* Phantagrande */
+/* ------------ */
+.page-Zinkenstill .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/e/e6/Town_bg_10001.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Port_Breeze_Archipelago .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/2/24/Town_bg_20001.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Valtz_Duchy .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/3/37/Town_bg_20002.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Auguste_Isles .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.8), white),
+        url(https://gbf.wiki/images/7/7f/Town_bg_20003.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Lumacie_Archipelago .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.7), white),
+        url(https://gbf.wiki/images/e/e9/Town_bg_20004.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Albion_Citadel .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/7/7c/Town_bg_20005.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Mist-Shrouded_Isle .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/a/ab/Town_bg_20006.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Golonzo_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/3/38/Town_bg_20007.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Amalthea_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.7), white),
+        url(https://gbf.wiki/images/b/b6/Town_bg_20008.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Former_Capital_Mephorash .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/d/df/Town_bg_20009.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Agastia .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/3/3b/Town_bg_20011.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Dydroit_Belt .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/a/a8/Town_bg_20012.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Silverwind_Stretch_North_Vast .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/5/55/Town_bg_20014.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+
+/* ----------- */
+/* Nalhegrande */
+/* ----------- */
+
+.page-Merkmal_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/1/19/Town_bg_21001.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Groz_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.75), white),
+        url(https://gbf.wiki/images/6/63/Town_bg_21002.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Kluger_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/e/ee/Town_bg_21003.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Bestia_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/e/e7/Town_bg_21004.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Reiche_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/0/0b/Town_bg_21005.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Starke_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/0/0f/Town_bg_21006.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-The_Edgelands .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/0/0d/Town_bg_21007.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+
+/* ------------ */
+/* Oarlyegrande */
+/* ------------ */
+
+.page-New_Utopia .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.6), white),
+        url(https://gbf.wiki/images/b/b9/Town_bg_22001.jpg),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+}
+
+.page-Magmell_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.4), white),
+        url("https://gbf.wiki/images/3/3e/Town_bg_22002.jpg"),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+    background-size: auto 66%;
+}
+
+.page-Libertaria_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.5), white),
+        url("https://gbf.wiki/images/9/9d/Town_bg_22003.jpg"),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+    background-size: auto 66%;
+}
+
+
+
+/* Specific page positions */
+/* (to hide black bar on the top part of some images) */
+.page-Valtz_Duchy .mw-body {
+    background-position: 0 0, 0 calc(-6vw), 0 0;
+}
+
+.page-Silverwind_Stretch_North_Vast .mw-body {
+    background-position: 0 0, 0 calc(-3vw), 0 0;
+}
+
+.page-The_Edgelands .mw-body {
+    background-position: 0 0, 0 calc(-0.5vw), 0 0;
+}
+
+.page-New_Utopia .mw-body {
+    background-position: 0 0, 0 calc(-1.6vw), 0 0;
+}
+
+.page-Duat_Island .mw-body {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.5), white),
+        url("https://gbf.wiki/images/2/25/Town_bg_22004.jpg"),
+        -webkit-linear-gradient(left, #88aeb7 0%, #b8d0d3 5%, #cfe8eb 20%, #d2d4cf 80%, #c7cebd 95%, #afc1c5 100%);
+    background-size: auto 66%;
+}
+
+/* --------------------
+ WORLD PAGE STYLE END
+-------------------- */
+
+/* ----------------------------
+ BATTLE RESIST FORMATTING START
+----------------------------- */
+.battle-phase-phase-header {
+    text-align: center;
+    background-color: #eaecf0;
+}
+
+.battle-resist--row>p {
+    margin: 0;
+}
+
+.battle-resist--atk {
+    color: red;
+}
+
+.battle-resist--def {
+    color: blue;
+}
+
+.battle-resist--number {
+    display: inline-block;
+    min-width: 35px;
+    text-align: right;
+}
+
+.battle-resist--hp {
+    min-width: 50px;
+    padding-right: 4px;
+}
+
+.battle-resist--atk {
+    min-width: 90px;
+}
+
+.battle-resist--def {
+    min-width: 55px;
+}
+
+.battle-resist--debuff {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    text-align: center;
+    margin: 0.5em 0 0 0 !important;
+}
+
+.battle-resist--debuff--resist-immune span.tooltip>a>img {
+    opacity: 0.3;
+}
+
+.battle-resist--row.battle-resist--debuffs {
+    display: flex;
+    justify-content: space-around;
+    max-width: 800px;
+    padding-left: 3px;
+}
+
+/* 
+  This is because status icons are 25x25 in size
+  However the circle inside the image is only 22px in diameter
+*/
+.battle-resist--debuff .battle-resist--debuff--symbol {
+    margin-right: 3px;
+}
+
+/* ----------------------------
+  BATTLE RESIST FORMATTING END
+----------------------------- */
+
+
+/* ---------------------------
+ OBTAIN LIST FORMATTING START
+--------------------------- */
+/* Obtain items as raid */
+.obtain-list-item,
+.obtain-list-item>.image_link {
+    display: grid;
+    grid-template-columns: 54px auto auto;
+    grid-column-gap: 6px;
+    align-items: center;
+}
+
+.obtain-list-item:only-child {
+    grid-template-columns: auto 1fr auto;
+}
+
+/* Obtain items as materials */
+.obtain-list-item>.image_link {
+    justify-items: center;
+}
+
+/* Obtain items without images */
+.obtain-list-item> :only-child:not(.image_link) {
+    grid-column-start: 2;
+    justify-self: center;
+    text-align: center !important;
+}
+
+/* Obtain Text */
+.obtain-list> :only-child:not(.obtain-list-item) {
+    display: block;
+    text-align: center;
+}
+
+/* ---------------------------
+  OBTAIN LIST FORMATTING END
+--------------------------- */
+
+/* -------------------------------
+  BULLET TABLE COLUMN FORMATTING
+--------------------------------*/
+.bullet-table td:nth-child(3),
+.bullet-table td:nth-child(4),
+.bullet-table td:nth-child(6) {
+    text-align: center;
+}
+
+/* -------------------------
+  WHATSNEW LIST FORMATTING
+------------------------- */
+.whatsnew-list {
+    overflow: hidden;
+    width: 100%;
+}
+
+.whatsnew-list>span {
+    float: left;
+    margin: 0 0.25em 0.25em 0;
+}
+
+.whatsnew-list>span:nth-child(4n + 1) {
+    clear: both
+}
+
+/* -------------------------
+Scenario formatting
+------------------------- */
+span.scene-font-italic {
+    font-style: italic;
+}
+
+/* -------------------------
+Text colors
+------------------------- */
+
+.text-color--fire {
+    color: #C02E1D;
+}
+
+.text-color--water {
+    color: #4169E1;
+}
+
+.text-color--earth {
+    color: #8C4614;
+}
+
+.text-color--wind {
+    color: #228B22;
+}
+
+.text-color--light {
+    color: #ECAA38;
+}
+
+.text-color--dark {
+    color: #483D8B;
+}
+
+.text-color--aura0 {
+    color: #222222;
+}
+
+.text-color--aura1 {
+    color: #99620f;
+}
+
+.text-color--aura2 {
+    color: #7b0f99;
+}
+
+.text-color--aura3 {
+    color: #007acc;
+}
+
+.text-color--auramain {
+    color: #e68900;
+}
+
+.text-color--aurasub {
+    color: #0f9999;
+}
+
+.text-color--cb-n {
+    color: blue;
+    font-size: 87%;
+    font-weight: 700;
+}
+
+.text-color--cb-od {
+    color: red;
+    font-size: 87%;
+    font-weight: 700;
+}
+
+.text-color--cb-tr {
+    color: olive;
+    font-size: 87%;
+    font-weight: 700;
+}
+
+.text-color--added {
+    background-color: LemonChiffon;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 2px;
+}
+
+.text-color--new {
+    background-color: PeachPuff;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 2px;
+}
+
+.text-color--removed {
+    background-color: Lavender;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 2px;
+}
+
+.text-color--reworked {
+    background-color: LightBlue;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 2px;
+}
+
+.text-color--new-effect {
+    background-color: DarkSeaGreen;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 2px;
+}
+
+.text-color--old-effect {
+    background-color: LightPink;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 2px;
+}
+
+.text-color--highlight-reward {
+    background-color: rgba(255, 152, 0, 0.2);
+}
+
+/* -------------------------
+NVD3 styling
+------------------------- */
+.nvtooltip {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1.0);
+    color: rgba(0, 0, 0, 1.0);
+    padding: 1px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    z-index: 10000;
+    display: block;
+
+    font-family: Arial;
+    font-size: 13px;
+    text-align: left;
+    pointer-events: none;
+
+    white-space: nowrap;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.nvtooltip {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+/* Give tooltips that old fade in transition by
+   putting a "with-transitions" class on the container div. */
+.nvtooltip.with-transitions,
+.with-transitions .nvtooltip {
+    transition: opacity 50ms linear;
+    -moz-transition: opacity 50ms linear;
+    -webkit-transition: opacity 50ms linear;
+
+    transition-delay: 200ms;
+    -moz-transition-delay: 200ms;
+    -webkit-transition-delay: 200ms;
+}
+
+.nvtooltip.x-nvtooltip,
+.nvtooltip.y-nvtooltip {
+    padding: 8px;
+}
+
+.nvtooltip h3 {
+    margin: 0;
+    padding: 4px 14px;
+    line-height: 18px;
+    font-weight: normal;
+    background-color: rgba(247, 247, 247, 0.75);
+    color: rgba(0, 0, 0, 1.0);
+    text-align: center;
+
+    border-bottom: 1px solid #ebebeb;
+
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.nvtooltip p {
+    margin: 0;
+    padding: 5px 14px;
+    text-align: center;
+}
+
+.nvtooltip span {
+    display: inline-block;
+    margin: 2px 0;
+}
+
+.nvtooltip table {
+    margin: 6px;
+    border-spacing: 0;
+}
+
+
+.nvtooltip table td {
+    padding: 2px 9px 2px 0;
+    vertical-align: middle;
+}
+
+.nvtooltip table td.key {
+    font-weight: normal;
+}
+
+.nvtooltip table td.value {
+    text-align: right;
+    font-weight: bold;
+}
+
+.nvtooltip table tr.highlight td {
+    padding: 1px 9px 1px 0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+.nvtooltip table td.legend-color-guide div {
+    width: 8px;
+    height: 8px;
+    vertical-align: middle;
+}
+
+.nvtooltip table td.legend-color-guide div {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #999;
+}
+
+.nvtooltip .footer {
+    padding: 3px;
+    text-align: center;
+}
+
+.nvtooltip-pending-removal {
+    pointer-events: none;
+    display: none;
+}
+
+
+/* Interactive Layer */
+.nvd3 .nv-interactiveGuideLine {
+    pointer-events: none;
+}
+
+.nvd3 line.nv-guideline {
+    stroke: #ccc;
+}
+
+.nvd3 .nv-groups path.nv-line {
+    fill: none;
+}
+
+.nvd3 .nv-groups path.nv-area {
+    stroke: none;
+}
+
+.nvd3 .nv-axis {
+    pointer-events: none;
+    opacity: 1;
+}
+
+.nvd3 .nv-axis path {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .75;
+    shape-rendering: crispEdges;
+}
+
+.nvd3 .nv-axis path.domain {
+    stroke-opacity: .75;
+}
+
+.nvd3 .nv-axis.nv-x path.domain {
+    stroke-opacity: 0;
+}
+
+.nvd3 .nv-axis line {
+    fill: none;
+    stroke: #e5e5e5;
+    shape-rendering: crispEdges;
+}
+
+.nvd3 .nv-axis .zero line,
+/*this selector may not be necessary*/
+.nvd3 .nv-axis line.zero {
+    stroke-opacity: .75;
+}
+
+.nvd3 .nv-axis .nv-axisMaxMin text {
+    font-weight: bold;
+}
+
+.nvd3 .x .nv-axis .nv-axisMaxMin text,
+.nvd3 .x2 .nv-axis .nv-axisMaxMin text,
+.nvd3 .x3 .nv-axis .nv-axisMaxMin text {
+    text-anchor: middle
+}
+
+.nvd3 .nv-axis.nv-disabled {
+    opacity: 0;
+}
+
+
+.nvd3.nv-line .nvd3.nv-scatter .nv-groups .nv-point {
+    fill-opacity: 0;
+    stroke-opacity: 0;
+}
+
+.nvd3.nv-scatter.nv-single-point .nv-groups .nv-point {
+    fill-opacity: .5 !important;
+    stroke-opacity: .5 !important;
+}
+
+
+.with-transitions .nvd3 .nv-groups .nv-point {
+    transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
+    -moz-transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
+    -webkit-transition: stroke-width 250ms linear, stroke-opacity 250ms linear;
+
+}
+
+.nvd3.nv-scatter .nv-groups .nv-point.hover,
+.nvd3 .nv-groups .nv-point.hover {
+    stroke-width: 7px;
+    fill-opacity: .95 !important;
+    stroke-opacity: .95 !important;
+}
+
+.nvd3 .nv-point-paths path {
+    stroke: #aaa;
+    stroke-opacity: 0;
+    fill: #eee;
+    fill-opacity: 0;
+}
+
+.nvd3 .nv-indexLine {
+    cursor: ew-resize;
+}
+
+.lineChart svg {
+    background-color: white;
+}
+
+/*
+ * TOCLIMIT UTILITY CSS CLASS
+ *
+ * Allow limiting of which header levels are shown in a TOC;
+ * <div class="toclimit-3">, for instance, will limit to
+ * showing ==headings== and ===headings=== but no further.
+ * Used in [[Template:TOC]]
+ */
+.toclimit-2 .toclevel-1 ul,
+.toclimit-3 .toclevel-2 ul,
+.toclimit-4 .toclevel-3 ul,
+.toclimit-5 .toclevel-4 ul,
+.toclimit-6 .toclevel-5 ul,
+.toclimit-7 .toclevel-6 ul {
+    display: none;
+}
+
+/* ---------------------------
+  TEMPLATE:BABYL_RAIDS START
+--------------------------- */
+/* Layer */
+.babyl-layer {
+    display: flex;
+}
+
+.babyl-layers~.babyl-layer:not(.active) {
+    display: none;
+}
+
+.babyl-layer .content-picker {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.babyl-layer .content-picker .image {
+    filter: saturate(0.5) brightness(0.5);
+}
+
+.babyl-layer .content-picker .active .image {
+    filter: none;
+}
+
+.babyl-layer .content-picker .missions {
+    margin-top: 5px;
+    padding-left: 33px;
+    cursor: pointer;
+}
+
+.babyl-layer .content {
+    margin-left: 1em;
+}
+
+@media (max-width: 1400px) {
+    .babyl-layer .content {
+        transform: scale(0.85);
+        transform-origin: top left;
+    }
+}
+
+.babyl-layer .content table {
+    margin-top: 0.33em;
+}
+
+/* Hide images on the top of Raids: namespace pages */
+.babyl-layer .content .mw-parser-output>p:first-child {
+    display: none;
+}
+
+/* Floor */
+.babyl-floor {
+    display: flex;
+    align-items: center;
+    clear: both;
+}
+
+.babyl-floor>.number {
+    width: 30px;
+    margin-right: 3px;
+    text-align: center;
+}
+
+.babyl-floor .quests {
+    width: 267px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Quest */
+.babyl-quest {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.babyl-quest>.number {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: white;
+    font-size: 10px;
+}
+
+.babyl-quest>.icons {
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    display: flex;
+}
+
+.babyl-quest>.icons img {
+    padding-left: 2px;
+}
+
+/* -------------------------
+  TEMPLATE:BABYL_RAIDS END
+------------------------- */
+
+/* Style for horizontal lists (separator following item).
+   @source mediawiki.org/wiki/Snippets/Horizontal_lists
+   @revision 9 (2016-08-10)
+   @author [[User:Edokter]]
+ */
+.hlist dl,
+.hlist ol,
+.hlist ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Display list items inline */
+.hlist dd,
+.hlist dt,
+.hlist li {
+    margin: 0;
+    display: inline;
+}
+
+/* Display nested lists inline */
+.hlist.inline,
+.hlist.inline dl,
+.hlist.inline ol,
+.hlist.inline ul,
+.hlist dl dl,
+.hlist dl ol,
+.hlist dl ul,
+.hlist ol dl,
+.hlist ol ol,
+.hlist ol ul,
+.hlist ul dl,
+.hlist ul ol,
+.hlist ul ul {
+    display: inline;
+}
+
+/* Hide empty list items */
+.hlist .mw-empty-li,
+.hlist .mw-empty-elt {
+    display: none;
+}
+
+/* Generate interpuncts */
+.hlist dt:after {
+    content: ": ";
+}
+
+.hlist dd:after,
+.hlist li:after {
+    content: " · ";
+    font-weight: bold;
+}
+
+.hlist dd:last-child:after,
+.hlist dt:last-child:after,
+.hlist li:last-child:after {
+    content: none;
+}
+
+/* Add parentheses around nested lists */
+.hlist dd dd:first-child:before,
+.hlist dd dt:first-child:before,
+.hlist dd li:first-child:before,
+.hlist dt dd:first-child:before,
+.hlist dt dt:first-child:before,
+.hlist dt li:first-child:before,
+.hlist li dd:first-child:before,
+.hlist li dt:first-child:before,
+.hlist li li:first-child:before {
+    content: " (";
+    font-weight: normal;
+}
+
+.hlist dd dd:last-child:after,
+.hlist dd dt:last-child:after,
+.hlist dd li:last-child:after,
+.hlist dt dd:last-child:after,
+.hlist dt dt:last-child:after,
+.hlist dt li:last-child:after,
+.hlist li dd:last-child:after,
+.hlist li dt:last-child:after,
+.hlist li li:last-child:after {
+    content: ")";
+    font-weight: normal;
+}
+
+/* Put ordinals in front of ordered list items */
+.hlist ol {
+    counter-reset: listitem;
+}
+
+.hlist ol>li {
+    counter-increment: listitem;
+}
+
+.hlist ol>li:before {
+    content: " " counter(listitem) "\a0";
+}
+
+.hlist dd ol>li:first-child:before,
+.hlist dt ol>li:first-child:before,
+.hlist li ol>li:first-child:before {
+    content: " (" counter(listitem) "\a0";
+}
+
+/*
+  Style for horizontal lists (separator following item) ends.
+*/

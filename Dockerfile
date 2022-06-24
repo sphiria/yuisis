@@ -42,6 +42,7 @@ RUN apk add --no-cache \
   php7-zlib \
   php7-pecl-apcu \
   php7-pecl-xdebug \
+  php7-pecl-redis \
   # mediawiki dependencies
   imagemagick \
   python3 \
