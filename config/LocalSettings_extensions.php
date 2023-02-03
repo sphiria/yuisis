@@ -7,7 +7,6 @@ wfLoadExtension('Cite');
 wfLoadExtension('Gadgets');
 wfLoadExtension('InputBox');
 wfLoadExtension('Interwiki');
-wfLoadExtension('LocalisationUpdate');
 wfLoadExtension('Nuke');
 wfLoadExtension('ParserFunctions');
 # enable string functions

@@ -1,9 +1,9 @@
-ARG ALPINE_VERSION=3.15
+ARG ALPINE_VERSION=3.17
 FROM alpine:${ALPINE_VERSION}
-ENV MEDIAWIKI_MAJOR_VERSION=1.38
-ENV MEDIAWIKI_VERSION=1.38.1
+ENV MEDIAWIKI_MAJOR_VERSION=1.39
+ENV MEDIAWIKI_VERSION=1.39.0
 LABEL Maintainer="lis <hello@lis.sh>"
-LABEL Description="Lightweight Mediawiki container with Nginx 1.20 & PHP 7.4 based on Alpine Linux 3.15."
+LABEL Description="Lightweight Mediawiki container with Nginx 1.22 & PHP 8.1 based on Alpine Linux 3.17."
 WORKDIR /var/www/html
 
 # install packages
@@ -16,33 +16,33 @@ RUN apk add --no-cache \
   lua5.1 \
   lua5.1-dev \
   # php
-  php7 \
-  php7-fpm \
-  php7-curl \
-  php7-ctype \
-  php7-gd \
-  php7-intl \
-  php7-json \
-  php7-iconv \
-  php7-calendar \
-  php7-pear \
-  php7-fileinfo \
-  php7-mbstring \
-  php7-mysqli \
-  php7-opcache \
-  php7-tokenizer \
-  php7-dev \
-  php7-xmlwriter \
-  php7-simplexml \
-  php7-openssl \
-  php7-phar \
-  php7-session \
-  php7-xml \
-  php7-xmlreader \
-  php7-zlib \
-  php7-pecl-apcu \
-  php7-pecl-xdebug \
-  php7-pecl-redis \
+  php81 \
+  php81-fpm \
+  php81-curl \
+  php81-ctype \
+  php81-gd \
+  php81-intl \
+  php81-json \
+  php81-iconv \
+  php81-calendar \
+  php81-pear \
+  php81-fileinfo \
+  php81-mbstring \
+  php81-mysqli \
+  php81-opcache \
+  php81-tokenizer \
+  php81-dev \
+  php81-xmlwriter \
+  php81-simplexml \
+  php81-openssl \
+  php81-phar \
+  php81-session \
+  php81-xml \
+  php81-xmlreader \
+  php81-zlib \
+  php81-pecl-apcu \
+  php81-pecl-xdebug \
+  php81-pecl-redis \
   # mediawiki dependencies
   imagemagick \
   python3 \
@@ -62,41 +62,41 @@ RUN apk add --no-cache \
 	rm -rf mediawiki.tar.gz UPGRADE SECURITY RELEASE-NOTES-${MEDIAWIKI_MAJOR_VERSION} README.md INSTALL HISTORY FAQ CREDITS COPYING CODE_OF_CONDUCT.md; \
   # install extensions
   # ImportArticles
-  git clone --branch REL1_38 http://gerrit.wikimedia.org/r/mediawiki/extensions/ImportArticles /var/www/html/extensions/ImportArticles; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/ImportArticles /var/www/html/extensions/ImportArticles; \
   # Variables
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Variables /var/www/html/extensions/Variables; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/Variables /var/www/html/extensions/Variables; \
   # Loops
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Loops /var/www/html/extensions/Loops; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/Loops /var/www/html/extensions/Loops; \
   # Arrays
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Arrays /var/www/html/extensions/Arrays; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/Arrays /var/www/html/extensions/Arrays; \
   # TemplateSandbox
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateSandbox /var/www/html/extensions/TemplateSandbox; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateSandbox /var/www/html/extensions/TemplateSandbox; \
   # WikiSEO
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiSEO /var/www/html/extensions/WikiSEO; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiSEO /var/www/html/extensions/WikiSEO; \
   # CheckUser
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/CheckUser /var/www/html/extensions/CheckUser; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/CheckUser /var/www/html/extensions/CheckUser; \
   # Tabs
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Tabs /var/www/html/extensions/Tabs; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/Tabs /var/www/html/extensions/Tabs; \
   # Widgets
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets /var/www/html/extensions/Widgets; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets /var/www/html/extensions/Widgets; \
 	cd /var/www/html/extensions/Widgets; \
-	/usr/bin/php7 /usr/bin/composer.phar update; \
+	/usr/bin/php81 /usr/bin/composer.phar update; \
 	cd /var/www/html; \
   # cldr
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/cldr /var/www/html/extensions/cldr; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/cldr /var/www/html/extensions/cldr; \
   # StructuredDiscussions
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Flow /var/www/html/extensions/Flow; \
-  cd /var/www/html/extensions/Flow;/usr/bin/php7 /usr/bin/composer.phar update --no-dev; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/Flow /var/www/html/extensions/Flow; \
+  cd /var/www/html/extensions/Flow;/usr/bin/php81 /usr/bin/composer.phar update --no-dev; \
   # Echo
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Echo /var/www/html/extensions/Echo; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/Echo /var/www/html/extensions/Echo; \
   # CollapsibleVector-gbfwiki
   git clone https://github.com/sphiria/CollapsibleVector-gbfwiki /var/www/html/extensions/CollapsibleVector-gbfwiki; \
   # LabeledSectionTransclusion
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion /var/www/html/extensions/LabeledSectionTransclusion; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion /var/www/html/extensions/LabeledSectionTransclusion; \
   # CodeMirror
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeMirror /var/www/html/extensions/CodeMirror; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeMirror /var/www/html/extensions/CodeMirror; \
   # Cargo
-  git clone --branch REL1_38 https://gerrit.wikimedia.org/r/mediawiki/extensions/Cargo /var/www/html/extensions/Cargo; \
+  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/Cargo /var/www/html/extensions/Cargo; \
   # VariablesLua
   git clone https://github.com/Liquipedia/VariablesLua /var/www/html/extensions/VariablesLua; \
   # LuaSandbox
@@ -108,10 +108,10 @@ RUN apk add --no-cache \
   git clone https://gitlab.com/hydrawiki/extensions/Tabber /var/www/html/extensions/Tabber; \
   #git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue.git /var/www/html/extensions/TabberNeue; \
   # DPL3
-  curl -fSL "https://github.com/Universal-Omega/DynamicPageList3/archive/REL1_35.tar.gz/" -o REL1_35.tar.gz; \
-	tar -xzf REL1_35.tar.gz -C /var/www/html/extensions;mv /var/www/html/extensions/DynamicPageList3-REL1_35 /var/www/html/extensions/DynamicPageList3;rm REL1_35.tar.gz; \
+  curl -fSL "https://github.com/Universal-Omega/DynamicPageList3/archive/refs/tags/3.5.0.tar.gz" -o 3.5.0.tar.gz; \
+	tar -xzf 3.5.0.tar.gz -C /var/www/html/extensions;mv /var/www/html/extensions/DynamicPageList3-3.5.0 /var/www/html/extensions/DynamicPageList3;rm 3.5.0.tar.gz; \
   # composer
-  cd /var/www/html;/usr/bin/php7 /usr/bin/composer.phar update --no-dev; \
+  cd /var/www/html;/usr/bin/php81 /usr/bin/composer.phar update --no-dev; \
   # uninstall build tools
   apk del gcc make g++ zlib-dev lua5.1-dev; \
   # nuke images folder for mounting it later
@@ -126,10 +126,10 @@ USER nobody
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # copy php-fpm configuration
-COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
-COPY config/php.ini /etc/php7/conf.d/custom.ini
-COPY config/luasandbox.ini /etc/php7/conf.d/luasandbox.ini
-COPY config/opcache.ini /etc/php7/conf.d/opcache.ini
+COPY config/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
+COPY config/php.ini /etc/php81/conf.d/custom.ini
+COPY config/luasandbox.ini /etc/php81/conf.d/luasandbox.ini
+COPY config/opcache.ini /etc/php81/conf.d/opcache.ini
 
 # copy supervisord.conf
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf

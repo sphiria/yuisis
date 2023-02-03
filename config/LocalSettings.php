@@ -1,4 +1,7 @@
 <?php
+error_reporting( -1 );
+ini_set( 'display_errors', 1 );
+$wgShowExceptionDetails = true;
 if (!defined('MEDIAWIKI')) {
 	exit;
 }
@@ -46,7 +49,7 @@ $wgFragmentMode = [ 'html5', 'legacy' ];
 $wgMaxShellMemory = 0;
 
 # force https
-$wgForceHTTPS = true;
+#$wgForceHTTPS = true;
 
 # cookies
 $wgCookieSameSite = 'Strict';
@@ -56,11 +59,18 @@ $wgCookieSecure = true;
 $wgReferrerPolicy = array('strict-origin-when-cross-origin', 'strict-origin');
 
 # database
-$wgDBtype = getenv('MEDIAWIKI_DB_TYPE');
-$wgDBserver = getenv('MEDIAWIKI_DB_SERVER');
 $wgDBname = getenv('MEDIAWIKI_DB_NAME');
-$wgDBuser = getenv('MEDIAWIKI_DB_USER');
-$wgDBpassword = getenv('MEDIAWIKI_DB_PASSWORD');
+$wgDBservers = [
+    [
+        'host' => 'gbfwiki.cx7ksdxnqr4e.eu-central-1.rds.amazonaws.com',
+        'dbname' => 'mediawiki',
+        'user' => 'mediawiki',
+        'password' => 'pk8sjhBUgL3hyvM0JkL8',
+        'type' => 'mysql',
+        'flags' => DBO_DEFAULT,
+        'load' => 0
+    ]
+];
 $wgDBprefix = "";
 $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgSharedTables[] = "actor";
