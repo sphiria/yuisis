@@ -62,10 +62,10 @@ $wgReferrerPolicy = array('strict-origin-when-cross-origin', 'strict-origin');
 $wgDBname = getenv('MEDIAWIKI_DB_NAME');
 $wgDBservers = [
     [
-        'host' => 'gbfwiki.cx7ksdxnqr4e.eu-central-1.rds.amazonaws.com',
-        'dbname' => 'mediawiki',
-        'user' => 'mediawiki',
-        'password' => 'pk8sjhBUgL3hyvM0JkL8',
+        'host' => getenv('MEDIAWIKI_DB_SERVER'),
+        'dbname' => getenv('MEDIAWIKI_DB_NAME'),
+        'user' => getenv('MEDIAWIKI_DB_USER'),
+        'password' => getenv('MEDIAWIKI_DB_PASSWORD'),
         'type' => 'mysql',
         'flags' => DBO_DEFAULT,
         'load' => 0

@@ -1,7 +1,7 @@
 ARG ALPINE_VERSION=3.17
 FROM alpine:${ALPINE_VERSION}
 ENV MEDIAWIKI_MAJOR_VERSION=1.39
-ENV MEDIAWIKI_VERSION=1.39.0
+ENV MEDIAWIKI_VERSION=1.39.1
 LABEL Maintainer="lis <hello@lis.sh>"
 LABEL Description="Lightweight Mediawiki container with Nginx 1.22 & PHP 8.1 based on Alpine Linux 3.17."
 WORKDIR /var/www/html
@@ -56,8 +56,9 @@ RUN apk add --no-cache \
   # supervisor
   supervisor; \
   # download mediawiki
-  curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSION}/mediawiki-${MEDIAWIKI_VERSION}.tar.gz" -o mediawiki.tar.gz; \
-	tar -x --strip-components=1 -f mediawiki.tar.gz; \
+  #curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSION}/mediawiki-${MEDIAWIKI_VERSION}.tar.gz" -o mediawiki.tar.gz; \
+	#tar -x --strip-components=1 -f mediawiki.tar.gz; \
+  git clone --branch REL1_39 https://github.com/wikimedia/mediawiki /var/www/html/; \
 	# clean-up
 	rm -rf mediawiki.tar.gz UPGRADE SECURITY RELEASE-NOTES-${MEDIAWIKI_MAJOR_VERSION} README.md INSTALL HISTORY FAQ CREDITS COPYING CODE_OF_CONDUCT.md; \
   # install extensions
