@@ -1,7 +1,7 @@
 ARG ALPINE_VERSION=3.17
 FROM alpine:${ALPINE_VERSION}
 ENV MEDIAWIKI_MAJOR_VERSION=1.39
-ENV MEDIAWIKI_VERSION=1.39.1
+ENV MEDIAWIKI_VERSION=1.39.2
 LABEL Maintainer="lis <hello@lis.sh>"
 LABEL Description="Lightweight Mediawiki container with Nginx 1.22 & PHP 8.1 based on Alpine Linux 3.17."
 WORKDIR /var/www/html
@@ -56,9 +56,8 @@ RUN apk add --no-cache \
   # supervisor
   supervisor; \
   # download mediawiki
-  #curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSION}/mediawiki-${MEDIAWIKI_VERSION}.tar.gz" -o mediawiki.tar.gz; \
-	#tar -x --strip-components=1 -f mediawiki.tar.gz; \
-  git clone --branch REL1_39 https://github.com/wikimedia/mediawiki /var/www/html/; \
+  curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSION}/mediawiki-${MEDIAWIKI_VERSION}.tar.gz" -o mediawiki.tar.gz; \
+	tar -x --strip-components=1 -f mediawiki.tar.gz; \
 	# clean-up
 	rm -rf mediawiki.tar.gz UPGRADE SECURITY RELEASE-NOTES-${MEDIAWIKI_MAJOR_VERSION} README.md INSTALL HISTORY FAQ CREDITS COPYING CODE_OF_CONDUCT.md; \
   # install extensions
@@ -97,7 +96,7 @@ RUN apk add --no-cache \
   # CodeMirror
   git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeMirror /var/www/html/extensions/CodeMirror; \
   # Cargo
-  git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/Cargo /var/www/html/extensions/Cargo; \
+  git clone https://github.com/wikimedia/mediawiki-extensions-Cargo /var/www/html/extensions/Cargo; \
   # VariablesLua
   git clone https://github.com/Liquipedia/VariablesLua /var/www/html/extensions/VariablesLua; \
   # LuaSandbox
@@ -109,8 +108,11 @@ RUN apk add --no-cache \
   git clone https://gitlab.com/hydrawiki/extensions/Tabber /var/www/html/extensions/Tabber; \
   #git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue.git /var/www/html/extensions/TabberNeue; \
   # DPL3
-  curl -fSL "https://github.com/Universal-Omega/DynamicPageList3/archive/refs/tags/3.5.0.tar.gz" -o 3.5.0.tar.gz; \
-	tar -xzf 3.5.0.tar.gz -C /var/www/html/extensions;mv /var/www/html/extensions/DynamicPageList3-3.5.0 /var/www/html/extensions/DynamicPageList3;rm 3.5.0.tar.gz; \
+  git clone https://github.com/Universal-Omega/DynamicPageList3 /var/www/html/extensions/DynamicPageList3; \
+  # Popups
+  # git clone --branch REL1_39 https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups /var/www/html/extensions/Popups; \
+  # skin
+  git clone https://github.com/StarCitizenTools/mediawiki-skins-Citizen /var/www/html/skins/Citizen; \
   # composer
   cd /var/www/html;/usr/bin/php81 /usr/bin/composer.phar update --no-dev; \
   # uninstall build tools

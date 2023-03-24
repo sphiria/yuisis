@@ -125,7 +125,7 @@ $wgLocalFileRepo = [
     'name' => 'local',
     'directory' => getenv('MEDIAWIKI_UPLOAD_PATH'),
     'scriptDirUrl' => $wgScriptPath,
-    'url' => "{$wgScriptPath}/images",
+    'url' => getenv('MEDIAWIKI_UPLOAD_URL'),
     'hashLevels' => $wgHashedUploadDirectory ? 2 : 0,
     'thumbScriptUrl' => $wgThumbnailScriptPath,
     'transformVia404' => true,
@@ -164,6 +164,8 @@ $wgDiff3 = "/usr/bin/diff3";
 # skins
 $wgDefaultSkin = "vector";
 wfLoadSkin('Vector');
+#wfLoadSkin( 'Citizen' );
+#$wgCitizenEnableCJKFonts = true;
 
 # disable creating accounts with the api
 $wgAPIModules['createaccount'] = 'ApiDisabled';
@@ -255,4 +257,4 @@ $wgGroupPermissions['sysop']['deleterevision'] = true;
 $wgGroupPermissions['anime']['editsemiprotected']    = true;
 
 # disable variables/arrays deprecation message
-$wgDeprecationReleaseLimit = '1.0';
+#$wgDeprecationReleaseLimit = '1.0';

@@ -60,6 +60,18 @@ wfLoadExtension('TemplateData');
 # CodeMirror
 wfLoadExtension('CodeMirror');
 
+# TextExtracts
+wfLoadExtension( 'TextExtracts' );
+
+# PageImages
+wfLoadExtension( 'PageImages' );
+$wgPageImagesOpenGraph = false;
+
+# Popups - 3rd party extension
+#wfLoadExtension( 'Popups' );
+#$wgPopupsHideOptInOnPreferencesPage = true;
+#$wgPopupsReferencePreviewsBetaFeature = false;
+
 # ImportArticles - 3rd party extension
 wfLoadExtension('ImportArticles');
 

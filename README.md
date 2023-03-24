@@ -1,6 +1,6 @@
 # yuisis
 
-## A mediawiki docker container for gbf.wiki
+## A mediawiki docker image for gbf.wiki
 
 ### Environment variables
 
