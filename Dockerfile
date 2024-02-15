@@ -68,6 +68,8 @@ RUN apk add --no-cache \
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Arrays /var/www/html/extensions/Arrays; \
   # TemplateSandbox
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateSandbox /var/www/html/extensions/TemplateSandbox; \
+  # ShortDescription
+  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/ShortDescription /var/www/html/extensions/ShortDescription; \
   # UploadWizard
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/UploadWizard /var/www/html/extensions/UploadWizard; \
   # WikiSEO

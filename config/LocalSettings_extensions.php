@@ -105,6 +105,9 @@ wfLoadExtension('VipsScaler');
 # WikiSEO - 3rd party extension
 wfLoadExtension('WikiSEO');
 
+# ShortDescription
+wfLoadExtension( 'ShortDescription' );
+
 # CheckUser - 3rd party extension
 wfLoadExtension('CheckUser');
 $wgGroupPermissions['sysop']['checkuser'] = true;
