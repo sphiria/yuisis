@@ -13,7 +13,6 @@ wfLoadExtension('ParserFunctions');
 $wgPFEnableStringFunctions = true;
 $wgPFStringLengthLimit = 5000;
 wfLoadExtension('Poem');
-wfLoadExtension('Renameuser');
 wfLoadExtension('SpamBlacklist');
 wfLoadExtension('MultimediaViewer');
 wfLoadExtension('TitleBlacklist');
@@ -29,6 +28,8 @@ wfLoadExtension('Scribunto');
 $wgScribuntoDefaultEngine = 'luasandbox';
 $wgScribuntoUseCodeEditor = true;
 $wgScribuntoUseGeSHi = true;
+$wgScribuntoEngineConf['luasandbox']['memoryLimit'] = 50 * 1024 * 1024;
+$wgScribuntoEngineConf['luasandbox']['cpuLimit'] = 10;
 
 # captcha
 wfLoadExtensions(['ConfirmEdit', 'ConfirmEdit/QuestyCaptcha']);
@@ -43,12 +44,12 @@ $wgGroupPermissions['bot']['skipcaptcha'] = true; // registered bots
 $wgGroupPermissions['sysop']['skipcaptcha'] = true;
 $wgGroupPermissions['autoconfirmed']['skipcaptcha'] = true;
 $wgGroupPermissions['verified']['skipcaptcha'] = true;
-$wgCaptchaTriggers['edit']          = true;
-$wgCaptchaTriggers['create']        = true;
-$wgCaptchaTriggers['createtalk']    = true;
-$wgCaptchaTriggers['addurl']        = true;
+$wgCaptchaTriggers['edit'] = true;
+$wgCaptchaTriggers['create'] = true;
+$wgCaptchaTriggers['createtalk'] = true;
+$wgCaptchaTriggers['addurl'] = true;
 $wgCaptchaTriggers['createaccount'] = true;
-$wgCaptchaTriggers['badlogin']      = true;
+$wgCaptchaTriggers['badlogin'] = true;
 $ceAllowConfirmedEmail = true;
 
 # VisualEditor
@@ -61,41 +62,45 @@ wfLoadExtension('TemplateData');
 wfLoadExtension('CodeMirror');
 
 # TextExtracts
-wfLoadExtension( 'TextExtracts' );
+wfLoadExtension('TextExtracts');
 
 # PageImages
-wfLoadExtension( 'PageImages' );
+wfLoadExtension('PageImages');
 $wgPageImagesOpenGraph = false;
 
+# TemplateStyles
+wfLoadExtension('TemplateStyles');
+
+# TemplateStylesExtender
+wfLoadExtension('TemplateStylesExtender');
+
 # Popups - 3rd party extension
-#wfLoadExtension( 'Popups' );
-#$wgPopupsHideOptInOnPreferencesPage = true;
-#$wgPopupsReferencePreviewsBetaFeature = false;
+wfLoadExtension('Popups');
+$wgPopupsHideOptInOnPreferencesPage = true;
+$wgPopupsReferencePreviewsBetaFeature = false;
 
-# ImportArticles - 3rd party extension
-wfLoadExtension('ImportArticles');
+# TabberNeue
+wfLoadExtension('TabberNeue');
+$wgTabberNeueEnableAnimation = true;
 
-# Variables - 3rd party extension
-wfLoadExtension('Variables');
-
-# Loops - 3rd party extension
-wfLoadExtension('Loops');
-$egLoopsCountLimit = 500;
-
-# DynamicPageList - 3rd party extension
-wfLoadExtension("DynamicPageList3");
-$wgDplSettings['maxResultCount'] = 1000;
-
-# Tabber - 3rd party extension - TODO: deprecate it
-wfLoadExtension('Tabber');
-#wfLoadExtension('TabberNeue');
-#$wgTabberNeueEnableAnimation = true;
-
-# Arrays - 3rd party extension
-wfLoadExtension('Arrays');
+# AWS - 3rd party extension
+wfLoadExtension('AWS');
+$wgAWSCredentials = [
+    'key' => getenv('AWS_S3_KEY'),
+    'secret' => getenv('AWS_S3_SECRET')
+];
+$wgAWSBucketName = "gbf-wiki-cdn";
+$wgAWSRegion = 'us-east-1';
+$wgAWSBucketTopSubdirectory = "/relink";
+$wgFileBackends['s3']['endpoint'] = 'https://16754c1a958bd7ee8342063a2d33ff41.r2.cloudflarestorage.com';
+$wgAWSBucketDomain = "cdn.gbf.wiki";
+$wgFileBackends['s3']['use_path_style_endpoint'] = true;
 
 # TemplateSandbox - 3rd party extension
 wfLoadExtension('TemplateSandbox');
+
+# VipsScaler - 3rd party extension
+wfLoadExtension('VipsScaler');
 
 # WikiSEO - 3rd party extension
 wfLoadExtension('WikiSEO');
@@ -106,39 +111,21 @@ $wgGroupPermissions['sysop']['checkuser'] = true;
 $wgGroupPermissions['sysop']['checkuser-log'] = true;
 $wgGroupPermissions['sysop']['hideuser'] = true;
 
-# Tabs - 3rd party extension
-wfLoadExtension('Tabs');
-
 # Widgets - 3rd party extension
 wfLoadExtension('Widgets');
 
 # CLDR - 3rd party extension
 wfLoadExtension('cldr');
 
-# StructuredDiscussions - 3rd party extension
-wfLoadExtension('Flow');
-$wgNamespaceContentModels[NS_TALK] = 'flow-board';
-$wgNamespaceContentModels[NS_USER_TALK] = 'flow-board';
-$wgNamespaceContentModels[NS_RAIDS_TALK] = 'flow-board';
-$wgNamespaceContentModels[NS_META_TALK] = 'flow-board';
-$wgNamespaceContentModels[NS_SCENARIO_TALK] = 'flow-board';
-$wgNamespaceContentModels[NS_NEWS_TALK] = 'flow-board';
-$wgNamespaceContentModels[NS_ENEMIES_TALK] = 'flow-board';
-$wgNamespaceContentModels[NS_SKILLS_TALK] = 'flow-board';
-$wgNamespacesWithSubpages[3001] = true;
-$wgNamespacesWithSubpages[4001] = true;
-$wgNamespacesWithSubpages[5001] = true;
-$wgNamespacesWithSubpages[6001] = true;
-$wgNamespacesWithSubpages[7001] = true;
-$wgNamespacesWithSubpages[8001] = true;
-$wgGroupPermissions['sysop']['flow-create-board'] = true;
-$wgFlowContentFormat = 'html';
-
 # Parsoid
-wfLoadExtension('Parsoid', __DIR__ . '/vendor/wikimedia/parsoid/extension.json' );
+wfLoadExtension('Parsoid', __DIR__ . '/vendor/wikimedia/parsoid/extension.json');
 $wgVirtualRestConfig['modules']['parsoid'] = array(
     'url' => 'http://localhost:8080/rest.php',
 );
+$wgParserEnableLegacyMediaDOM = false;
+$wgParsoidSettings = [
+    'linting' => true
+];
 
 # echo - 3rd party extension
 wfLoadExtension('Echo');
@@ -148,11 +135,11 @@ wfLoadExtension('LabeledSectionTransclusion');
 
 # cargo
 wfLoadExtension('Cargo');
-$wgCargoDBtype = getenv('MEDIAWIKI_CARGO_TYPE');
-$wgCargoDBserver = getenv('MEDIAWIKI_CARGO_SERVER');
-$wgCargoDBname = getenv('MEDIAWIKI_CARGO_NAME');
-$wgCargoDBuser = getenv('MEDIAWIKI_CARGO_USER');
-$wgCargoDBpassword = getenv('MEDIAWIKI_CARGO_PASSWORD');
+#$wgCargoDBtype = getenv('MEDIAWIKI_CARGO_TYPE');
+#$wgCargoDBserver = getenv('MEDIAWIKI_CARGO_SERVER');
+#$wgCargoDBname = getenv('MEDIAWIKI_CARGO_NAME');
+#$wgCargoDBuser = getenv('MEDIAWIKI_CARGO_USER');
+#$wgCargoDBpassword = getenv('MEDIAWIKI_CARGO_PASSWORD');
 $wgCargoPageDataColumns[] = 'categories';
 $wgCargoPageDataColumns[] = 'creationDate';
 $wgCargoPageDataColumns[] = 'modificationDate';
@@ -173,14 +160,144 @@ $wgCargoAllowedSQLFunctions[] = 'IF';
 $wgCargoAllowedSQLFunctions[] = 'IFNULL';
 $wgCargoAllowedSQLFunctions[] = 'ANY_VALUE';
 
+/* 
+ TODO: extensions to fix:
+ AdvancedSearch
+
+*/
+
 # SimpleMathJax - 3rd party extension
 wfLoadExtension('SimpleMathJax');
 
-# VariablesLua - 3rd party extension
-wfLoadExtension('VariablesLua');
+# MultiPurge
+# wfLoadExtension('MultiPurge');
 
-# CollapsibleVector fork - broken atm
-# wfLoadExtension('CollapsibleVector-gbfwiki');
+# Disambiguator
+wfLoadExtension('Disambiguator');
+
+# DiscussionTools
+wfLoadExtension('DiscussionTools');
+
+# Linter
+wfLoadExtension('Linter');
+
+# UploadWizard
+wfLoadExtension('UploadWizard');
+$wgUploadNavigationUrl = '/Special:UploadWizard';
+$wgUploadWizardConfig = array(
+    'debug' => false,
+    'altUploadForm' => 'Special:Upload',
+    'fallbackToAltUploadForm' => false,
+    'alternativeUploadToolsPage' => false,
+    'enableFormData' => true,
+    'enableMultipleFiles' => true,
+    'enableMultiFileSelect' => false,
+    'enableCategoryCheck' => false,
+    'minAuthorLength' => 0,
+    'minSourceLength' => 0,
+    'minDescriptionLength' => 0,
+    'minCaptionLength' => 0,
+    'tutorial' => array(
+        'skip' => true
+    ),
+    'maxUploads' => 15,
+    'licenses' => array(
+        # Cygames
+        'cygameslicense' => array(
+            'msg' => 'mwe-upwiz-license-cygames',
+            'templates' => array('cygameslicense')
+        ),
+        # CC-BY-NC-SA-2.0 required by Flickr
+        # Note that this need to be added to mw.FlickrChecker.js every time it is updated
+        'cc-by-nc-sa-2.0' => array(
+            'msg' => 'mwe-upwiz-license-cc-by-nc-sa-2.0',
+            'templates' => array('cc-by-nc-sa-2.0'),
+            #'icons' => array('cc-by','cc-nc','cc-sa'), NC icon is missing
+            'url' => '//creativecommons.org/licenses/by-nc-sa/2.0/',
+            'languageCodePrefix' => 'deed.'
+        ),
+        # CC-BY-NC-2.0 required by Flickr
+        # Note that this need to be added to mw.FlickrChecker.js every time it is updated
+        'cc-by-nc-2.0' => array(
+            'msg' => 'mwe-upwiz-license-cc-by-nc-2.0',
+            'templates' => array('cc-by-nc-2.0'),
+            #'icons' => array('cc-by','cc-nc'), NC icon is missing
+            'url' => '//creativecommons.org/licenses/by-nc/2.0/',
+            'languageCodePrefix' => 'deed.'
+        ),
+    ),
+    # License selection page
+    'licensing' => array(
+        'thirdParty' => array(
+            'type' => 'or',
+            'defaults' => 'cygameslicense',
+            'licenseGroups' => array(
+                array(
+                    'head' => 'mwe-upwiz-license-cygames',
+                    'licenses' => array(
+                        'cygameslicense'
+                    )
+                ),
+                array(
+                    # This should be a list of all CC licenses we can reasonably expect to find around the web
+                    'head' => 'mwe-upwiz-license-cc-head',
+                    'subhead' => 'mwe-upwiz-license-cc-subhead',
+                    'licenses' => array(
+                        'cc-by-sa-4.0',
+                        'cc-by-sa-3.0',
+                        'cc-by-sa-2.5',
+                        'cc-by-4.0',
+                        'cc-by-3.0',
+                        'cc-by-2.5',
+                        'cc-zero'
+                    )
+                ),
+                array(
+                    # Flickr still uses CC 2.0
+                    'head' => 'mwe-upwiz-license-flickr-head',
+                    'subhead' => 'mwe-upwiz-license-flickr-subhead',
+                    'licenses' => array(
+                        'cc-by-nc-sa-2.0',
+                        'cc-by-nc-2.0',
+                        'cc-by-sa-2.0',
+                        'cc-by-2.0'
+                    )
+                ),
+                array(
+                    'head' => 'mwe-upwiz-license-custom-head',
+                    'special' => 'custom',
+                    'licenses' => array('custom'),
+                ),
+                array(
+                    'head' => 'mwe-upwiz-license-none-head',
+                    'licenses' => array('none')
+                ),
+            )
+        )
+    )
+);
+# Tabs - 3rd party extension
+#wfLoadExtension('Tabs');
+
+# Arrays - 3rd party extension
+#wfLoadExtension('Arrays');
+
+# ImportArticles - 3rd party extension
+#wfLoadExtension('ImportArticles');
+
+# Variables - 3rd party extension
+#wfLoadExtension('Variables');
+
+# VariablesLua - 3rd party extension
+# wfLoadExtension('VariablesLua');
+
+# Loops - 3rd party extension
+#wfLoadExtension('Loops');
+#$egLoopsCountLimit = 500;
+
+# DynamicPageList - 3rd party extension
+# wfLoadExtension("DynamicPageList3");
+# $wgDplSettings['maxResultCount'] = 1000;
 
 # ElasticSearch
 #wfLoadExtension('Elastica');
@@ -203,36 +320,3 @@ wfLoadExtension('VariablesLua');
 #wfLoadExtension('Discord');
 #require_once "/secrets/discord.php";
 #$wgDiscordDisabledHooks = ["ArticleDeleteComplete", "ArticleUndelete", "ArticleRevisionVisibilitySet", "ArticleProtectComplete", "BlockIpComplete", "UnblockUserComplete", "UserGroupsChanged", "FileDeleteComplete", "FileUndeleteComplete", "AfterImportPage", "ArticleMergeComplete"];
-# DeletepagesFFS - 3rd party extension
-/* wfLoadExtension('DeletePagesForGood');
-$wgGroupPermissions['*']['deleteperm'] = false;
-$wgGroupPermissions['user']['deleteperm'] = false;
-$wgGroupPermissions['bureaucrat']['deleteperm'] = false;
-$wgGroupPermissions['sysop']['deleteperm'] = true;
-$wgDeletePagesForGoodNamespaces = array(
-    'NS_MAIN' => true,
-    'NS_IMAGE' => true,
-    'NS_IMAGE_TALK' => true,
-    'NS_CATEGORY' => true,
-    'NS_CATEGORY_TALK' => true,
-    'NS_TEMPLATE' => true,
-    'NS_TEMPLATE_TALK' => true,
-    'NS_TALK' => true,
-    'NS_USER' => true,
-    'NS_USER_TALK' => true,
-    'NS_FILE' => true,
-    'NS_FILE_TALK' => true,
-    'NS_RAIDS' => true,
-    'NS_RAIDS_TALK' => true,
-    'NS_META' => true,
-    'NS_META_TALK' => true,
-    'NS_SCENARIO' => true,
-    'NS_SCENARIO_TALK' => true,
-    'NS_TOPIC' => true,
-    #       'NS_TOPIC_TALK' => true,
-    'NS_NEWS' => true,
-    'NS_NEWS_TALK' => true,
-    'NS_WIDGET' => true,
-    'NS_TROPHIES' => true,
-);
- */

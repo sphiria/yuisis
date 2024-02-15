@@ -1,0 +1,4 @@
+/* Hide title and edit tools on main page, ty starcitizen.tools */
+.page-Main_Page .mw-body-header {
+	display: none!important;
+}

@@ -1,29 +1,29 @@
 <?php
-error_reporting( -1 );
-ini_set( 'display_errors', 1 );
+error_reporting(-1);
+ini_set('display_errors', 1);
 $wgShowExceptionDetails = true;
 if (!defined('MEDIAWIKI')) {
 	exit;
 }
 
 # names
-$wgSitename =  getenv('MEDIAWIKI_NAME');
+$wgSitename = getenv('MEDIAWIKI_NAME');
 $wgMetaNamespace = getenv('MEDIAWIKI_META_NAMESPACE');
+$wgServer = getenv('MEDIAWIKI_SERVER');
 
 # max upload size
 $wgMaxUploadSize = 10485760;
 
-# server url
-$wgServer = getenv('MEDIAWIKI_SERVER');
-$wgScriptPath = "";
-$wgUsePathInfo = true;
-
 # time 
 $wgLocaltimezone = "UTC";
 
-# this makes very pretty urls, ie: article/edit
+# url
+$wgScriptPath = "";
+$wgScriptExtension = "$wgScriptPath/index.php";
+$wgRedirectScript = "$wgScriptPath/redirect.php";
+$wgUsePathInfo = true;
 $actions = array(
-	'edit', 'watch', 'unwatch', 'delete', 'revert', 'rollback',
+	'edit', 'vedit', 'watch', 'unwatch', 'delete', 'revert', 'rollback',
 	'protect', 'unprotect', 'markpatrolled', 'render', 'submit', 'history', 'purge', 'info'
 );
 foreach ($actions as $action) {
@@ -31,9 +31,10 @@ foreach ($actions as $action) {
 }
 $wgActionPaths['view'] = "/$1";
 $wgArticlePath = $wgActionPaths['view'];
-$wgScriptExtension  = ".php";
 $wgResourceBasePath = $wgScriptPath;
 $wgUrlProtocols = array('http://', 'https://', '//');
+$wgMainPageIsDomainRoot = true;
+#$wgForceHTTPS = true;
 
 # logo
 $wgLogo = $wgScriptPath . getenv('MEDIAWIKI_LOGO');
@@ -43,13 +44,10 @@ $wgFavicon = $wgScriptPath . getenv('MEDIAWIKI_FAVICON');
 $wgEnableEmail = false;
 
 # determines how section IDs should be encoded. 
-$wgFragmentMode = [ 'html5', 'legacy' ];
+$wgFragmentMode = ['html5'];
 
 # maximum amount of virtual memory available to shell processes, disabled
 $wgMaxShellMemory = 0;
-
-# force https
-#$wgForceHTTPS = true;
 
 # cookies
 $wgCookieSameSite = 'Strict';
@@ -61,15 +59,15 @@ $wgReferrerPolicy = array('strict-origin-when-cross-origin', 'strict-origin');
 # database
 $wgDBname = getenv('MEDIAWIKI_DB_NAME');
 $wgDBservers = [
-    [
-        'host' => getenv('MEDIAWIKI_DB_SERVER'),
-        'dbname' => getenv('MEDIAWIKI_DB_NAME'),
-        'user' => getenv('MEDIAWIKI_DB_USER'),
-        'password' => getenv('MEDIAWIKI_DB_PASSWORD'),
-        'type' => 'mysql',
-        'flags' => DBO_DEFAULT,
-        'load' => 0
-    ]
+	[
+		'host' => getenv('MEDIAWIKI_DB_SERVER'),
+		'dbname' => getenv('MEDIAWIKI_DB_NAME'),
+		'user' => getenv('MEDIAWIKI_DB_USER'),
+		'password' => getenv('MEDIAWIKI_DB_PASSWORD'),
+		'type' => 'mysql',
+		'flags' => DBO_DEFAULT,
+		'load' => 0
+	]
 ];
 $wgDBprefix = "";
 $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
@@ -93,8 +91,8 @@ $wgLocalisationCacheConf = [
 	'manualRecache' => false,
 ];
 $wgObjectCaches['redis'] = array(
-    'class' => 'RedisBagOStuff',
-    'servers' => array( getenv('REDIS_SERVER') ),
+	'class' => 'RedisBagOStuff',
+	'servers' => array(getenv('REDIS_SERVER')),
 );
 
 $wgJobTypeConf['default'] = [
@@ -106,7 +104,7 @@ $wgJobTypeConf['default'] = [
 ];
 
 $wgJobQueueAggregator = [
-	'class'       => 'JobQueueAggregatorRedis',
+	'class' => 'JobQueueAggregatorRedis',
 	'redisServer' => getenv('REDIS_SERVER'),
 ];
 
@@ -116,27 +114,18 @@ $wgMiserMode = true;
 # add canonical meta tag on every page
 $wgEnableCanonicalServerLink = true;
 
+# allow logged-in users to set a preference whether or not matches in search results should force redirection to that page
+$wgSearchMatchRedirectPreference = true;
+
 # images
 $wgEnableUploads = true;
 $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
-$wgLocalFileRepo = [
-    'class' => LocalRepo::class,
-    'name' => 'local',
-    'directory' => getenv('MEDIAWIKI_UPLOAD_PATH'),
-    'scriptDirUrl' => $wgScriptPath,
-    'url' => getenv('MEDIAWIKI_UPLOAD_URL'),
-    'hashLevels' => $wgHashedUploadDirectory ? 2 : 0,
-    'thumbScriptUrl' => $wgThumbnailScriptPath,
-    'transformVia404' => true,
-    'deletedDir' => $wgDeletedDirectory,
-    'deletedHashLevels' => $wgHashedUploadDirectory ? 3 : 0,
-	'disableLocalTransform' => false
-];
-$wgNativeImageLazyLoading  = true;
-
-# disable instant commons
+$wgNativeImageLazyLoading = true;
+$wgMaxImageArea = 6.4e7; # fix big boi images
 $wgUseInstantCommons = false;
+$wgFileExtensions = [ 'png', 'gif', 'jpg', 'jpeg', 'webp', 'ico', ];
+$wgApiFrameOptions = 'SAMEORIGIN';
 
 # disable pingback
 $wgPingback = false;
@@ -157,15 +146,17 @@ $wgRightsUrl = "https://creativecommons.org/licenses/by-nc-sa/3.0/";
 $wgRightsText = "Creative Commons Attribution-NonCommercial-ShareAlike";
 $wgRightsIcon = "$wgScriptPath/resources/assets/licenses/cc-by-nc-sa.png";
 
+# css
+$wgAllowSiteCSSOnRestrictedPages = true;
+
 # diff for conflict resolution
 $wgDiff = "/usr/bin/diff3";
 $wgDiff3 = "/usr/bin/diff3";
 
 # skins
-$wgDefaultSkin = "vector";
-wfLoadSkin('Vector');
-#wfLoadSkin( 'Citizen' );
-#$wgCitizenEnableCJKFonts = true;
+$wgDefaultSkin = "Citizen";
+wfLoadSkin('Citizen');
+$wgCitizenEnableCJKFonts = true;
 
 # disable creating accounts with the api
 $wgAPIModules['createaccount'] = 'ApiDisabled';
@@ -191,43 +182,8 @@ $wgHiddenPrefs[] = 'realname';
 # increase article size
 $wgMaxArticleSize = 8192;
 
-# namespaces
-define("NS_RAIDS", 3000);
-$wgExtraNamespaces[NS_RAIDS] = "Raids";
-define("NS_RAIDS_TALK", 3001);
-$wgExtraNamespaces[NS_RAIDS_TALK] = "Raids_talk";
-define("NS_META", 4000);
-$wgExtraNamespaces[NS_META] = "Meta";
-define("NS_META_TALK", 4001);
-$wgExtraNamespaces[NS_META_TALK] = "Meta_talk";
-$wgNamespacesWithSubpages[NS_META] = true;
-define("NS_SCENARIO", 5000);
-$wgExtraNamespaces[NS_SCENARIO] = "Scenario";
-define("NS_SCENARIO_TALK", 5001);
-$wgExtraNamespaces[NS_SCENARIO_TALK] = "Scenario_talk";
-define("NS_NEWS", 6000);
-$wgExtraNamespaces[NS_NEWS] = "News";
-define("NS_NEWS_TALK", 6001);
-$wgExtraNamespaces[NS_NEWS_TALK] = "News_talk";
-define("NS_ENEMIES", 7000);
-$wgExtraNamespaces[NS_ENEMIES] = "Enemies";
-define("NS_ENEMIES_TALK", 7001);
-$wgExtraNamespaces[NS_ENEMIES_TALK] = "Enemies_talk";
-define("NS_SKILLS", 8000);
-$wgExtraNamespaces[NS_SKILLS] = "Skills";
-define("NS_SKILLS_TALK", 8001);
-$wgExtraNamespaces[NS_SKILLS_TALK] = "Skills_talk";
-define("NS_TROPHIES", 9000);
-$wgExtraNamespaces[NS_TROPHIES] = "Trophies";
-define("NS_TROPHIES_TALK", 9001);
-$wgExtraNamespaces[NS_TROPHIES_TALK] = "Trophies_talk";
-define("NS_DATA", 10000);
-$wgExtraNamespaces[NS_DATA] = "Data";
-define("NS_DATA_TALK", 10001);
-$wgExtraNamespaces[NS_DATA_TALK] = "Data_talk";
-
 # google analytics
-$wgHooks['BeforePageDisplay'][] = function( OutputPage &$out, Skin &$skin ) {
+$wgHooks['BeforePageDisplay'][] = function (OutputPage &$out, Skin &$skin) {
 	$code = <<<'START_END_MARKER'
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -239,7 +195,7 @@ ga('create', 'UA-97011956-1', 'auto');
 ga('send', 'pageview');
 </script>	
 START_END_MARKER;
-	$out->addHeadItem( 'google-analytics', $code );
+	$out->addHeadItem('google-analytics', $code);
 	return true;
 };
 
@@ -253,8 +209,25 @@ $wgGroupPermissions['editors']['editinterface'] = true;
 # let sysop delete deletelogentry and deleterevision
 $wgGroupPermissions['sysop']['deletelogentry'] = true;
 $wgGroupPermissions['sysop']['deleterevision'] = true;
-# let anime edit semiprotected
-$wgGroupPermissions['anime']['editsemiprotected']    = true;
 
-# disable variables/arrays deprecation message
-#$wgDeprecationReleaseLimit = '1.0';
+# footer
+$wgFooterIcons = [
+	"poweredby" => [
+		"mediawiki" => [
+			"src" => "http://cdn.gbf.wiki/badge-mediawiki.svg",
+			"url" => "https://www.mediawiki.org",
+			"alt" => "Powered by MediaWiki",
+			"height" => "42",
+			"width" => "127",
+		]
+	],
+	"copyright" => [
+		"copyright" => [
+			"src" => "http://cdn.gbf.wiki/CCBYSA4.svg",
+			"url" => $wgRightsUrl,
+			"alt" => $wgRightsText,
+			"height" => "50",
+			"width" => "110",
+		]
+	]
+];
