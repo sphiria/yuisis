@@ -71,7 +71,7 @@ RUN apk add --no-cache \
   # ShortDescription
   git clone https://github.com/StarCitizenTools/mediawiki-extensions-ShortDescription /var/www/html/extensions/ShortDescription; \
   # UploadWizard
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/UploadWizard /var/www/html/extensions/UploadWizard; \
+  git clone --branch REL1_41 https://github.com/sphiria/mediawiki-extensions-UploadWizard /var/www/html/extensions/UploadWizard; \
   # WikiSEO
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiSEO /var/www/html/extensions/WikiSEO; \
   # CheckUser

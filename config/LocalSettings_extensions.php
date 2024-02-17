@@ -84,17 +84,19 @@ wfLoadExtension('TabberNeue');
 $wgTabberNeueEnableAnimation = true;
 
 # AWS - 3rd party extension
-wfLoadExtension('AWS');
-$wgAWSCredentials = [
-    'key' => getenv('AWS_S3_KEY'),
-    'secret' => getenv('AWS_S3_SECRET')
-];
-$wgAWSBucketName = "gbf-wiki-cdn";
-$wgAWSRegion = 'us-east-1';
-$wgAWSBucketTopSubdirectory = "/relink";
-$wgFileBackends['s3']['endpoint'] = 'https://16754c1a958bd7ee8342063a2d33ff41.r2.cloudflarestorage.com';
-$wgAWSBucketDomain = "cdn.gbf.wiki";
-$wgFileBackends['s3']['use_path_style_endpoint'] = true;
+if (getenv('AWS_S3_SECRET')) {
+    wfLoadExtension('AWS');
+    $wgAWSCredentials = [
+        'key' => getenv('AWS_S3_KEY'),
+        'secret' => getenv('AWS_S3_SECRET')
+    ];
+    $wgAWSBucketName = "gbf-wiki-cdn";
+    $wgAWSRegion = 'us-east-1';
+    $wgAWSBucketTopSubdirectory = "/relink";
+    $wgFileBackends['s3']['endpoint'] = 'https://16754c1a958bd7ee8342063a2d33ff41.r2.cloudflarestorage.com';
+    $wgAWSBucketDomain = "cdn.gbf.wiki";
+    $wgFileBackends['s3']['use_path_style_endpoint'] = true;
+}
 
 # TemplateSandbox - 3rd party extension
 wfLoadExtension('TemplateSandbox');
@@ -106,7 +108,7 @@ wfLoadExtension('VipsScaler');
 wfLoadExtension('WikiSEO');
 
 # ShortDescription
-wfLoadExtension( 'ShortDescription' );
+wfLoadExtension('ShortDescription');
 
 # CheckUser - 3rd party extension
 wfLoadExtension('CheckUser');
@@ -122,9 +124,6 @@ wfLoadExtension('cldr');
 
 # Parsoid
 wfLoadExtension('Parsoid', __DIR__ . '/vendor/wikimedia/parsoid/extension.json');
-$wgVirtualRestConfig['modules']['parsoid'] = array(
-    'url' => 'http://localhost:8080/rest.php',
-);
 $wgParserEnableLegacyMediaDOM = false;
 $wgParsoidSettings = [
     'linting' => true
@@ -173,7 +172,13 @@ $wgCargoAllowedSQLFunctions[] = 'ANY_VALUE';
 wfLoadExtension('SimpleMathJax');
 
 # MultiPurge
-# wfLoadExtension('MultiPurge');
+wfLoadExtension('MultiPurge');
+if (getenv('CLOUDFLARE_API_TOKEN')) {
+    $wgMultiPurgeEnabledServices = array('Cloudflare');
+    $wgMultiPurgeServiceOrder = array('Cloudflare');
+    $wgMultiPurgeCloudFlareZoneId = getenv('CLOUDFLARE_ZONE_ID');
+    $wgMultiPurgeCloudflareApiToken = getenv('CLOUDFLARE_API_TOKEN');
+}
 
 # Disambiguator
 wfLoadExtension('Disambiguator');
@@ -203,81 +208,17 @@ $wgUploadWizardConfig = array(
     'tutorial' => array(
         'skip' => true
     ),
-    'maxUploads' => 15,
-    'licenses' => array(
-        # Cygames
-        'cygameslicense' => array(
-            'msg' => 'mwe-upwiz-license-cygames',
-            'templates' => array('cygameslicense')
-        ),
-        # CC-BY-NC-SA-2.0 required by Flickr
-        # Note that this need to be added to mw.FlickrChecker.js every time it is updated
-        'cc-by-nc-sa-2.0' => array(
-            'msg' => 'mwe-upwiz-license-cc-by-nc-sa-2.0',
-            'templates' => array('cc-by-nc-sa-2.0'),
-            #'icons' => array('cc-by','cc-nc','cc-sa'), NC icon is missing
-            'url' => '//creativecommons.org/licenses/by-nc-sa/2.0/',
-            'languageCodePrefix' => 'deed.'
-        ),
-        # CC-BY-NC-2.0 required by Flickr
-        # Note that this need to be added to mw.FlickrChecker.js every time it is updated
-        'cc-by-nc-2.0' => array(
-            'msg' => 'mwe-upwiz-license-cc-by-nc-2.0',
-            'templates' => array('cc-by-nc-2.0'),
-            #'icons' => array('cc-by','cc-nc'), NC icon is missing
-            'url' => '//creativecommons.org/licenses/by-nc/2.0/',
-            'languageCodePrefix' => 'deed.'
-        ),
-    ),
-    # License selection page
-    'licensing' => array(
-        'thirdParty' => array(
+    'maxUploads' => 50,
+    'licensing' => [
+        'ownWorkDefault' => 'own',
+        'ownWork' => [
             'type' => 'or',
-            'defaults' => 'cygameslicense',
-            'licenseGroups' => array(
-                array(
-                    'head' => 'mwe-upwiz-license-cygames',
-                    'licenses' => array(
-                        'cygameslicense'
-                    )
-                ),
-                array(
-                    # This should be a list of all CC licenses we can reasonably expect to find around the web
-                    'head' => 'mwe-upwiz-license-cc-head',
-                    'subhead' => 'mwe-upwiz-license-cc-subhead',
-                    'licenses' => array(
-                        'cc-by-sa-4.0',
-                        'cc-by-sa-3.0',
-                        'cc-by-sa-2.5',
-                        'cc-by-4.0',
-                        'cc-by-3.0',
-                        'cc-by-2.5',
-                        'cc-zero'
-                    )
-                ),
-                array(
-                    # Flickr still uses CC 2.0
-                    'head' => 'mwe-upwiz-license-flickr-head',
-                    'subhead' => 'mwe-upwiz-license-flickr-subhead',
-                    'licenses' => array(
-                        'cc-by-nc-sa-2.0',
-                        'cc-by-nc-2.0',
-                        'cc-by-sa-2.0',
-                        'cc-by-2.0'
-                    )
-                ),
-                array(
-                    'head' => 'mwe-upwiz-license-custom-head',
-                    'special' => 'custom',
-                    'licenses' => array('custom'),
-                ),
-                array(
-                    'head' => 'mwe-upwiz-license-none-head',
-                    'licenses' => array('none')
-                ),
-            )
-        )
-    )
+            'template' => 'licensing',
+            'licenses' => [
+                'generic',
+            ],
+        ],
+    ],
 );
 # Tabs - 3rd party extension
 #wfLoadExtension('Tabs');
