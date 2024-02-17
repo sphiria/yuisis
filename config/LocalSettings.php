@@ -238,3 +238,8 @@ $wgFooterIcons = [
 		]
 	]
 ];
+# Mastery
+define("NS_MASTERY", 3000);
+define("NS_MASTERY_TALK", 3001);
+$wgExtraNamespaces[NS_MASTERY] = "Mastery";
+$wgExtraNamespaces[NS_MASTERY_TALK] = "Mastery_talk";
