@@ -214,16 +214,23 @@ $wgGroupPermissions['sysop']['deleterevision'] = true;
 $wgFooterIcons = [
 	"poweredby" => [
 		"mediawiki" => [
-			"src" => "http://cdn.gbf.wiki/badge-mediawiki.svg",
+			"src" => "https://cdn.gbf.wiki/badge-mediawiki.svg",
 			"url" => "https://www.mediawiki.org",
 			"alt" => "Powered by MediaWiki",
+			"height" => "42",
+			"width" => "127",
+		],
+		"gisla" => [
+			"src" => "https://cdn.gbf.wiki/badge-gisla.svg",
+			"url" => "https://github.com/sphiria",
+			"alt" => "Powered by Gisla",
 			"height" => "42",
 			"width" => "127",
 		]
 	],
 	"copyright" => [
 		"copyright" => [
-			"src" => "http://cdn.gbf.wiki/CCBYSA4.svg",
+			"src" => "https://cdn.gbf.wiki/CCBYSA4.svg",
 			"url" => $wgRightsUrl,
 			"alt" => $wgRightsText,
 			"height" => "50",
