@@ -173,6 +173,10 @@ $wgHooks['SpecialPage_initList'][] = 'removeExportSpecial';
 # disable job queue
 $wgJobRunRate = 0;
 
+# use X-Forward-For
+$wgUsePrivateIPs = true;
+$wgCdnServersNoPurge[] = '10.0.0.0/8';
+
 # allow user css/js
 $wgAllowUserCss = true;
 $wgAllowUserJs = true;

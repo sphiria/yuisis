@@ -115,8 +115,6 @@ RUN apk add --no-cache \
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups /var/www/html/extensions/Popups; \
   # skin
   git clone https://github.com/StarCitizenTools/mediawiki-skins-Citizen /var/www/html/skins/Citizen; \
-  # Timeless
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Timeless /var/www/html/skins/Timeless; \
   # fix permissions
   chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx /var/log/php83;
 
