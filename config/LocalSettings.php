@@ -245,6 +245,16 @@ $wgFooterIcons = [
 ];
 # Mastery
 define("NS_MASTERY", 3000);
-define("NS_MASTERY_TALK", 3001);
 $wgExtraNamespaces[NS_MASTERY] = "Mastery";
+define("NS_MASTERY_TALK", 3001);
 $wgExtraNamespaces[NS_MASTERY_TALK] = "Mastery_talk";
+# Trait
+define("NS_TRAIT", 4000);
+$wgExtraNamespaces[NS_TRAIT] = "Trait";
+define("NS_TRAIT_TALK", 4001);
+$wgExtraNamespaces[NS_TRAIT_TALK] = "Trait_talk";
+# Quest
+define("NS_QUEST", 5000);
+$wgExtraNamespaces[NS_QUEST] = "Quest";
+define("NS_QUEST_TALK", 5001);
+$wgExtraNamespaces[NS_QUEST_TALK] = "Quest_talk";
