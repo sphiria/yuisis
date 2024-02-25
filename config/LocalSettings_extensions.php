@@ -230,18 +230,18 @@ $wgUploadWizardConfig = array(
 #wfLoadExtension('ImportArticles');
 
 # Variables - 3rd party extension
-#wfLoadExtension('Variables');
+wfLoadExtension('Variables');
 
 # VariablesLua - 3rd party extension
-# wfLoadExtension('VariablesLua');
+wfLoadExtension('VariablesLua');
 
 # Loops - 3rd party extension
-#wfLoadExtension('Loops');
-#$egLoopsCountLimit = 500;
+wfLoadExtension('Loops');
+$egLoopsCountLimit = 500;
 
 # DynamicPageList - 3rd party extension
-# wfLoadExtension("DynamicPageList3");
-# $wgDplSettings['maxResultCount'] = 1000;
+wfLoadExtension("DynamicPageList3");
+$wgDplSettings['maxResultCount'] = 1000;
 
 # ElasticSearch
 #wfLoadExtension('Elastica');
