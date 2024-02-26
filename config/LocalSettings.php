@@ -130,9 +130,6 @@ $wgApiFrameOptions = 'SAMEORIGIN';
 # disable pingback
 $wgPingback = false;
 
-# language code
-$wgLanguageCode = "en-gb";
-
 # timezone
 $wgLocaltimezone = "UTC";
 
