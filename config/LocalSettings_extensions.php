@@ -239,10 +239,6 @@ wfLoadExtension('VariablesLua');
 wfLoadExtension('Loops');
 $egLoopsCountLimit = 500;
 
-# DynamicPageList - 3rd party extension
-wfLoadExtension("DynamicPageList3");
-$wgDplSettings['maxResultCount'] = 1000;
-
 # ElasticSearch
 #wfLoadExtension('Elastica');
 #require_once "$IP/extensions/CirrusSearch/CirrusSearch.php";
