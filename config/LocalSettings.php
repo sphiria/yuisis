@@ -156,7 +156,6 @@ $wgDiff3 = "/usr/bin/diff3";
 # skins
 $wgDefaultSkin = "Citizen";
 wfLoadSkin('Citizen');
-wfLoadSkin( 'Timeless' );
 $wgCitizenEnableCJKFonts = true;
 
 # disable creating accounts with the api

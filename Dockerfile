@@ -71,7 +71,7 @@ RUN apk add --no-cache \
   # ShortDescription
   git clone https://github.com/StarCitizenTools/mediawiki-extensions-ShortDescription /var/www/html/extensions/ShortDescription; \
   # UploadWizard
-  git clone --branch REL1_41 https://github.com/sphiria/mediawiki-extensions-UploadWizard /var/www/html/extensions/UploadWizard; \
+  git clone --branch REL1_41 https://github.com/wikimedia/mediawiki-extensions-UploadWizard /var/www/html/extensions/UploadWizard; \
   # WikiSEO
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiSEO /var/www/html/extensions/WikiSEO; \
   # CheckUser
@@ -108,7 +108,7 @@ RUN apk add --no-cache \
   # MultiPurge
   git clone https://github.com/octfx/mediawiki-extensions-MultiPurge /var/www/html/extensions/MultiPurge; \
   # TabberNeue
-  git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue.git /var/www/html/extensions/TabberNeue; \
+  git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue /var/www/html/extensions/TabberNeue; \
   # Popups
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups /var/www/html/extensions/Popups; \
   # skin
