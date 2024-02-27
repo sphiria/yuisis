@@ -205,6 +205,7 @@ $wgUploadWizardConfig = array(
     'minSourceLength' => 0,
     'minDescriptionLength' => 0,
     'minCaptionLength' => 0,
+    'minTitleLength' => 1,
     'tutorial' => array(
         'skip' => true
     ),
