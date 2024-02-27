@@ -233,6 +233,7 @@ $wgGroupPermissions['editors']['editprotected'] = true;
 $wgGroupPermissions['editors']['editinterface'] = true;
 # let sysop delete deletelogentry and deleterevision
 $wgGroupPermissions['sysop']['deletelogentry'] = true;
+$wgGroupPermissions['sysop']['deleterevision'] = true;
 # let sysop add interwiki prefixes
 $wgGroupPermissions['sysop']['interwiki'] = true;
 
