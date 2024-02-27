@@ -208,6 +208,9 @@ $wgUploadWizardConfig = array(
     'tutorial' => array(
         'skip' => true
     ),
+    'uwLanguages' => [
+        'en' => 'English'
+        ],
     'maxUploads' => 50,
     'licensing' => [
         'ownWorkDefault' => 'own',
