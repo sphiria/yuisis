@@ -58,14 +58,10 @@ RUN apk add --no-cache \
 	# clean-up
 	rm -rf mediawiki.tar.gz UPGRADE SECURITY RELEASE-NOTES-${MEDIAWIKI_MAJOR_VERSION} README.md INSTALL HISTORY FAQ CREDITS COPYING CODE_OF_CONDUCT.md; \
   # install extensions
-  # ImportArticles
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/ImportArticles /var/www/html/extensions/ImportArticles; \
   # Variables
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Variables /var/www/html/extensions/Variables; \
   # Loops
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Loops /var/www/html/extensions/Loops; \
-  # Arrays
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Arrays /var/www/html/extensions/Arrays; \
   # TemplateSandbox
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateSandbox /var/www/html/extensions/TemplateSandbox; \
   # ShortDescription
@@ -76,8 +72,6 @@ RUN apk add --no-cache \
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiSEO /var/www/html/extensions/WikiSEO; \
   # CheckUser
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/CheckUser /var/www/html/extensions/CheckUser; \
-  # Tabs
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Tabs /var/www/html/extensions/Tabs; \
   # Widgets
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets /var/www/html/extensions/Widgets; \
 	cd /var/www/html/extensions/Widgets; \
@@ -99,6 +93,7 @@ RUN apk add --no-cache \
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/VipsScaler /var/www/html/extensions/VipsScaler; \
   # Cargo
   git clone https://github.com/wikimedia/mediawiki-extensions-Cargo /var/www/html/extensions/Cargo; \
+  cd /var/www/html/extensions/Cargo;git checkout 9c60a3f; \
   # VariablesLua
   git clone https://github.com/Liquipedia/VariablesLua /var/www/html/extensions/VariablesLua; \
   # SimpleMathJax
@@ -111,7 +106,7 @@ RUN apk add --no-cache \
   git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue /var/www/html/extensions/TabberNeue; \
   # Popups
   git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups /var/www/html/extensions/Popups; \
-  # skin
+  # Citizen skin
   git clone https://github.com/StarCitizenTools/mediawiki-skins-Citizen /var/www/html/skins/Citizen; \
   # fix permissions
   chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx /var/log/php83;

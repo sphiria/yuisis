@@ -224,15 +224,6 @@ $wgUploadWizardConfig = array(
         ],
     ],
 );
-# Tabs - 3rd party extension
-#wfLoadExtension('Tabs');
-
-# Arrays - 3rd party extension
-#wfLoadExtension('Arrays');
-
-# ImportArticles - 3rd party extension
-#wfLoadExtension('ImportArticles');
-
 # Variables - 3rd party extension
 wfLoadExtension('Variables');
 
@@ -256,11 +247,3 @@ $egLoopsCountLimit = 500;
 #$wgCirrusSearchUseIcuFolding = true;
 #$wgCirrusSearchWikimediaExtraPlugin['id_hash_mod_filter'] = true;
 #$wgCirrusSearchWikimediaExtraPlugin['super_detect_noop'] = true;
-
-# EmbedVideo
-# TODO: wfLoadExtension("EmbedVideo");
-
-# discord notifications
-#wfLoadExtension('Discord');
-#require_once "/secrets/discord.php";
-#$wgDiscordDisabledHooks = ["ArticleDeleteComplete", "ArticleUndelete", "ArticleRevisionVisibilitySet", "ArticleProtectComplete", "BlockIpComplete", "UnblockUserComplete", "UserGroupsChanged", "FileDeleteComplete", "FileUndeleteComplete", "AfterImportPage", "ArticleMergeComplete"];
