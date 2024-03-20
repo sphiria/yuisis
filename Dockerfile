@@ -43,8 +43,6 @@ RUN apk add --no-cache \
   php83-zlib \
   php83-posix \
   php83-pcntl \
-  php83-pecl-apcu \
-  php83-pecl-xdebug \
   php83-pecl-redis \
   php83-pecl-luasandbox \
   # mediawiki dependencies
@@ -154,7 +152,7 @@ COPY config/composer.local.json /var/www/html/composer.local.json
 RUN cd /var/www/html;/usr/bin/php83 /usr/bin/composer.phar update --no-dev;
 
 # jobrunner
-RUN git clone https://github.com/wikimedia/mediawiki-services-jobrunner /var/jobrunner; \
+RUN git clone https://github.com/sphiria/mediawiki-services-jobrunner /var/jobrunner; \
   cd /var/jobrunner; \
   /usr/bin/php83 /usr/bin/composer.phar install --no-dev
 
@@ -168,7 +166,6 @@ COPY config/php/fpm-pool.conf /etc/php83/php-fpm.d/www.conf
 COPY config/php/php.ini /etc/php83/conf.d/custom.ini
 COPY config/php/luasandbox.ini /etc/php83/conf.d/luasandbox.ini
 COPY config/php/opcache.ini /etc/php83/conf.d/opcache.ini
-COPY config/php/redis.ini /etc/php83/conf.d/redis.ini
 
 # copy supervisord.conf
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
