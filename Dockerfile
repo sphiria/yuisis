@@ -40,6 +40,8 @@ RUN apk add --no-cache \
   php83-xml \
   php83-xmlreader \
   php83-zlib \
+  php83-posix \
+  php83-pcntl \
   php83-pecl-apcu \
   php83-pecl-xdebug \
   php83-pecl-redis \
@@ -58,12 +60,6 @@ RUN apk add --no-cache \
 	# clean-up
 	rm -rf mediawiki.tar.gz UPGRADE SECURITY RELEASE-NOTES-${MEDIAWIKI_MAJOR_VERSION} README.md INSTALL HISTORY FAQ CREDITS COPYING CODE_OF_CONDUCT.md; \
   # install extensions
-  # Linter
-  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Linter /var/www/html/extensions/Linter; \
-  # DiscussionTools
-  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/DiscussionTools /var/www/html/extensions/DiscussionTools; \
-  # Echo
-  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Echo /var/www/html/extensions/Echo; \
   # Flow
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Flow /var/www/html/extensions/Flow; \
 	cd /var/www/html/extensions/Flow; \
@@ -155,6 +151,11 @@ RUN apk add --no-cache \
 # composer
 COPY config/composer.local.json /var/www/html/composer.local.json
 RUN cd /var/www/html;/usr/bin/php83 /usr/bin/composer.phar update --no-dev;
+
+# jobrunner
+RUN git clone https://github.com/wikimedia/mediawiki-services-jobrunner /var/jobrunner; \
+  cd /var/jobrunner; \
+  /usr/bin/php83 /usr/bin/composer.phar install --no-dev
 
 USER nobody
 
