@@ -3,8 +3,8 @@
 		"merge-plugin": {
 			"include": [
 				"extensions/AWS/composer.json",
-                "extensions/TemplateStyles/composer.json"
+				"extensions/TemplateStyles/composer.json"
 			]
 		}
 	}
-}   
+}

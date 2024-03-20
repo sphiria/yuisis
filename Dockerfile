@@ -1,7 +1,7 @@
-ARG ALPINE_VERSION=3.19.1
-FROM alpine:${ALPINE_VERSION}
+FROM alpine:3.19.1
 ENV MEDIAWIKI_MAJOR_VERSION=1.41
 ENV MEDIAWIKI_VERSION=1.41.0
+ENV MEDIAWIKI_BRANCH=REL1_41
 LABEL Maintainer="lis <hello@lis.sh>"
 LABEL Description="Lightweight Mediawiki 1.41.0 container with Nginx 1.24 & PHP 8.3 based on Alpine Linux 3.19.1"
 WORKDIR /var/www/html
@@ -13,7 +13,6 @@ RUN apk add --no-cache \
   git \
   unzip \
   nano \
-  vips-tools \ 
   lua5.1 \
   lua5.1-dev \
   # php
@@ -49,6 +48,7 @@ RUN apk add --no-cache \
   imagemagick \
   python3 \
   diffutils \
+  vips-tools \ 
   composer \
   # supervisor
   supervisor; \
@@ -58,42 +58,83 @@ RUN apk add --no-cache \
 	# clean-up
 	rm -rf mediawiki.tar.gz UPGRADE SECURITY RELEASE-NOTES-${MEDIAWIKI_MAJOR_VERSION} README.md INSTALL HISTORY FAQ CREDITS COPYING CODE_OF_CONDUCT.md; \
   # install extensions
+  # Linter
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Linter /var/www/html/extensions/Linter; \
+  # DiscussionTools
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/DiscussionTools /var/www/html/extensions/DiscussionTools; \
+  # Echo
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Echo /var/www/html/extensions/Echo; \
+  # Flow
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Flow /var/www/html/extensions/Flow; \
+	cd /var/www/html/extensions/Flow; \
+	/usr/bin/php83 /usr/bin/composer.phar update --no-dev; \
+	cd /var/www/html; \
+  # Arrays
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Arrays /var/www/html/extensions/Arrays; \
+  # DynamicPageList3
+  git clone https://github.com/Universal-Omega/DynamicPageList3 /var/www/html/extensions/DynamicPageList3; \
+  # EmbedVideo (fork)
+  git clone https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo /var/www/html/extensions/EmbedVideo; \
+  cd /var/www/html/extensions/EmbedVideo;git checkout 108cbb0; \
+  # MsUpload
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/MsUpload /var/www/html/extensions/MsUpload; \
+  # Tabber (fork)
+  git clone https://github.com/sphiria/Tabber /var/www/html/extensions/Tabber; \
   # Variables
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Variables /var/www/html/extensions/Variables; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Variables /var/www/html/extensions/Variables; \
   # Loops
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Loops /var/www/html/extensions/Loops; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Loops /var/www/html/extensions/Loops; \
   # TemplateSandbox
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateSandbox /var/www/html/extensions/TemplateSandbox; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateSandbox /var/www/html/extensions/TemplateSandbox; \
   # ShortDescription
   git clone https://github.com/StarCitizenTools/mediawiki-extensions-ShortDescription /var/www/html/extensions/ShortDescription; \
   # UploadWizard
-  git clone --branch REL1_41 https://github.com/sphiria/mediawiki-extensions-UploadWizard /var/www/html/extensions/UploadWizard; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://github.com/sphiria/mediawiki-extensions-UploadWizard /var/www/html/extensions/UploadWizard; \
   # WikiSEO
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiSEO /var/www/html/extensions/WikiSEO; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiSEO /var/www/html/extensions/WikiSEO; \
   # CheckUser
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/CheckUser /var/www/html/extensions/CheckUser; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/CheckUser /var/www/html/extensions/CheckUser; \
   # Widgets
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets /var/www/html/extensions/Widgets; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets /var/www/html/extensions/Widgets; \
 	cd /var/www/html/extensions/Widgets; \
-	/usr/bin/php83 /usr/bin/composer.phar update; \
+	/usr/bin/php83 /usr/bin/composer.phar update --no-dev; \
 	cd /var/www/html; \
   # cldr
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/cldr /var/www/html/extensions/cldr; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/cldr /var/www/html/extensions/cldr; \
+  # Elastica
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Elastica /var/www/html/extensions/Elastica; \
+  cd /var/www/html/extensions/Elastica; \
+	/usr/bin/php83 /usr/bin/composer.phar install --no-dev; \
+	cd /var/www/html; \
+  # CirrusSearch
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/CirrusSearch /var/www/html/extensions/CirrusSearch; \
+  cd /var/www/html/extensions/CirrusSearch; \
+	/usr/bin/php83 /usr/bin/composer.phar install --no-dev; \
+	cd /var/www/html; \
+  # CollapsibleVector
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/CollapsibleVector /var/www/html/extensions/CollapsibleVector; \
+  # DeletePagesForGood
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/DeletePagesForGood /var/www/html/extensions/DeletePagesForGood; \
+  # Discord
+  git clone --single-branch https://github.com/jayktaylor/mw-discord /var/www/html/extensions/Discord; \
+  # ImportArticles
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/ImportArticles /var/www/html/extensions/ImportArticles; \
   # TemplateStyles
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateStyles /var/www/html/extensions/TemplateStyles; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateStyles /var/www/html/extensions/TemplateStyles; \
   # TemplateStylesExtender
   git clone https://github.com/octfx/mediawiki-extensions-TemplateStylesExtender /var/www/html/extensions/TemplateStylesExtender; \
   # LabeledSectionTransclusion
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion /var/www/html/extensions/LabeledSectionTransclusion; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion /var/www/html/extensions/LabeledSectionTransclusion; \
+  # DarkMode
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/DarkMode /var/www/html/extensions/DarkMode; \ 
   # Disambiguator
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Disambiguator /var/www/html/extensions/Disambiguator; \ 
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Disambiguator /var/www/html/extensions/Disambiguator; \ 
   # CodeMirror
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeMirror /var/www/html/extensions/CodeMirror; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/CodeMirror /var/www/html/extensions/CodeMirror; \
   # VipsScaler
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/VipsScaler /var/www/html/extensions/VipsScaler; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/VipsScaler /var/www/html/extensions/VipsScaler; \
   # Cargo
-  git clone https://github.com/wikimedia/mediawiki-extensions-Cargo /var/www/html/extensions/Cargo; \
-  cd /var/www/html/extensions/Cargo;git checkout 9c60a3f; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Cargo /var/www/html/extensions/Cargo; \
   # VariablesLua
   git clone https://github.com/Liquipedia/VariablesLua /var/www/html/extensions/VariablesLua; \
   # SimpleMathJax
@@ -105,7 +146,7 @@ RUN apk add --no-cache \
   # TabberNeue
   git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue /var/www/html/extensions/TabberNeue; \
   # Popups
-  git clone --branch REL1_41 https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups /var/www/html/extensions/Popups; \
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups /var/www/html/extensions/Popups; \
   # Citizen skin
   git clone https://github.com/StarCitizenTools/mediawiki-skins-Citizen /var/www/html/skins/Citizen; \
   # fix permissions
@@ -129,9 +170,8 @@ COPY config/opcache.ini /etc/php83/conf.d/opcache.ini
 # copy supervisord.conf
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# copy LocalSettings
-COPY --chown=nobody:nobody config/LocalSettings.php /var/www/html/LocalSettings.php
-COPY --chown=nobody:nobody config/LocalSettings_extensions.php /var/www/html/LocalSettings_extensions.php
+# copy robots
+COPY config/robots.txt /var/www/html/robots.txt
 
 # expose port 8080
 EXPOSE 8080
