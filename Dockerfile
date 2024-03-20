@@ -2,6 +2,7 @@ FROM alpine:3.19.1
 ENV MEDIAWIKI_MAJOR_VERSION=1.41
 ENV MEDIAWIKI_VERSION=1.41.0
 ENV MEDIAWIKI_BRANCH=REL1_41
+ENV COMPOSER_ALLOW_SUPERUSER=1
 LABEL Maintainer="lis <hello@lis.sh>"
 LABEL Description="Lightweight Mediawiki 1.41.0 container with Nginx 1.24 & PHP 8.3 based on Alpine Linux 3.19.1"
 WORKDIR /var/www/html
@@ -162,11 +163,12 @@ USER nobody
 # copy nginx.conf
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
-# copy php-fpm configuration
-COPY config/fpm-pool.conf /etc/php83/php-fpm.d/www.conf
-COPY config/php.ini /etc/php83/conf.d/custom.ini
-COPY config/luasandbox.ini /etc/php83/conf.d/luasandbox.ini
-COPY config/opcache.ini /etc/php83/conf.d/opcache.ini
+# copy php configurations
+COPY config/php/fpm-pool.conf /etc/php83/php-fpm.d/www.conf
+COPY config/php/php.ini /etc/php83/conf.d/custom.ini
+COPY config/php/luasandbox.ini /etc/php83/conf.d/luasandbox.ini
+COPY config/php/opcache.ini /etc/php83/conf.d/opcache.ini
+COPY config/php/redis.ini /etc/php83/conf.d/redis.ini
 
 # copy supervisord.conf
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
