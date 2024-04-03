@@ -121,7 +121,7 @@ RUN apk add --no-cache \
   # LabeledSectionTransclusion
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion /var/www/html/extensions/LabeledSectionTransclusion; \
   # DarkMode
-  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/DarkMode /var/www/html/extensions/DarkMode; \ 
+  git clone --single-branch https://github.com/sphiria/mediawiki-extensions-DarkMode /var/www/html/extensions/DarkMode; \ 
   # Disambiguator
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Disambiguator /var/www/html/extensions/Disambiguator; \ 
   # CodeMirror
