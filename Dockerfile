@@ -160,6 +160,9 @@ RUN git clone https://github.com/sphiria/mediawiki-services-jobrunner /var/jobru
 
 USER nobody
 
+# copy jobrunner
+COPY config/jobrunner /var/www/jobrunner
+
 # copy nginx.conf
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
