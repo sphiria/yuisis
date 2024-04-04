@@ -1,7 +1,6 @@
 #!/bin/bash
-RJ=/var/www/html/maintenance/run.php runJobs
-sleep 60
+sleep 120
 while true; do
-        php83 $RJ --maxjobs 10 --procs 4
+        php83 /var/www/html/maintenance/run.php runJobs --maxjobs 10 --procs 4
         sleep 10
 done
