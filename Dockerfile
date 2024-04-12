@@ -175,8 +175,9 @@ COPY config/php/opcache.ini /etc/php83/conf.d/opcache.ini
 # copy supervisord.conf
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# copy robots
-COPY config/robots.txt /var/www/html/robots.txt
+# copy resources
+COPY resource/robots.txt /var/www/html/robots.txt
+COPY resource/favicon.ico /var/www/html/favicon.ico
 
 # expose port 8080
 EXPOSE 8080
