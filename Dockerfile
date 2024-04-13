@@ -89,6 +89,9 @@ RUN apk add --no-cache \
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiSEO /var/www/html/extensions/WikiSEO; \
   # CheckUser
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/CheckUser /var/www/html/extensions/CheckUser; \
+	cd /var/www/html/extensions/CheckUser; \
+	/usr/bin/php83 /usr/bin/composer.phar update --no-dev; \
+	cd /var/www/html; \
   # RandomSelection
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/RandomSelection /var/www/html/extensions/RandomSelection; \
   # Widgets
