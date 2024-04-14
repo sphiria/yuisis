@@ -26,6 +26,7 @@ RUN apk add --no-cache \
   php83-json \
   php83-iconv \
   php83-calendar \
+  php83-exif \
   php83-pear \
   php83-fileinfo \
   php83-mbstring \
