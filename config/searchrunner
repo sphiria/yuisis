@@ -1,0 +1,6 @@
+#!/bin/sh
+sleep 3600
+while true; do
+        php83 /var/www/html/extensions/CirrusSearch/maintenance/UpdateSuggesterIndex.php
+        sleep 43200
+done

@@ -167,6 +167,9 @@ USER nobody
 # copy jobrunner
 COPY config/jobrunner /var/www/jobrunner
 
+# copy searchrunner
+COPY config/searchrunner /var/www/searchrunner
+
 # copy nginx.conf
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
