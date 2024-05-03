@@ -1,10 +1,10 @@
 FROM alpine:3.19.1
 ENV MEDIAWIKI_MAJOR_VERSION=1.41
-ENV MEDIAWIKI_VERSION=1.41.0
+ENV MEDIAWIKI_VERSION=1.41.1
 ENV MEDIAWIKI_BRANCH=REL1_41
 ENV COMPOSER_ALLOW_SUPERUSER=1
 LABEL Maintainer="lis <hello@lis.sh>"
-LABEL Description="Lightweight Mediawiki 1.41.0 container with Nginx 1.24 & PHP 8.3 based on Alpine Linux 3.19.1"
+LABEL Description="Lightweight Mediawiki 1.41.1 container with Nginx 1.24 & PHP 8.3 based on Alpine Linux 3.19.1"
 WORKDIR /var/www/html
 
 # install packages
