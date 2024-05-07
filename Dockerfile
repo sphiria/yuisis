@@ -155,7 +155,7 @@ RUN apk add --no-cache \
   # Citizen skin
   git clone https://github.com/StarCitizenTools/mediawiki-skins-Citizen /var/www/html/skins/Citizen; \
   # fix permissions
-  chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx /var/log/php83;
+  chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx /var/log/php83 /opt/vector;
 
 # composer
 COPY config/composer.local.json /var/www/html/composer.local.json
