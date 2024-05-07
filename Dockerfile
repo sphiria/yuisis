@@ -55,9 +55,9 @@ RUN apk add --no-cache \
   # supervisor
   supervisor; \
   # vector
-  cd /opt;mkdir -p vector && \
+  mkdir -p /opt/vector/mediawiki && \
   curl -sSfL --proto '=https' --tlsv1.2 https://packages.timber.io/vector/0.37.1/vector-0.37.1-aarch64-unknown-linux-musl.tar.gz | \
-  tar xzf - -C vector --strip-components=2;cd /var/www/html;\
+  tar xzf - -C /opt/vector --strip-components=2;rm vector-0.37.1-aarch64-unknown-linux-musl.tar.gz; \
   # download mediawiki
   curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSION}/mediawiki-${MEDIAWIKI_VERSION}.tar.gz" -o mediawiki.tar.gz; \
 	tar -x --strip-components=1 -f mediawiki.tar.gz; \
