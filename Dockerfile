@@ -150,6 +150,8 @@ RUN apk add --no-cache \
   git clone https://github.com/octfx/mediawiki-extensions-MultiPurge /var/www/html/extensions/MultiPurge; \
   # TabberNeue
   git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue /var/www/html/extensions/TabberNeue; \
+  cd /var/www/html/extensions/TabberNeue; \
+  git checkout git checkout 268010c0b1e5c53c65c36a22430b49909d570d17; \
   # Popups
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups /var/www/html/extensions/Popups; \
   # Citizen skin
