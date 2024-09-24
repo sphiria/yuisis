@@ -1,10 +1,10 @@
 FROM alpine:3.19.1
-ENV MEDIAWIKI_MAJOR_VERSION=1.41
-ENV MEDIAWIKI_VERSION=1.41.1
-ENV MEDIAWIKI_BRANCH=REL1_41
+ENV MEDIAWIKI_MAJOR_VERSION=1.42
+ENV MEDIAWIKI_VERSION=1.42.1
+ENV MEDIAWIKI_BRANCH=REL1_42
 ENV COMPOSER_ALLOW_SUPERUSER=1
 LABEL Maintainer="lis <hello@lis.sh>"
-LABEL Description="Lightweight Mediawiki 1.41.1 container with Nginx 1.24 & PHP 8.3 based on Alpine Linux 3.19.1"
+LABEL Description="Lightweight Mediawiki 1.42 container with Nginx 1.26 & PHP 8.3 based on Alpine Linux 3.20"
 WORKDIR /var/www/html
 
 # install packages
@@ -73,13 +73,12 @@ RUN apk add --no-cache \
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Arrays /var/www/html/extensions/Arrays; \
   # DynamicPageList3
   git clone https://github.com/Universal-Omega/DynamicPageList3 /var/www/html/extensions/DynamicPageList3; \
+  cd /var/www/html/extensions/DynamicPageList3;git checkout 955be3f; \
   # EmbedVideo (fork)
   git clone https://github.com/StarCitizenWiki/mediawiki-extensions-EmbedVideo /var/www/html/extensions/EmbedVideo; \
-  cd /var/www/html/extensions/EmbedVideo;git checkout 108cbb0; \
+  cd /var/www/html/extensions/EmbedVideo;git checkout 3d81247; \
   # MsUpload
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/MsUpload /var/www/html/extensions/MsUpload; \
-  # Tabber (fork)
-  git clone https://github.com/sphiria/Tabber /var/www/html/extensions/Tabber; \
   # Variables
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Variables /var/www/html/extensions/Variables; \
   # Loops
@@ -88,8 +87,7 @@ RUN apk add --no-cache \
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateSandbox /var/www/html/extensions/TemplateSandbox; \
   # ShortDescription
   git clone https://github.com/StarCitizenTools/mediawiki-extensions-ShortDescription /var/www/html/extensions/ShortDescription; \
-  # UploadWizard
-  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://github.com/sphiria/mediawiki-extensions-UploadWizard /var/www/html/extensions/UploadWizard; \
+  cd /var/www/html/extensions/ShortDescription;git checkout 0fa533d; \
   # WikiSEO
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/WikiSEO /var/www/html/extensions/WikiSEO; \
   # CheckUser
@@ -116,18 +114,18 @@ RUN apk add --no-cache \
   cd /var/www/html/extensions/CirrusSearch; \
 	/usr/bin/php83 /usr/bin/composer.phar install --no-dev; \
 	cd /var/www/html; \
-  # CollapsibleVector
-  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/CollapsibleVector /var/www/html/extensions/CollapsibleVector; \
   # DeletePagesForGood
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/DeletePagesForGood /var/www/html/extensions/DeletePagesForGood; \
   # Discord
   git clone --single-branch https://github.com/jayktaylor/mw-discord /var/www/html/extensions/Discord; \
+  cd /var/www/html/extensions/Discord;git checkout 094c994; \
   # ImportArticles
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/ImportArticles /var/www/html/extensions/ImportArticles; \
   # TemplateStyles
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateStyles /var/www/html/extensions/TemplateStyles; \
   # TemplateStylesExtender
   git clone https://github.com/octfx/mediawiki-extensions-TemplateStylesExtender /var/www/html/extensions/TemplateStylesExtender; \
+  cd /var/www/html/extensions/TemplateStylesExtender;git checkout 5b97d8f; \
   # LabeledSectionTransclusion
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion /var/www/html/extensions/LabeledSectionTransclusion; \
   # DarkMode
@@ -142,20 +140,18 @@ RUN apk add --no-cache \
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Cargo /var/www/html/extensions/Cargo; \
   # VariablesLua
   git clone https://github.com/Liquipedia/VariablesLua /var/www/html/extensions/VariablesLua; \
+  cd /var/www/html/extensions/VariablesLua;git checkout 64a5776; \
   # SimpleMathJax
   git clone https://github.com/jmnote/SimpleMathJax /var/www/html/extensions/SimpleMathJax; \
-  # AWS
-  git clone https://github.com/edwardspec/mediawiki-aws-s3 /var/www/html/extensions/AWS; \
+  cd /var/www/html/extensions/SimpleMathJax;git checkout fab35e6; \
   # MultiPurge
-  git clone https://github.com/octfx/mediawiki-extensions-MultiPurge /var/www/html/extensions/MultiPurge; \
+  git clone --branch develop https://github.com/octfx/mediawiki-extensions-MultiPurge /var/www/html/extensions/MultiPurge; \
+  cd /var/www/html/extensions/MultiPurge;git checkout be6b569; \
   # TabberNeue
   git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue /var/www/html/extensions/TabberNeue; \
-  cd /var/www/html/extensions/TabberNeue; \
-  git checkout 268010c0b1e5c53c65c36a22430b49909d570d17; \
+  cd /var/www/html/extensions/TabberNeue;git checkout e671691; \
   # Popups
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups /var/www/html/extensions/Popups; \
-  # Citizen skin
-  git clone https://github.com/StarCitizenTools/mediawiki-skins-Citizen /var/www/html/skins/Citizen; \
   # fix permissions
   chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx /var/log/php83 /opt/vector;
 
