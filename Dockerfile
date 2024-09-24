@@ -95,6 +95,11 @@ RUN apk add --no-cache \
 	cd /var/www/html/extensions/CheckUser; \
 	/usr/bin/php83 /usr/bin/composer.phar update --no-dev; \
 	cd /var/www/html; \
+  # AWS
+  git clone https://github.com/edwardspec/mediawiki-aws-s3 /var/www/html/extensions/AWS; \
+  cd /var/www/html/extensions/AWS;git checkout 28365ea; \
+  # RegexFunctions
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/RegexFunctions /var/www/html/extensions/RegexFunctions; \
   # RandomSelection
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/RandomSelection /var/www/html/extensions/RandomSelection; \
   # Widgets
@@ -149,7 +154,8 @@ RUN apk add --no-cache \
   cd /var/www/html/extensions/MultiPurge;git checkout be6b569; \
   # TabberNeue
   git clone https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue /var/www/html/extensions/TabberNeue; \
-  cd /var/www/html/extensions/TabberNeue;git checkout e671691; \
+  cd /var/www/html/extensions/TabberNeue; \
+  git checkout 268010c0b1e5c53c65c36a22430b49909d570d17; \
   # Popups
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups /var/www/html/extensions/Popups; \
   # fix permissions
