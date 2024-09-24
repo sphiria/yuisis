@@ -84,6 +84,8 @@ RUN apk add --no-cache \
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Variables /var/www/html/extensions/Variables; \
   # Loops
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Loops /var/www/html/extensions/Loops; \
+  # RegexFunctions
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/RegexFunctions /var/www/html/extensions/RegexFunctions; \
   # TemplateSandbox
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateSandbox /var/www/html/extensions/TemplateSandbox; \
   # ShortDescription
