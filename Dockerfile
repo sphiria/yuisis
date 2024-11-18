@@ -126,6 +126,9 @@ RUN apk add --no-cache \
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/ImportArticles /var/www/html/extensions/ImportArticles; \
   # OAuth
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/OAuth /var/www/html/extensions/OAuth; \
+  cd /var/www/html/extensions/OAuth; \
+	/usr/bin/php83 /usr/bin/composer.phar update --no-dev; \
+	cd /var/www/html; \
   # TemplateStyles
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateStyles /var/www/html/extensions/TemplateStyles; \
   # TemplateStylesExtender
