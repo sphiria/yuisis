@@ -1,10 +1,10 @@
 FROM alpine:3.19.1
 ENV MEDIAWIKI_MAJOR_VERSION=1.42
-ENV MEDIAWIKI_VERSION=1.42.1
+ENV MEDIAWIKI_VERSION=1.42.3
 ENV MEDIAWIKI_BRANCH=REL1_42
 ENV COMPOSER_ALLOW_SUPERUSER=1
 LABEL Maintainer="lis <hello@lis.sh>"
-LABEL Description="Lightweight Mediawiki 1.42 container with Nginx 1.26 & PHP 8.3 based on Alpine Linux 3.20"
+LABEL Description="Lightweight Mediawiki 1.42.3 container with Nginx 1.26 & PHP 8.3 based on Alpine Linux 3.20"
 WORKDIR /var/www/html
 
 # install packages
@@ -54,10 +54,6 @@ RUN apk add --no-cache \
   composer \
   # supervisor
   supervisor; \
-  # vector
-  mkdir -p /opt/vector/mediawiki && \
-  curl -sSfL --proto '=https' --tlsv1.2 https://packages.timber.io/vector/0.37.1/vector-0.37.1-aarch64-unknown-linux-musl.tar.gz | \
-  tar xzf - -C /opt/vector --strip-components=2;rm vector-0.37.1-aarch64-unknown-linux-musl.tar.gz; \
   # download mediawiki
   curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSION}/mediawiki-${MEDIAWIKI_VERSION}.tar.gz" -o mediawiki.tar.gz; \
 	tar -x --strip-components=1 -f mediawiki.tar.gz; \
@@ -128,6 +124,8 @@ RUN apk add --no-cache \
   cd /var/www/html/extensions/Discord;git checkout 094c994; \
   # ImportArticles
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/ImportArticles /var/www/html/extensions/ImportArticles; \
+  # OAuth
+  git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/OAuth /var/www/html/extensions/OAuth; \
   # TemplateStyles
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/TemplateStyles /var/www/html/extensions/TemplateStyles; \
   # TemplateStylesExtender
@@ -161,16 +159,11 @@ RUN apk add --no-cache \
   # Popups
   git clone --branch ${MEDIAWIKI_BRANCH} --single-branch https://gerrit.wikimedia.org/r/mediawiki/extensions/Popups /var/www/html/extensions/Popups; \
   # fix permissions
-  chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx /var/log/php83 /opt/vector;
+  chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx /var/log/php83;
 
 # composer
 COPY config/composer.local.json /var/www/html/composer.local.json
 RUN cd /var/www/html;/usr/bin/php83 /usr/bin/composer.phar update --no-dev;
-
-# jobrunner
-RUN git clone https://github.com/sphiria/mediawiki-services-jobrunner /var/jobrunner; \
-  cd /var/jobrunner; \
-  /usr/bin/php83 /usr/bin/composer.phar install --no-dev
 
 USER nobody
 
