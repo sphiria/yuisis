@@ -1,6 +1,2 @@
-backup-mw.sql
-mwcargo_db.sql
 docker-compose.yml
-docker-compose-proddy.yml
-gbf_wiki_migration.sql
-TODO
+LocalSettings.php
