@@ -1,7 +1,6 @@
 FROM alpine:3.20
 ENV MEDIAWIKI_MAJOR_VERSION=1.42
 ENV MEDIAWIKI_VERSION=1.42.3
-ENV MEDIAWIKI_BRANCH=REL1_42
 ENV COMPOSER_ROOT_VERSION=${MEDIAWIKI_VERSION}
 LABEL Maintainer="lis <hello@lis.sh>"
 LABEL Description="Lightweight Mediawiki 1.42.3 container with Nginx 1.26 & PHP 8.3 based on Alpine Linux 3.20"
