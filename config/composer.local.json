@@ -31,6 +31,7 @@
         "mediawiki/webauthn": "1.43",
         "mediawiki/widgets": "1.43",
         "mediawiki/wikiseo": "1.43",
+        "mediawiki/simple-batch-upload": "2.0.1",
         "octfx/multipurge": "1.2.1",
         "octfx/template-styles-extender": "1.2.2",
         "sphiria/darkmode": "dev-master",
