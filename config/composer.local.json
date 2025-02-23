@@ -37,7 +37,7 @@
         "sphiria/darkmode": "dev-master",
         "starcitizenwiki/embedvideo": "3.4.2",
         "starcitizenwiki/shortdescription": "dev-9a103cc",
-        "starcitizenwiki/tabber-neue": "dev-268010c",
+        "starcitizentools/tabber-neue": "dev-main",
         "starcitizentools/citizen-skin": "dev-main",
         "universal-omega/dynamic-page-list3": "3.5.2"
     },
@@ -537,19 +537,6 @@
                     "type": "git",
                     "url": "https://github.com/jmnote/SimpleMathJax.git",
                     "reference": "v0.8.5"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "starcitizenwiki/tabber-neue",
-                "type": "mediawiki-extension",
-                "version": "dev-268010c",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue.git",
-                    "reference": "268010c"
                 }
             }
         },
