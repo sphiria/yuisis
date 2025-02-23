@@ -62,7 +62,7 @@ RUN apk add --no-cache \
     /var/tmp/*
 
 # composer
-COPY config/composer.local.json /var/www/html/composer.local.json
+COPY config/composer.json /var/www/html/composer.local.json
 RUN /usr/bin/php83 /usr/bin/composer.phar config --no-plugins allow-plugins.composer/installers true && \
     /usr/bin/php83 /usr/bin/composer.phar install --no-dev \
         --ignore-platform-reqs \
