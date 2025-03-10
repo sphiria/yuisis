@@ -6,7 +6,7 @@
         "liquipedia/variableslua": "1.6.0",
         "mediawiki/advanced-search": "1.43",
         "mediawiki/arrays": "1.43",
-        "mediawiki/cargo": "1.43",
+        "mediawiki/cargo": "master",
         "mediawiki/checkuser": "1.43",
         "mediawiki/cirrussearch": "dev-REL1_43",
         "mediawiki/cldr": "2024.07",
@@ -460,15 +460,15 @@
             "package": {
                 "name": "mediawiki/cargo",
                 "type": "mediawiki-extension",
-                "version": "1.43",
+                "version": "dev-master",
                 "dist": {
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-Cargo/archive/REL1_43.zip",
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-Cargo/archive/master.zip",
                     "type": "zip"
                 },
                 "source": {
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-Cargo.git",
-                    "reference": "REL1_43"
+                    "reference": "master"
                 }
             }
         },
