@@ -6,7 +6,7 @@
         "liquipedia/variableslua": "1.6.0",
         "mediawiki/advanced-search": "1.43",
         "mediawiki/arrays": "1.43",
-        "mediawiki/cargo": "master",
+        "mediawiki/cargo": "dev-master",
         "mediawiki/checkuser": "1.43",
         "mediawiki/cirrussearch": "dev-REL1_43",
         "mediawiki/cldr": "2024.07",
@@ -452,23 +452,6 @@
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-VipsScaler.git",
                     "reference": "REL1_43"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "mediawiki/cargo",
-                "type": "mediawiki-extension",
-                "version": "dev-master",
-                "dist": {
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-Cargo/archive/master.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-Cargo.git",
-                    "reference": "master"
                 }
             }
         },
