@@ -108,7 +108,7 @@ COPY config/jobrunner /var/www/jobrunner
 COPY config/searchrunner /var/www/searchrunner
 COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY config/php/fpm-pool.conf /etc/php83/php-fpm.d/www.conf
-COPY config/php/php.ini /etc/php83/conf.d/custom.ini
+COPY config/php/php.ini /etc/php83/conf.d/00-custom.ini
 COPY config/php/luasandbox.ini /etc/php83/conf.d/luasandbox.ini
 COPY config/php/opcache.ini /etc/php83/conf.d/opcache.ini
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
