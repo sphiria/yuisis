@@ -39,7 +39,7 @@
         "starcitizenwiki/shortdescription": "dev-9a103cc",
         "starcitizenwiki/tabber-neue": "dev-268010c",
         "starcitizentools/citizen-skin": "dev-main",
-        "universal-omega/dynamic-page-list3": "3.5.2"
+        "universal-omega/dynamic-page-list3": "3.6.1"
     },
     "extra": {
         "merge-plugin": {
