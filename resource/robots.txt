@@ -40,6 +40,10 @@ Disallow: /*?title=Special:
 Disallow: /*?title=Special%3A
 Disallow: /*?*&title=Special:
 Disallow: /*?*&title=Special%3A
+Disallow: /*?title=special:
+Disallow: /*?title=special%3A
+Disallow: /*?*&title=special:
+Disallow: /*?*&title=special%3A
 Disallow: /Talk:
 Disallow: /Talk%3A
 Disallow: /talk:
