@@ -4,7 +4,7 @@
         "jayktaylor/mw-discord": "dev-61c91ef",
         "jmnote/simplemathjax": "v0.8.5",
         "liquipedia/variableslua": "1.6.0",
-        "gyaru/cargo": "dev-main",
+        "mediawiki/cargo": "dev-master",
         "mediawiki/advanced-search": "1.43",
         "mediawiki/arrays": "1.43",
         "mediawiki/checkuser": "1.43",
@@ -520,23 +520,6 @@
                     "type": "git",
                     "url": "https://github.com/jmnote/SimpleMathJax.git",
                     "reference": "v0.8.5"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "gyaru/cargo",
-                "type": "mediawiki-extension",
-                "version": "dev-main",
-                "dist": {
-                    "url": "https://github.com/gyaru/Cargo/archive/refs/heads/main.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/gyaru/Cargo.git",
-                    "reference": "dev-main"
                 }
             }
         },
