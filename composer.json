@@ -4,9 +4,9 @@
         "jayktaylor/mw-discord": "dev-61c91ef",
         "jmnote/simplemathjax": "v0.8.5",
         "liquipedia/variableslua": "1.6.0",
-        "mediawiki/cargo": "dev-master",
         "mediawiki/advanced-search": "1.43",
         "mediawiki/arrays": "1.43",
+        "mediawiki/cargo": "dev-master",
         "mediawiki/checkuser": "1.43",
         "mediawiki/cirrussearch": "dev-REL1_43",
         "mediawiki/cldr": "2024.07",
@@ -21,9 +21,11 @@
         "mediawiki/loops": "1.43",
         "mediawiki/msupload": "1.43",
         "mediawiki/oauth": "1.43",
+        "mediawiki/parser-migration": "1.43",
         "mediawiki/popups": "1.43",
         "mediawiki/randomselection": "1.43",
         "mediawiki/regexfunctions": "1.43",
+        "mediawiki/simple-batch-upload": "2.0.1",
         "mediawiki/template-styles": "1.43",
         "mediawiki/templatesandbox": "1.43",
         "mediawiki/variables": "1.43",
@@ -31,7 +33,6 @@
         "mediawiki/webauthn": "1.43",
         "mediawiki/widgets": "1.43",
         "mediawiki/wikiseo": "1.43",
-        "mediawiki/simple-batch-upload": "2.0.1",
         "octfx/multipurge": "1.2.1",
         "octfx/template-styles-extender": "1.2.2",
         "sphiria/darkmode": "dev-master",
@@ -549,6 +550,23 @@
                 "source": {
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-AdvancedSearch.git",
+                    "reference": "REL1_43"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/parser-migration",
+                "type": "mediawiki-extension",
+                "version": "1.43",
+                "dist": {
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-ParserMigration/archive/REL1_43.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-ParserMigration.git",
                     "reference": "REL1_43"
                 }
             }
