@@ -99,10 +99,7 @@ RUN /usr/bin/php83 /usr/bin/composer.phar config --no-plugins allow-plugins.comp
 RUN cd /var/www/html/extensions \
     && mv Vipsscaler VipsScaler \
     && mv Wikiseo WikiSEO \
-    && mv Webauthn WebAuthn \
-    && mv Oauth OAuth \
     && mv Cirrussearch CirrusSearch \
-    && mv Variableslua VariablesLua \
     && mv Templatesandbox TemplateSandbox \
     && mv Simplemathjax SimpleMathJax \
     && mv Randomselection RandomSelection \
