@@ -1,9 +1,9 @@
-FROM alpine:3.21.5
-ENV MEDIAWIKI_MAJOR_VERSION=1.43
-ENV MEDIAWIKI_VERSION=1.43.6
+FROM alpine:3.23
+ENV MEDIAWIKI_MAJOR_VERSION=1.45
+ENV MEDIAWIKI_VERSION=1.45.0
 ENV COMPOSER_ROOT_VERSION=${MEDIAWIKI_VERSION}
 LABEL Maintainer="lis <hello@lis.sh>"
-LABEL Description="Lightweight Mediawiki 1.43.6 container with Nginx 1.26 & PHP 8.3 based on Alpine Linux 3.21.5"
+LABEL Description="Lightweight Mediawiki 1.45.0 container with Nginx 1.28.0 & PHP 8.3 based on Alpine Linux 3.23"
 WORKDIR /var/www/html
 
 # install packages
