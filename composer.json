@@ -2,8 +2,7 @@
     "require": {
         "edwardspec/mediawiki-aws-s3": "v0.13.1",
         "jayktaylor/mw-discord": "dev-61c91ef",
-        "jmnote/simplemathjax": "v0.8.5",
-        "liquipedia/variableslua": "1.6.0",
+        "jmnote/simplemathjax": "v0.8.10",
         "mediawiki/advanced-search": "1.45",
         "mediawiki/arrays": "1.45",
         "mediawiki/cargo": "dev-master",
@@ -25,7 +24,7 @@
         "mediawiki/popups": "1.45",
         "mediawiki/randomselection": "1.45",
         "mediawiki/regexfunctions": "1.45",
-        "mediawiki/simple-batch-upload": "2.0.1",
+        "mediawiki/simple-batch-upload": "3.0.0",
         "mediawiki/template-styles": "1.45",
         "mediawiki/templatesandbox": "1.45",
         "mediawiki/variables": "1.45",
@@ -33,14 +32,14 @@
         "mediawiki/webauthn": "1.45",
         "mediawiki/widgets": "1.45",
         "mediawiki/wikiseo": "1.45",
-        "octfx/multipurge": "1.2.1",
-        "octfx/template-styles-extender": "1.2.2",
+        "octfx/multipurge": "2.0.0",
+        "octfx/template-styles-extender": "2.1.0",
         "sphiria/darkmode": "dev-master",
-        "starcitizenwiki/embedvideo": "3.4.2",
-        "starcitizenwiki/shortdescription": "dev-9a103cc",
+        "starcitizenwiki/embedvideo": "4.0.0",
+        "starcitizenwiki/shortdescription": "dev-37c1069",
         "starcitizenwiki/tabber-neue": "dev-268010c",
         "starcitizentools/citizen-skin": "dev-main",
-        "universal-omega/dynamic-page-list4": "4.0.0"
+        "universal-omega/dynamic-page-list4": "4.0.3"
     },
     "extra": {
         "merge-plugin": {
@@ -163,11 +162,11 @@
             "package": {
                 "name": "starcitizenwiki/shortdescription",
                 "type": "mediawiki-extension",
-                "version": "dev-9a103cc",
+                "version": "dev-37c1069",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/StarCitizenTools/mediawiki-extensions-ShortDescription.git",
-                    "reference": "9a103cc"
+                    "reference": "37c1069"
                 }
             }
         },
@@ -493,34 +492,17 @@
         {
             "type": "package",
             "package": {
-                "name": "liquipedia/variableslua",
-                "type": "mediawiki-extension",
-                "version": "1.6.0",
-                "dist": {
-                    "url": "https://github.com/Liquipedia/VariablesLua/archive/refs/tags/1.6.0.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/Liquipedia/VariablesLua.git",
-                    "reference": "1.6.0"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "jmnote/simplemathjax",
                 "type": "mediawiki-extension",
-                "version": "v0.8.5",
+                "version": "v0.8.10",
                 "dist": {
-                    "url": "https://github.com/jmnote/SimpleMathJax/archive/refs/tags/v0.8.5.zip",
+                    "url": "https://github.com/jmnote/SimpleMathJax/archive/refs/tags/v0.8.10.zip",
                     "type": "zip"
                 },
                 "source": {
                     "type": "git",
                     "url": "https://github.com/jmnote/SimpleMathJax.git",
-                    "reference": "v0.8.5"
+                    "reference": "v0.8.10"
                 }
             }
         },
