@@ -97,7 +97,6 @@ RUN /usr/bin/php83 /usr/bin/composer.phar config --no-plugins allow-plugins.comp
 
 # fix folder names
 RUN cd /var/www/html/extensions \
-    && mv Vipsscaler VipsScaler \
     && mv Wikiseo WikiSEO \
     && mv Cirrussearch CirrusSearch \
     && mv Templatesandbox TemplateSandbox \
