@@ -28,7 +28,6 @@
         "mediawiki/template-styles": "1.45",
         "mediawiki/templatesandbox": "1.45",
         "mediawiki/variables": "1.45",
-        "mediawiki/vipsscaler": "1.45",
         "mediawiki/webauthn": "1.45",
         "mediawiki/widgets": "1.45",
         "mediawiki/wikiseo": "1.45",
@@ -37,6 +36,7 @@
         "sphiria/darkmode": "dev-master",
         "starcitizenwiki/shortdescription": "dev-37c1069",
         "starcitizenwiki/tabber-neue": "dev-268010c",
+        "starcitizentools/thumbro": "1.1.1",
         "starcitizentools/citizen-skin": "dev-main",
         "universal-omega/dynamic-page-list4": "4.0.3"
     },
