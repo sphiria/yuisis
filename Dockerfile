@@ -59,7 +59,7 @@ RUN apk add --no-cache --virtual .build-deps \
         git \
     && git clone https://gerrit.wikimedia.org/r/mediawiki/php/wikidiff2 \
     && cd wikidiff2 \
-    && phpize \
+    && phpize83 \
     && ./configure --prefix=/usr --with-php-config=php-config83 \
     && make \
     && make install \
