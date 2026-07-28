@@ -1,6 +1,0 @@
-#!/bin/sh
-sleep 120
-while true; do
-        php83 /var/www/html/maintenance/run.php runJobs --maxjobs 10
-        sleep 10
-done
