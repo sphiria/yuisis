@@ -25,6 +25,7 @@ RUN apk add --no-cache \
         composer \
         curl \
         git \
+        patch \
         php84 \
         php84-curl \
         php84-iconv \
@@ -47,6 +48,10 @@ RUN curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSIO
     /var/cache/apk/* \
     /tmp/* \
     /var/tmp/*
+
+# Backport https://gerrit.wikimedia.org/r/c/mediawiki/core/+/1307629
+COPY patches/mediawiki-1307629.patch /tmp/mediawiki-1307629.patch
+RUN patch -p1 < /tmp/mediawiki-1307629.patch && rm /tmp/mediawiki-1307629.patch
 
 # composer
 COPY composer.json /var/www/html/composer.local.json
