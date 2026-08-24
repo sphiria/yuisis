@@ -38,7 +38,7 @@
         "starcitizentools/citizen-skin": "v3.18.0",
         "starcitizentools/thumbro": "v2.0.1",
         "starcitizenwiki/shortdescription": "dev-2742cf25c48df314feadfcbf38d1cfed9d792ca",
-        "starcitizenwiki/tabber-neue": "4.0.1",
+        "starcitizenwiki/tabber-neue": "4.0.2",
         "mediawiki/variables-lua": "1.7.0",
         "universal-omega/dynamic-page-list4": "4.0.6",
         "starcitizenwiki/embedvideo": "4.1.0"
@@ -637,14 +637,14 @@
             "package": {
                 "name": "starcitizenwiki/tabber-neue",
                 "type": "mediawiki-extension",
-                "version": "4.0.1",
+                "version": "4.0.2",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue.git",
-                    "reference": "b93e435524cd63a93a71a7d913e3978882081e7d"
+                    "reference": "d504ab8adaba3d9dc4691027779a5522ac00874e"
                 },
                 "dist": {
-                    "url": "https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue/archive/b93e435524cd63a93a71a7d913e3978882081e7d.zip",
+                    "url": "https://github.com/StarCitizenTools/mediawiki-extensions-TabberNeue/archive/d504ab8adaba3d9dc4691027779a5522ac00874e.zip",
                     "type": "zip"
                 }
             }
