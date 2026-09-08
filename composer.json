@@ -28,6 +28,7 @@
         "mediawiki/template-styles": "1.46",
         "mediawiki/templatesandbox": "1.46",
         "mediawiki/variables": "1.46",
+        "mediawiki/variables-lua": "1.7.0",
         "mediawiki/vipsscaler": "1.46",
         "mediawiki/webauthn": "1.46",
         "mediawiki/widgets": "1.46",
@@ -35,19 +36,20 @@
         "octfx/multipurge": "2.0.0",
         "octfx/template-styles-extender": "2.2.0",
         "sphiria/darkmode": "dev-6ae5fc597fc1dba1b965025e538ddb0eda23e2a1",
+        "sphiria/frauxsearch": "dev-7cdcbfa07acf9c741edb407920f155dc49c5afcc",
+        "sphiria/sphiria-tools": "dev-504de40211c36dc8b6e2a499f85225b19c15f878",
         "starcitizentools/citizen-skin": "v3.18.0",
         "starcitizentools/thumbro": "v2.0.1",
+        "starcitizenwiki/embedvideo": "4.1.0",
         "starcitizenwiki/shortdescription": "dev-2742cf25c48df314feadfcbf38d1cfed9d792ca",
         "starcitizenwiki/tabber-neue": "4.0.2",
-        "mediawiki/variables-lua": "1.7.0",
-        "universal-omega/dynamic-page-list4": "4.0.6",
-        "starcitizenwiki/embedvideo": "4.1.0"
+        "universal-omega/dynamic-page-list4": "4.0.6"
     },
     "extra": {
         "merge-plugin": {
             "include": [
-                "extensions/AbuseFilter/composer.json",
                 "extensions/AWS/composer.json",
+                "extensions/AbuseFilter/composer.json",
                 "extensions/CheckUser/composer.json",
                 "extensions/CirrusSearch/composer.json",
                 "extensions/Elastica/composer.json",
@@ -61,30 +63,6 @@
         }
     },
     "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "mediawiki/cirrussearch",
-                "type": "mediawiki-extension",
-                "version": "dev-REL1_46",
-                "require": {
-                    "wikimedia/lucene-explain-parser": "1.0.0 || 2.0.0",
-                    "wikimedia/textcat": "1.3.0 || 2.0.0"
-                },
-                "extra": {
-                    "installer-name": "CirrusSearch"
-                },
-                "dist": {
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-CirrusSearch/archive/da636ad24e737226b5e7cd370c7f5675db2083d7.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-CirrusSearch.git",
-                    "reference": "da636ad24e737226b5e7cd370c7f5675db2083d7"
-                }
-            }
-        },
         {
             "type": "package",
             "package": {
@@ -159,23 +137,6 @@
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-Oauth.git",
                     "reference": "9041afaf72cd67f8570b114f1d947b04328e7fba"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "mediawiki/elastica",
-                "type": "mediawiki-extension",
-                "version": "1.46",
-                "dist": {
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-Elastica/archive/b03db3803b4af48c092462c8872ffa38f6d0fe8a.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-Elastica.git",
-                    "reference": "b03db3803b4af48c092462c8872ffa38f6d0fe8a"
                 }
             }
         },
@@ -287,6 +248,31 @@
                     "type": "git",
                     "url": "https://github.com/sphiria/mediawiki-extensions-DarkMode.git",
                     "reference": "6ae5fc597fc1dba1b965025e538ddb0eda23e2a1"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "sphiria/sphiria-tools",
+                "type": "mediawiki-extension",
+                "version": "dev-504de40211c36dc8b6e2a499f85225b19c15f878",
+                "require": {
+                    "php": ">=8.3.0",
+                    "ext-redis": "*",
+                    "composer/installers": "^2.0"
+                },
+                "extra": {
+                    "installer-name": "SphiriaTools"
+                },
+                "dist": {
+                    "url": "https://github.com/sphiria/mediawiki-extensions-SphiriaTools/archive/504de40211c36dc8b6e2a499f85225b19c15f878.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/sphiria/mediawiki-extensions-SphiriaTools.git",
+                    "reference": "504de40211c36dc8b6e2a499f85225b19c15f878"
                 }
             }
         },
@@ -714,6 +700,81 @@
                     "type": "git",
                     "url": "https://github.com/Liquipedia/VariablesLua.git",
                     "reference": "51489716eea063a279296df6ff19c4ae5af7e46f"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/cirrussearch",
+                "type": "mediawiki-extension",
+                "version": "dev-REL1_46",
+                "require": {
+                    "wikimedia/lucene-explain-parser": "1.0.0 || 2.0.0",
+                    "wikimedia/textcat": "1.3.0 || 2.0.0"
+                },
+                "extra": {
+                    "installer-name": "CirrusSearch"
+                },
+                "dist": {
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-CirrusSearch/archive/da636ad24e737226b5e7cd370c7f5675db2083d7.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-CirrusSearch.git",
+                    "reference": "da636ad24e737226b5e7cd370c7f5675db2083d7"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mediawiki/elastica",
+                "type": "mediawiki-extension",
+                "version": "1.46",
+                "dist": {
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-Elastica/archive/b03db3803b4af48c092462c8872ffa38f6d0fe8a.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/wikimedia/mediawiki-extensions-Elastica.git",
+                    "reference": "b03db3803b4af48c092462c8872ffa38f6d0fe8a"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "sphiria/frauxsearch",
+                "description": "Meilisearch-powered search backend for MediaWiki",
+                "type": "mediawiki-extension",
+                "license": "MIT",
+                "require": {
+                    "php": ">=8.3",
+                    "ext-curl": "*",
+                    "ext-redis": "*",
+                    "composer/installers": "^2.0"
+                },
+                "autoload": {
+                    "psr-4": {
+                        "FrauxSearch\\": "src/"
+                    }
+                },
+                "extra": {
+                    "installer-name": "FrauxSearch"
+                },
+                "version": "dev-7cdcbfa07acf9c741edb407920f155dc49c5afcc",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/sphiria/frauxsearch.git",
+                    "reference": "7cdcbfa07acf9c741edb407920f155dc49c5afcc"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/sphiria/frauxsearch/zipball/7cdcbfa07acf9c741edb407920f155dc49c5afcc",
+                    "reference": "7cdcbfa07acf9c741edb407920f155dc49c5afcc"
                 }
             }
         }

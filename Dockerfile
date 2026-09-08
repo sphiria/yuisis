@@ -13,6 +13,27 @@ RUN apk add --no-cache \
     && make \
     && make install
 
+FROM alpine:3.24 AS jobchron-builder
+
+ARG JOBRUNNER_REVISION=09f30782077b6101871fa95715f7181391d20486
+ARG JOBRUNNER_SHA256=2c48853a607e51b14381e78e8d8107d1b47d706b57024ec53500ba9cc28b595a
+
+RUN apk add --no-cache curl && \
+    curl --fail --location --retry 3 \
+      "https://codeload.github.com/wikimedia/mediawiki-services-jobrunner/tar.gz/${JOBRUNNER_REVISION}" \
+      -o /tmp/jobrunner.tar.gz && \
+    echo "${JOBRUNNER_SHA256}  /tmp/jobrunner.tar.gz" | sha256sum -c - && \
+    mkdir -p /opt/jobchron/upstream && \
+    tar -xzf /tmp/jobrunner.tar.gz -C /opt/jobchron/upstream --strip-components=1 \
+      "mediawiki-services-jobrunner-${JOBRUNNER_REVISION}/COPYING" \
+      "mediawiki-services-jobrunner-${JOBRUNNER_REVISION}/src/RedisJobChronService.php" \
+      "mediawiki-services-jobrunner-${JOBRUNNER_REVISION}/src/RedisJobService.php" \
+      "mediawiki-services-jobrunner-${JOBRUNNER_REVISION}/src/RedisExceptionHA.php" \
+      "mediawiki-services-jobrunner-${JOBRUNNER_REVISION}/src/PeriodicScriptParamsIterator.php" && \
+    rm /tmp/jobrunner.tar.gz
+
+COPY config/jobchron.php /opt/jobchron/run.php
+
 FROM alpine:3.24 AS mediawiki-builder
 
 ARG MEDIAWIKI_MAJOR_VERSION=1.46
@@ -52,12 +73,15 @@ RUN curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSIO
 # Backport https://gerrit.wikimedia.org/r/c/mediawiki/core/+/1307629
 COPY patches/mediawiki-1307629.patch /tmp/mediawiki-1307629.patch
 RUN patch -p1 < /tmp/mediawiki-1307629.patch && rm /tmp/mediawiki-1307629.patch
+COPY patches/mediawiki-security-composer.patch /tmp/mediawiki-security-composer.patch
+RUN patch -p1 < /tmp/mediawiki-security-composer.patch && rm /tmp/mediawiki-security-composer.patch
 
 # composer
 COPY composer.json /var/www/html/composer.local.json
 COPY composer.lock /var/www/html/composer.lock
 RUN /usr/bin/php84 /usr/bin/composer.phar config --no-plugins allow-plugins.composer/installers true && \
     /usr/bin/php84 /usr/bin/composer.phar install --no-dev \
+        --prefer-dist \
         --ignore-platform-reqs \
         --no-ansi \
         --no-interaction \
@@ -110,6 +134,7 @@ RUN apk add --no-cache \
 
 COPY --from=mediawiki-builder --chown=nobody:nobody /var/www/html /var/www/html
 COPY --from=wikidiff2-builder /usr/lib/php84/modules/wikidiff2.so /usr/lib/php84/modules/wikidiff2.so
+COPY --from=jobchron-builder /opt/jobchron /opt/jobchron
 
 RUN chown -R nobody:nobody /run /var/lib/nginx /var/log
 USER nobody
