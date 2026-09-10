@@ -36,7 +36,7 @@
         "octfx/multipurge": "2.0.0",
         "octfx/template-styles-extender": "2.2.0",
         "sphiria/darkmode": "dev-6ae5fc597fc1dba1b965025e538ddb0eda23e2a1",
-        "sphiria/frauxsearch": "dev-055ac3f9eeabdc4c6d367a9025caad7f9bd60872",
+        "sphiria/frauxsearch": "dev-74f24ddea6024fee0536fd7d06e262f97c25de1b",
         "sphiria/sphiria-tools": "dev-504de40211c36dc8b6e2a499f85225b19c15f878",
         "starcitizentools/citizen-skin": "v3.18.0",
         "starcitizentools/thumbro": "v2.0.1",
@@ -765,16 +765,16 @@
                 "extra": {
                     "installer-name": "FrauxSearch"
                 },
-                "version": "dev-055ac3f9eeabdc4c6d367a9025caad7f9bd60872",
+                "version": "dev-74f24ddea6024fee0536fd7d06e262f97c25de1b",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/sphiria/frauxsearch.git",
-                    "reference": "055ac3f9eeabdc4c6d367a9025caad7f9bd60872"
+                    "reference": "74f24ddea6024fee0536fd7d06e262f97c25de1b"
                 },
                 "dist": {
                     "type": "zip",
-                    "url": "https://api.github.com/repos/sphiria/frauxsearch/zipball/055ac3f9eeabdc4c6d367a9025caad7f9bd60872",
-                    "reference": "055ac3f9eeabdc4c6d367a9025caad7f9bd60872"
+                    "url": "https://api.github.com/repos/sphiria/frauxsearch/zipball/74f24ddea6024fee0536fd7d06e262f97c25de1b",
+                    "reference": "74f24ddea6024fee0536fd7d06e262f97c25de1b"
                 }
             }
         }
