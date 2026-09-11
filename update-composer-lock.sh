@@ -24,7 +24,15 @@ trap cleanup EXIT
 docker build --target mediawiki-source --iidfile "$temp_dir/image-id" "$repo_dir"
 container_id=$(docker create --env COMPOSER_ALLOW_SUPERUSER=1 \
     "$(cat "$temp_dir/image-id")" \
-    sh -c '/usr/bin/php84 /usr/bin/composer.phar config --no-plugins allow-plugins.composer/installers true && exec /usr/bin/php84 /usr/bin/composer.phar update --prefer-dist --ignore-platform-reqs --no-interaction --no-scripts "$@"' -- "$@")
+    sh -ec '
+        composer() { /usr/bin/php84 /usr/bin/composer.phar "$@"; }
+        composer config --no-plugins allow-plugins.composer/installers true
+        cp composer.lock /tmp/composer.original.lock
+        composer update --no-dev --prefer-dist --ignore-platform-reqs --no-interaction --no-scripts "$@"
+        cp /tmp/composer.original.lock composer.lock
+        composer update --no-dev --prefer-dist --ignore-platform-reqs --no-interaction --no-scripts "$@"
+        composer install --dry-run --no-dev --ignore-platform-reqs --no-interaction --no-scripts
+    ' -- "$@")
 docker cp "$repo_dir/composer.json" "$container_id:/var/www/html/composer.local.json"
 docker cp "$repo_dir/composer.lock" "$container_id:/var/www/html/composer.lock"
 docker start --attach "$container_id"
