@@ -29,7 +29,6 @@
         "mediawiki/templatesandbox": "1.46",
         "mediawiki/variables": "1.46",
         "mediawiki/variables-lua": "1.7.0",
-        "mediawiki/vipsscaler": "1.46",
         "mediawiki/webauthn": "1.46",
         "mediawiki/widgets": "1.46",
         "mediawiki/wikiseo": "1.46",
@@ -541,26 +540,6 @@
                     "type": "git",
                     "url": "https://github.com/wikimedia/mediawiki-extensions-Labeledsectiontransclusion.git",
                     "reference": "5aa0b4c29615c948bf9264c71a56999bc83eaa56"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "mediawiki/vipsscaler",
-                "type": "mediawiki-extension",
-                "version": "1.46",
-                "extra": {
-                    "installer-name": "VipsScaler"
-                },
-                "dist": {
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-Vipsscaler/archive/a46bd01632d3b9f706f7f01232a708c44df9d47c.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/wikimedia/mediawiki-extensions-Vipsscaler.git",
-                    "reference": "a46bd01632d3b9f706f7f01232a708c44df9d47c"
                 }
             }
         },

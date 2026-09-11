@@ -34,7 +34,7 @@ RUN apk add --no-cache curl && \
 
 COPY config/jobchron.php /opt/jobchron/run.php
 
-FROM alpine:3.24 AS mediawiki-builder
+FROM alpine:3.24 AS mediawiki-source
 
 ARG MEDIAWIKI_MAJOR_VERSION=1.46
 ARG MEDIAWIKI_VERSION=1.46.0
@@ -75,6 +75,8 @@ COPY patches/mediawiki-1307629.patch /tmp/mediawiki-1307629.patch
 RUN patch -p1 < /tmp/mediawiki-1307629.patch && rm /tmp/mediawiki-1307629.patch
 COPY patches/mediawiki-security-composer.patch /tmp/mediawiki-security-composer.patch
 RUN patch -p1 < /tmp/mediawiki-security-composer.patch && rm /tmp/mediawiki-security-composer.patch
+
+FROM mediawiki-source AS mediawiki-builder
 
 # composer
 COPY composer.json /var/www/html/composer.local.json
