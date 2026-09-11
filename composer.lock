@@ -4388,16 +4388,16 @@
         },
         {
             "name": "sphiria/frauxsearch",
-            "version": "dev-74f24ddea6024fee0536fd7d06e262f97c25de1b",
+            "version": "dev-16a2a8e7fc66c896850219458e232de6e69792de",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sphiria/frauxsearch.git",
-                "reference": "74f24ddea6024fee0536fd7d06e262f97c25de1b"
+                "reference": "16a2a8e7fc66c896850219458e232de6e69792de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sphiria/frauxsearch/zipball/74f24ddea6024fee0536fd7d06e262f97c25de1b",
-                "reference": "74f24ddea6024fee0536fd7d06e262f97c25de1b"
+                "url": "https://api.github.com/repos/sphiria/frauxsearch/zipball/16a2a8e7fc66c896850219458e232de6e69792de",
+                "reference": "16a2a8e7fc66c896850219458e232de6e69792de"
             },
             "require": {
                 "composer/installers": "^2.0",
