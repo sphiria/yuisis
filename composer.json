@@ -33,7 +33,7 @@
         "mediawiki/widgets": "1.46",
         "mediawiki/wikiseo": "1.46",
         "octfx/multipurge": "2.0.0",
-        "octfx/template-styles-extender": "2.2.0",
+        "octfx/template-styles-extender": "v3.0.0",
         "sphiria/darkmode": "dev-6ae5fc597fc1dba1b965025e538ddb0eda23e2a1",
         "sphiria/frauxsearch": "dev-16a2a8e7fc66c896850219458e232de6e69792de",
         "sphiria/sphiria-tools": "dev-504de40211c36dc8b6e2a499f85225b19c15f878",

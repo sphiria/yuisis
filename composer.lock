@@ -2826,29 +2826,27 @@
         },
         {
             "name": "octfx/template-styles-extender",
-            "version": "2.2.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/octfx/mediawiki-extensions-TemplateStylesExtender.git",
-                "reference": "28d54a808fd921bbdab203831ddfc5dffc9a9163"
+                "reference": "3fe48353290c0d64fa5f172970dc0844a0c2be9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/octfx/mediawiki-extensions-TemplateStylesExtender/zipball/28d54a808fd921bbdab203831ddfc5dffc9a9163",
-                "reference": "28d54a808fd921bbdab203831ddfc5dffc9a9163",
+                "url": "https://api.github.com/repos/octfx/mediawiki-extensions-TemplateStylesExtender/zipball/3fe48353290c0d64fa5f172970dc0844a0c2be9e",
+                "reference": "3fe48353290c0d64fa5f172970dc0844a0c2be9e",
                 "shasum": ""
             },
             "require": {
-                "composer/installers": ">=1.0.1",
-                "ext-json": "*",
-                "php": ">=8.0"
+                "composer/installers": ">=1.0.1"
             },
             "require-dev": {
-                "mediawiki/mediawiki-codesniffer": "35.0.0",
-                "mediawiki/mediawiki-phan-config": "0.10.6",
-                "mediawiki/minus-x": "1.1.1",
-                "php-parallel-lint/php-console-highlighter": "0.5.0",
-                "php-parallel-lint/php-parallel-lint": "1.2.0"
+                "mediawiki/mediawiki-codesniffer": "52.0.1",
+                "mediawiki/mediawiki-phan-config": "0.20.0",
+                "mediawiki/minus-x": "2.0.1",
+                "php-parallel-lint/php-console-highlighter": "1.0.0",
+                "php-parallel-lint/php-parallel-lint": "1.4.0"
             },
             "type": "mediawiki-extension",
             "extra": {
@@ -2856,22 +2854,34 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
                     "name": "Hannes Kruse",
                     "homepage": "https://octofox.de/",
                     "role": "Developer"
+                },
+                {
+                    "name": "alistair3149",
+                    "role": "Developer"
                 }
             ],
             "description": "Extends TemplateStyles with new CSS properties",
-            "homepage": "http://www.mediawiki.org/wiki/Extension:TemplateStylesExtender",
+            "homepage": "https://www.mediawiki.org/wiki/Extension:TemplateStylesExtender",
+            "keywords": [
+                "TemplateStyles",
+                "TemplateStylesExtender",
+                "extension",
+                "mediawiki"
+            ],
             "support": {
+                "forum": "https://www.mediawiki.org/wiki/Extension_talk:TemplateStylesExtender",
                 "issues": "https://github.com/octfx/mediawiki-extensions-TemplateStylesExtender/issues",
-                "source": "https://github.com/octfx/mediawiki-extensions-TemplateStylesExtender/tree/v2.2.0"
+                "source": "https://github.com/octfx/mediawiki-extensions-TemplateStylesExtender",
+                "wiki": "https://www.mediawiki.org/wiki/Extension:TemplateStylesExtender"
             },
-            "time": "2026-04-16T14:47:15+00:00"
+            "time": "2026-08-24T21:50:13+00:00"
         },
         {
             "name": "okvpn/clock-lts",
