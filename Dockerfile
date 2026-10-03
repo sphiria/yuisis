@@ -70,6 +70,8 @@ RUN curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSIO
     /tmp/* \
     /var/tmp/*
 
+COPY patches/mediawiki-1347861-fix.patch /tmp/mediawiki-1347861-fix.patch
+RUN patch -p1 < /tmp/mediawiki-1347861-fix.patch && rm /tmp/mediawiki-1347861-fix.patch
 COPY patches/mediawiki-security-composer.patch /tmp/mediawiki-security-composer.patch
 RUN patch -p1 < /tmp/mediawiki-security-composer.patch && rm /tmp/mediawiki-security-composer.patch
 

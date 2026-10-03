@@ -1,0 +1,26 @@
+--- a/includes/EditPage/EditPage.php
++++ b/includes/EditPage/EditPage.php
+@@ -2291,6 +2291,7 @@
+ 		$postMergeChecksRunner = $this->getPostMergeChecksRunner(
+ 			$preparedUpdate->getRawContent( SlotRecord::MAIN ),
+ 			$submitButtonLabel,
++			$authority
+ 		);
+ 		$status = $postMergeChecksRunner->checkConstraints();
+ 		if ( !$status->isOK() ) {
+@@ -2514,12 +2515,13 @@
+ 	private function getPostMergeChecksRunner(
+ 		Content $postPstContent,
+ 		string $submitButtonLabel,
++		Authority $authority
+ 	): EditConstraintRunner {
+ 		$constraintRunner = new EditConstraintRunner(
+ 			new ImageRedirectConstraint(
+ 				$postPstContent,
+-				$this->inputs->getPage(),
+-				$this->inputs->getAuthority()
++				$this->getTitle(),
++				$authority
+ 			),
+ 		);
+ 		if ( !$this->ignoreProblematicRedirects ) {
