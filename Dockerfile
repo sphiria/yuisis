@@ -37,8 +37,8 @@ COPY config/jobchron.php /opt/jobchron/run.php
 FROM alpine:3.24 AS mediawiki-source
 
 ARG MEDIAWIKI_MAJOR_VERSION=1.46
-ARG MEDIAWIKI_VERSION=1.46.0
-ARG MEDIAWIKI_SHA256=ac395e4ffd3b63b86a242efd679257503e463445ba9f989b514d9d3b342c456a
+ARG MEDIAWIKI_VERSION=1.46.1
+ARG MEDIAWIKI_SHA256=fd074500e7f52136b0f2589f7b4c653bf5cd0d80be845b504f977d1f0d7e7b29
 ENV COMPOSER_ROOT_VERSION=${MEDIAWIKI_VERSION}
 WORKDIR /var/www/html
 
@@ -70,9 +70,6 @@ RUN curl -fSL "https://releases.wikimedia.org/mediawiki/${MEDIAWIKI_MAJOR_VERSIO
     /tmp/* \
     /var/tmp/*
 
-# Backport https://gerrit.wikimedia.org/r/c/mediawiki/core/+/1307629
-COPY patches/mediawiki-1307629.patch /tmp/mediawiki-1307629.patch
-RUN patch -p1 < /tmp/mediawiki-1307629.patch && rm /tmp/mediawiki-1307629.patch
 COPY patches/mediawiki-security-composer.patch /tmp/mediawiki-security-composer.patch
 RUN patch -p1 < /tmp/mediawiki-security-composer.patch && rm /tmp/mediawiki-security-composer.patch
 
@@ -92,10 +89,10 @@ RUN /usr/bin/php84 /usr/bin/composer.phar config --no-plugins allow-plugins.comp
 FROM alpine:3.24
 
 ENV MEDIAWIKI_MAJOR_VERSION=1.46
-ENV MEDIAWIKI_VERSION=1.46.0
+ENV MEDIAWIKI_VERSION=1.46.1
 ENV COMPOSER_ROOT_VERSION=${MEDIAWIKI_VERSION}
 LABEL Maintainer="lis <hello@lis.sh>"
-LABEL Description="Lightweight Mediawiki 1.46.0 container with Nginx 1.30.4 & PHP 8.4 based on Alpine Linux 3.24"
+LABEL Description="Lightweight Mediawiki 1.46.1 container with Nginx 1.30.4 & PHP 8.4 based on Alpine Linux 3.24"
 WORKDIR /var/www/html
 
 RUN apk add --no-cache \
