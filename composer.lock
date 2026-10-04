@@ -4364,15 +4364,15 @@
         },
         {
             "name": "sphiria/darkmode",
-            "version": "dev-cb2f6e76b6f53a3d94afee680d232224ed8fdacc",
+            "version": "dev-cdb21f84b215743aefeacc7323402b0e0f858206",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sphiria/mediawiki-extensions-DarkMode.git",
-                "reference": "cb2f6e76b6f53a3d94afee680d232224ed8fdacc"
+                "reference": "cdb21f84b215743aefeacc7323402b0e0f858206"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sphiria/mediawiki-extensions-DarkMode/archive/cb2f6e76b6f53a3d94afee680d232224ed8fdacc.zip"
+                "url": "https://github.com/sphiria/mediawiki-extensions-DarkMode/archive/cdb21f84b215743aefeacc7323402b0e0f858206.zip"
             },
             "type": "mediawiki-extension",
             "extra": {

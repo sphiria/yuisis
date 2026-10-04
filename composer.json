@@ -34,7 +34,7 @@
         "mediawiki/wikiseo": "1.46",
         "octfx/multipurge": "2.0.0",
         "octfx/template-styles-extender": "v3.0.0",
-        "sphiria/darkmode": "dev-cb2f6e76b6f53a3d94afee680d232224ed8fdacc",
+        "sphiria/darkmode": "dev-cdb21f84b215743aefeacc7323402b0e0f858206",
         "sphiria/frauxsearch": "dev-16a2a8e7fc66c896850219458e232de6e69792de",
         "sphiria/sphiria-tools": "dev-504de40211c36dc8b6e2a499f85225b19c15f878",
         "starcitizentools/citizen-skin": "v3.18.0",
@@ -235,18 +235,18 @@
             "package": {
                 "name": "sphiria/darkmode",
                 "type": "mediawiki-extension",
-                "version": "dev-cb2f6e76b6f53a3d94afee680d232224ed8fdacc",
+                "version": "dev-cdb21f84b215743aefeacc7323402b0e0f858206",
                 "extra": {
                     "installer-name": "DarkMode"
                 },
                 "dist": {
-                    "url": "https://github.com/sphiria/mediawiki-extensions-DarkMode/archive/cb2f6e76b6f53a3d94afee680d232224ed8fdacc.zip",
+                    "url": "https://github.com/sphiria/mediawiki-extensions-DarkMode/archive/cdb21f84b215743aefeacc7323402b0e0f858206.zip",
                     "type": "zip"
                 },
                 "source": {
                     "type": "git",
                     "url": "https://github.com/sphiria/mediawiki-extensions-DarkMode.git",
-                    "reference": "cb2f6e76b6f53a3d94afee680d232224ed8fdacc"
+                    "reference": "cdb21f84b215743aefeacc7323402b0e0f858206"
                 }
             }
         },
