@@ -88,6 +88,9 @@ RUN /usr/bin/php84 /usr/bin/composer.phar config --no-plugins allow-plugins.comp
         --no-interaction \
         --no-scripts
 
+COPY patches/multipurge-page-title.patch /tmp/multipurge-page-title.patch
+RUN patch -p1 < /tmp/multipurge-page-title.patch && rm /tmp/multipurge-page-title.patch
+
 FROM alpine:3.24
 
 ENV MEDIAWIKI_MAJOR_VERSION=1.46
