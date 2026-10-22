@@ -23,13 +23,23 @@ if ($address === false) {
     exit(1);
 }
 $server = Wikimedia\IPUtils::combineHostAndPort($address[0], $address[1] ?: 6379);
+$password = getenv('REDIS_PASSWORD');
+$username = trim((string)getenv('REDIS_USERNAME'));
+$credentials = null;
+if (is_string($password) && $password !== '') {
+    $credentials = $username === '' ? $password : [$username, $password];
+}
 
 class ScheduledRedisJobChronService extends RedisJobChronService {
     private bool $hadErrors = false;
 
-    public function __construct(string $server) {
+    public function __construct(string $server, string|array|null $credentials) {
+        $redis = ['queues' => [$server], 'aggregators' => [$server]];
+        if ($credentials !== null) {
+            $redis['password'] = $credentials;
+        }
         parent::__construct([
-            'redis' => ['queues' => [$server], 'aggregators' => [$server]],
+            'redis' => $redis,
             'groups' => [],
             'limits' => ['claimTTL' => ['*' => 3600], 'attempts' => ['*' => 3]],
             'dispatcher' => 'unused',
@@ -47,7 +57,7 @@ class ScheduledRedisJobChronService extends RedisJobChronService {
     }
 }
 
-$service = new ScheduledRedisJobChronService($server);
+$service = new ScheduledRedisJobChronService($server, $credentials);
 pcntl_signal(SIGALRM, static function () use ($service) {
     $service->finish();
 });
