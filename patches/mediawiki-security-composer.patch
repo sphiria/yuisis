@@ -1,0 +1,14 @@
+--- a/composer.json
++++ b/composer.json
+@@ -54 +54 @@
+-		"symfony/yaml": "7.4.12",
++		"symfony/yaml": "7.4.21",
+@@ -96,7 +96,7 @@
+ 		"ext-simplexml": "*",
+ 		"giorgiosironi/eris": "^0.14.0",
+ 		"hamcrest/hamcrest-php": "^2.0",
+-		"mediawiki/mediawiki-codesniffer": "50.0.0",
++		"mediawiki/mediawiki-codesniffer": "51.0.2",
+ 		"mediawiki/mediawiki-phan-config": "0.20.0",
+ 		"mediawiki/minus-x": "2.0.1",
+ 		"nikic/php-parser": "^5.5.0",

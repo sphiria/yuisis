@@ -1,0 +1,5 @@
+.git
+.github
+*.crt
+*.sql
+kubernetes/minikube.yaml

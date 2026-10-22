@@ -1,0 +1,12 @@
+diff --git a/extensions/MultiPurge/includes/Specials/SpecialPurgeResources.php b/extensions/MultiPurge/includes/Specials/SpecialPurgeResources.php
+--- a/extensions/MultiPurge/includes/Specials/SpecialPurgeResources.php
++++ b/extensions/MultiPurge/includes/Specials/SpecialPurgeResources.php
+@@ -33,7 +33,7 @@ class SpecialPurgeResources extends SpecialPage {
+ 		$this->checkPermissions();
+ 		$out = $this->getOutput();
+ 
+-		$out->setPageTitle( $this->msg( 'multipurge-form-title' ) );
++		$out->setPageTitleMsg( $this->msg( 'multipurge-form-title' ) );
+ 
+ 		$formDescriptor = [
+ 			'target' => [
