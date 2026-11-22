@@ -6,7 +6,7 @@ function check(bool $condition, string $message): void {
     }
 }
 
-check(PHP_VERSION_ID >= 80427 && PHP_VERSION_ID < 80500, 'PHP 8.4.27 or newer in the 8.4 branch is required');
+check(PHP_VERSION_ID >= 80428 && PHP_VERSION_ID < 80500, 'PHP 8.4.28 or newer in the 8.4 branch is required');
 foreach ([
     'calendar', 'ctype', 'curl', 'dom', 'exif', 'fileinfo', 'filter', 'gd',
     'iconv', 'igbinary', 'intl', 'json', 'luasandbox', 'mbstring', 'msgpack',

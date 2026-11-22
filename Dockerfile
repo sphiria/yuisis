@@ -1,7 +1,7 @@
 FROM alpine:3.24 AS php-builder
 
-ARG PHP_VERSION=8.4.27
-ARG PHP_SHA256=dcf93923b0e38e0d5252b25b796520b5a47761a08b3488b6d0b5d1115764d3f0
+ARG PHP_VERSION=8.4.28
+ARG PHP_SHA256=0c8ec360e5dd8154f270b2fd50cd44ecc824e6ee39c85f911312b80d4daecd72
 ARG PHP_BUILD_JOBS=2
 
 RUN apk add --no-cache \
@@ -17,7 +17,7 @@ COPY --from=php-builder /opt/php-runtime/ /
 COPY --from=php-builder /opt/php-runtime-deps /tmp/php-runtime-deps
 RUN xargs apk add --no-cache ca-certificates icu-data-full < /tmp/php-runtime-deps && \
     rm /tmp/php-runtime-deps && \
-    php84 -r 'exit(PHP_VERSION_ID >= 80427 && PHP_VERSION_ID < 80500 ? 0 : 1);'
+    php84 -r 'exit(PHP_VERSION_ID >= 80428 && PHP_VERSION_ID < 80500 ? 0 : 1);'
 
 FROM php-builder AS wikidiff2-builder
 
@@ -73,8 +73,8 @@ FROM php-runtime AS mediawiki-source
 ARG COMPOSER_VERSION=2.10.3
 ARG COMPOSER_SHA256=7a2d379d5b8ffdaa028580ef26494c36d2feef4b178d3dd1473a4dbc5e17c8d6
 ARG MEDIAWIKI_MAJOR_VERSION=1.46
-ARG MEDIAWIKI_VERSION=1.46.2
-ARG MEDIAWIKI_SHA256=8f7f937f8bbc1acd4cef1c5362a95f248dcd242020f2588798eb2f73ac2e69ba
+ARG MEDIAWIKI_VERSION=1.46.3
+ARG MEDIAWIKI_SHA256=c74987cc2da7c88c3644c106a264cc558c3026f2f9ad632a3465925afb3a1395
 ENV COMPOSER_ROOT_VERSION=${MEDIAWIKI_VERSION}
 WORKDIR /var/www/html
 
@@ -121,10 +121,10 @@ RUN patch -p1 < /tmp/multipurge-page-title.patch && rm /tmp/multipurge-page-titl
 FROM php-runtime AS runtime
 
 ENV MEDIAWIKI_MAJOR_VERSION=1.46
-ENV MEDIAWIKI_VERSION=1.46.2
+ENV MEDIAWIKI_VERSION=1.46.3
 ENV COMPOSER_ROOT_VERSION=${MEDIAWIKI_VERSION}
 LABEL Maintainer="lis <hello@lis.sh>"
-LABEL Description="Lightweight Mediawiki 1.46.2 container with Nginx 1.30.4 & PHP 8.4 based on Alpine Linux 3.24"
+LABEL Description="Lightweight Mediawiki 1.46.3 container with Nginx 1.30.4 & PHP 8.4 based on Alpine Linux 3.24"
 WORKDIR /var/www/html
 
 RUN apk add --no-cache \
