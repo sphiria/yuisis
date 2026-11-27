@@ -118,6 +118,9 @@ RUN /usr/bin/php84 /usr/bin/composer.phar config --no-plugins allow-plugins.comp
 COPY patches/multipurge-page-title.patch /tmp/multipurge-page-title.patch
 RUN patch -p1 < /tmp/multipurge-page-title.patch && rm /tmp/multipurge-page-title.patch
 
+COPY patches/multipurge-cloudflare-prefix.patch /tmp/multipurge-cloudflare-prefix.patch
+RUN patch -p1 < /tmp/multipurge-cloudflare-prefix.patch && rm /tmp/multipurge-cloudflare-prefix.patch
+
 FROM php-runtime AS runtime
 
 ENV MEDIAWIKI_MAJOR_VERSION=1.46

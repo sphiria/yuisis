@@ -1,0 +1,90 @@
+--- a/extensions/MultiPurge/includes/Services/Cloudflare.php
++++ b/extensions/MultiPurge/includes/Services/Cloudflare.php
+@@ -26,7 +26,9 @@
+ 
+ 	/**
+ 	 * Returns as array of purge requests
+-	 * Chunks the request of count($urls) > 30
++	 * Use path prefixes to purge all cached variants of a page or asset.
++	 * Keep query-based URLs, PHP scripts, and the site root on single-file purges to avoid
++	 * invalidating every resource behind a shared script or the entire host.
+ 	 *
+ 	 * @param string|array $urls
+ 	 * @return array
+@@ -49,13 +51,43 @@
+ 			return $url;
+ 		}, $urls );
+ 
++		$prefixes = [];
++		$files = [];
++		foreach ( $urls as $url ) {
++			$parts = parse_url( $url );
++			$path = $parts['path'] ?? '/';
++			if (
++				$parts === false ||
++				!isset( $parts['host'] ) ||
++				!in_array( $parts['scheme'] ?? '', [ 'http', 'https' ], true ) ||
++				isset( $parts['query'] ) ||
++				preg_match( '/\.php$/i', $path ) ||
++				$path === '' || $path === '/' ||
++				substr_count( $path, '/' ) > 31
++			) {
++				$files[] = $url;
++				continue;
++			}
++
++			// Prefix purges take hostname/path, without a scheme or fragment.
++			$prefixes[] = $parts['host'] .
++				( isset( $parts['port'] ) ? ':' . $parts['port'] : '' ) . $path;
++		}
++
+ 		$requests = [];
++		foreach ( array_chunk( array_values( array_unique( $prefixes ) ), 100 ) as $chunk ) {
++			try {
++				$requests[] = $this->makeRequest( $chunk, 'prefixes' );
++			} catch ( JsonException $e ) {
++				continue;
++			}
++		}
+ 
+ 		$chunkSize = $this->extensionConfig->get( 'MultiPurgeCloudFlareCacheByDeviceType' ) ? 15 : 30;
+ 
+-		foreach ( array_chunk( $urls, $chunkSize ) as $chunk ) {
++		foreach ( array_chunk( array_values( array_unique( $files ) ), $chunkSize ) as $chunk ) {
+ 			try {
+-				$requests[] = $this->makeRequest( $chunk );
++				$requests[] = $this->makeRequest( $chunk, 'files' );
+ 			} catch ( JsonException $e ) {
+ 				// Shouldn't really happen
+ 				continue;
+@@ -69,24 +101,26 @@
+ 	 * Create the actual request for the given urls
+ 	 *
+ 	 * @param array $urls
++	 * @param string $purgeType Either 'prefixes' or 'files'
+ 	 * @return array
+ 	 * @throws JsonException
+ 	 */
+-	private function makeRequest( array $urls ): array {
++	private function makeRequest( array $urls, string $purgeType ): array {
+ 		$zoneId = $this->extensionConfig->get( 'MultiPurgeCloudFlareZoneId' );
+ 		$apiToken = $this->extensionConfig->get( 'MultiPurgeCloudFlareApiToken' );
+ 		wfDebugLog(
+ 			'MultiPurge',
+ 			sprintf(
+-				'Added %d files to Cloudflare request: %s',
++				'Added %d %s to Cloudflare request: %s',
+ 				count( $urls ),
++				$purgeType,
+ 				json_encode( $urls, JSON_THROW_ON_ERROR )
+ 			)
+ 		);
+ 
+-		$postData = [ 'files' => $urls ];
++		$postData = [ $purgeType => $urls ];
+ 
+-		if ( $this->extensionConfig->get( 'MultiPurgeCloudFlareCacheByDeviceType' ) ) {
++		if ( $purgeType === 'files' && $this->extensionConfig->get( 'MultiPurgeCloudFlareCacheByDeviceType' ) ) {
+ 			foreach ( $urls as $url ) {
+ 				$postData['files'][] = [
+ 					'url' => $url,
